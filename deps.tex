@@ -1,0 +1,87 @@
+
+\section{Dependency relations}
+\label{sec:dependency-relations}
+
+Dependencies represent dependency relations among terms. Each dependency is
+represented by an empty \texttt{<dep>} element and span previous terms.\\
+
+The \texttt{<dep>} element has the following attributes:
+\begin{itemize}
+\item \texttt{from} (\textbf{required}): term id of the source element
+\item \texttt{to} (\textbf{required}): term id of the target element
+\item \texttt{rfunc} (\textbf{required}): relational function. Among others,
+  it can be one of:
+  \begin{itemize}
+  \item \texttt{mod}: indicates the word introducing the dependent in a
+    head- modifier relation.  For instance:
+
+    \begin{tabular}{ll}
+      \texttt{mod(by,gift,Peter)} & the gift of a book by Peter\\
+      \texttt{mod(of,examination,patient)} & the examination of the patient
+    \end{tabular}
+
+  \item \texttt{subj}: indicates the subject in the grammatical relation
+    Subject-Predicate. For instance:
+
+    \begin{tabular}{ll}
+      \texttt{subj(arrive,John,\_)} & John arrived in Paris\\
+      \texttt{subj(employ,Microsoft,\_)} &  Microsoft employed 10 C programmers\\
+      \texttt{subj(employ,Paul,obj)} & Paul was employed by Microsoft
+    \end{tabular}
+
+  \item \texttt{csubj, xsubj, ncsubj}: The Grammatical Relations (RL) s
+    csubj and xsubj may be used for clausal subjects, controlled from
+    within, or without, respectively. ncsubj is a non-clausal subject. For
+    instance:
+
+    \begin{tabular}{ll}
+      \texttt{xsubj(win,require,\_)} &  to win the America's Cup requires heaps of cash
+    \end{tabular}
+
+  \item \texttt{dobj}: Indicates the object in the grammatical relation
+    between a predicate and its direct object. For instance:
+
+    \begin{tabular}{ll}
+      \texttt{dobj(read,book,\_)} & read books\\
+    \end{tabular}
+
+  \item \texttt{iobj}: The relation between a predicate and a non-clausal
+    complement introduced by a preposition; type indicates the preposition
+    introducing the dependent. For instance:
+
+    \begin{tabular}{ll}
+      \texttt{iobj(in,arrive,Spain)} &  arrive in Spain\\
+      \texttt{iobj(into,put,box)} &  put the tools into the box\\
+      \texttt{iobj(to,give,poor)} &  give to the poor
+    \end{tabular}
+
+  \item \texttt{obj2}: The relation between a predicate and the second
+    non-clausal complement in ditransitive constructions. For instance:
+
+    \begin{tabular}{ll}
+      \texttt{obj2(head,dependent)} & \\
+      \texttt{obj2(give,present)} &  give Mary a present\\
+      \texttt{obj2(mail,contract)} & mail Paul the contract
+    \end{tabular}
+  \end{itemize}
+
+\item \texttt{case} (optional): declension case
+\end{itemize}
+
+Example of dependency relation annotations:
+\begin{verbatim}[fontsize=\small]
+  <deps>
+  <!-- subj(teach, John) -->
+  <dep from="t1" to="t2" rfunc="subj" />
+  <!-- dobj(teach, Mathematics) -->
+  <dep from="t3" to="t2" rfunc="dobj" />
+  <!-- iobj(teach, New_York) -->
+  <dep from="t8" to="t2" rfunc="iobj" />
+  </deps>
+\end{verbatim}
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "naf"
+%%% End: 

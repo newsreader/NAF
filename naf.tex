@@ -1,0 +1,188 @@
+\documentclass{template/newsreader}
+\usepackage[utf8]{inputenc} % utf8 encoding
+\usepackage{template/named}
+\usepackage{fancyhdr}
+\usepackage{fancyvrb}
+\usepackage{multirow}
+\setlength{\headheight}{15.2pt}
+
+% TODOS
+%
+% @@ check optionality in all attributes
+
+
+%%%%%%% Don't touch the following lines
+%%%%%%% Taken from MEANING style
+\newcommand {\deltitle}{\centering \LARGE {\textbf{\Title}}}
+\DocTitle{\ShortTitle}
+\DocNumber{{\WorkpackageNum}-{\DeliverableNum}}
+\DocDate{\Date}
+\DocVersion{\Version}
+%%%%%%%
+%%%%%%%
+
+
+%% Warning: use 'pdflatex' command to compile this file.
+
+%% Put here the title of the deliverable
+\def\Title{NAF: NLP Annotation Format.}
+
+%% The ``short'' title of the deliverable (in the case that \Title is too long)
+%% This will be put in the header of the document. Let it be \Title in the case
+%% is short enough
+\def\ShortTitle{NAF}
+
+%% Put here the authors
+\def\Authors{Newsreader NAF team}
+
+%% Put here the affiliation
+\def\Affiliation{(1) EHU, (2) VUA, (3) FBK, (4) SynerScope}
+
+%% The date
+\def\Date{\today}
+
+%% The Delivery Date
+\def\DeliveryDate{--}
+
+%% The workpackage number
+\def\WorkpackageNum{WP2}
+
+%% The workpackage responsible
+\def\WPresponsible{Aitor Soroa}
+
+%% The deliverable number (e.g. D2.1)
+\def\DeliverableNum{NAF Deliverable}
+
+%% The version of the document (e.g. DRAFT, FINA,...)
+\def\Version{DRAFT}
+
+%% Availability (Public / FP7 / IST / Project Internal)
+\def\Availability{Public}
+
+%% Type (report / prototype / software / ontology / wordnets /etc.)
+
+\def\Type{Report}
+
+%% Keywords
+\def\Keywords{--}
+
+%% Abstract
+\def\Abstract{This document describes the specification of NAF.}
+
+% \usepackage{listings,color}
+
+% \definecolor{gray}{rgb}{0.4,0.4,0.4}
+% \definecolor{darkblue}{rgb}{0.0,0.0,0.6}
+% \definecolor{cyan}{rgb}{0.0,0.6,0.6}
+
+% \lstset{
+%   basicstyle=\ttfamily,
+%   columns=fullflexible,
+%   showstringspaces=false,
+%   commentstyle=\color{gray}\upshape
+% }
+
+% \lstdefinelanguage{XML}
+% {
+%   basicstyle=\ttfamily\color{darkblue}\bfseries,
+%   morestring=[b]",
+%   morestring=[s]{>}{<},
+%   morecomment=[s]{<?}{?>},
+%   stringstyle=\color{black},
+%   identifierstyle=\color{darkblue},
+%   keywordstyle=\color{red},
+%   morekeywords={xmlns,version,type}% list your attributes here
+% }
+
+\begin{document}
+\input{template/cover.tex}
+
+% \lstset{language=XML}
+
+%% Revisions
+\cleardoublepage
+% \begin{nwrrevisions}
+%  \nwrrevision{0.1}{Dec 2012}{An example document}{Author 1}{}
+%  \nwrrevision{0.2}{Jan 2013}{Started with black document and created}{Author 2}{}
+%  \nwrrevision{}{}{}{}{}
+%  \nwrrevision{}{}{}{}{}
+%  \nwrrevision{x.0}{date}{approval by project manager}{who}{-}
+% \end{nwrrevisions}
+
+% %% Excecutive Summary
+% \cleardoublepage
+% \section*{Executive Summary}
+
+% executive summary text....
+
+
+% %% TOC, tables
+% \cleardoublepage
+\tableofcontents
+\cleardoublepage
+\listoftables
+\cleardoublepage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Here starts the deliverable content.
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{intro.tex}
+\clearpage
+\input{header.tex}
+\clearpage
+\input{topics.tex}
+\clearpage
+\input{raw.tex}
+\clearpage
+\input{text.tex}
+\clearpage
+\input{terms.tex}
+\clearpage
+\input{deps.tex}
+\clearpage
+\input{constituents.tex}
+\clearpage
+\input{chunks.tex}
+\clearpage
+\input{entities.tex}
+\clearpage
+\input{coreference.tex}
+\clearpage
+\input{opinion.tex}
+\clearpage
+\input{srl.tex}
+\clearpage
+\input{events.tex}
+\clearpage
+\input{factuality.tex}
+
+% 10.   References
+
+% *****************
+
+% [1] Eneko Agirre, Xabier Artola, Arantza Diaz de Ilarraza, German Rigau, Aitor Soroa, Wauter Bosma."KAF: Kyoto Annotation Framework" Part of KYOTO deliverable D2.1. 2010.
+
+% [2]  Wauter Bosma, Piek Vossen, German Rigau, Aitor Soroa, Tesconi Maurizio, Andrea Marchetti, Monica Monachini and Carlo Aliprandi. "KAF: a generic semantic annotation format". In Proceedings of Generative Lexicon. pages 145-152. 2009
+
+% [3]  Lionel Clément and Éric Villemonte de La Clergerie. "Maf: a morphosyntactic annotation framework". In Proceedings of the 2nd Language & Technology Conference, pages 90–94, April 2005.
+
+% [4] Thierry Declerck. "Synaf: Towards a standard for syntactic annotation". In Proceedings of the Fifth Conference on International Language Resources and Evaluation, pages 229–233. May 2006.
+
+% [5] K. Lee, J. Pustejovsky, H. Bunt, B. Boguraev, and N. Ide. "Language resource management - Semantic annotation framework (SemAF) - Part 1: Time and events". International Organization for Standardization, Geneva, Switzerland, 2007.
+
+% [6] Nancy Ide and Laurent Romary. "Outline of the international standard linguistic annotation framework". In Proceedings of ACL 2003 Workshop on Linguistic Annotation: Getting the Model Right, pages 1–5. Association for Computational Linguistics, July 2003.
+
+\clearpage
+
+\bibliographystyle{template/named}
+\bibliography{naf} % Put here the name of BibTeX file
+
+
+\end{document}

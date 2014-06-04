@@ -1,0 +1,57 @@
+
+\section{Word forms}
+\label{sec:word-forms}
+
+After tokenization step, all word forms are annotated within the
+\texttt{<text>} element, and each form is enclosed by a \texttt{<wf>}
+element.\\
+
+The \texttt{<wf>} element has the following attributes:
+\begin{itemize}
+\item \texttt{id} (\textbf{required}): the unique id for the word form,
+  starting with the prefix ``w''.
+\item \texttt{sent} (\textbf{required}): sentence id of the token.
+\item \texttt{para} (optional): paragraph id.
+\item \texttt{page} (optional): page id.
+\item \texttt{offset} (optional): The offset (in characters) of the original
+  word form.
+\item \texttt{lenght} (optional): The lenght (in characters) of the original
+  word form.
+\item \texttt{xpath} (optional): in case of source XML files, the xpath
+  expression identifying the original word form.
+\end{itemize}
+
+NAF requires that input documents are encoded in UTF-8 and offsets are
+described in characters. The purpose of the offset is to identify the source
+string within the input document referred by the token, which is the string
+starting at character \texttt{offset} and ending at \texttt{offset + length}
+(exclusive).
+
+The NAF tokenization looks like:
+\begin{verbatim}[fontsize=\small]
+<text>
+  <wf id="w1" offset="0" length="4" sent="1" para="1">John</wf>
+  <wf id="w2" offset="5" length="6" sent="1" para="1">taught</wf>
+  <wf id="w3" offset="12" length="11" sent="1" para="1">mathematics</wf>
+  <wf id="w4" offset="24" length="2" sent="1" para="1">20</wf>
+  <wf id="w5" offset="27" length="7" sent="1" para="1">minutes</wf>
+  <wf id="w6" offset="35" length="5" sent="1" para="1">every</wf>
+  <wf id="w7" offset="41" length="6" sent="1" para="1">Monday</wf>
+  <wf id="w8" offset="48" length="2" sent="1" para="1">in</wf>
+  <wf id="w9" offset="51" length="3" sent="1" para="1">New</wf>
+  <wf id="w10" offset="55" length="3" sent="1" para="1">York</wf>
+  <wf id="w11" offset="59" length="1" sent="1" para="1">.</wf>
+  <wf id="w12" offset="62" length="2" sent="2" para="2">He</wf>
+  <wf id="w13" offset="65" length="5" sent="2" para="2">liked</wf>
+  <wf id="w14" offset="71" length="2" sent="2" para="2">it</wf>
+  <wf id="w15" offset="74" length="1" sent="2" para="2">a</wf>
+  <wf id="w16" offset="76" length="3" sent="2" para="2">lot</wf>
+  <wf id="w17" offset="80" length="1" sent="2" para="2">!</wf>
+</text>
+\end{verbatim}
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "naf"
+%%% End: 

@@ -1,0 +1,59 @@
+
+\section{Coreference}
+\label{sec:coreference}
+
+The coreference layer creates clusters of term spans (which we call
+mentions) which share the same referent. For instance, ``London'' and ``the
+capital city of England'' are two mentions referring to the same entity. It
+is said that those mentions corefer.  A \texttt{<coref>} element represents
+a mention cluster, and within \texttt{<coref>} each mention is represented
+by a \texttt{<span>} element (which groups term mentions using
+\texttt{<target>} elements). Additionally, one \texttt{<target>} element
+within the \texttt{<span>} may have an attribute \texttt{head} with value
+``yes'' to represent the fact that this particular term is the head of the
+mention. For instance, the head of the mention ``the capital city of
+England'' is ``city''.\\
+
+The \texttt{<coref>} element has the following attribute:
+\begin{itemize}
+\item \texttt{id} (\textbf{required}): unique id, starting with the prefix ``co''.
+\item \texttt{type} (optional): type of the coreference set. It describes
+  whether the coreference cluster refers to an entity instance, and event,
+  etc.
+\end{itemize}
+
+The \texttt{<coref>} element contains as many \texttt{<span>} elements as
+elements in the coreference cluster. Each \texttt{<span>} contains one or
+more \texttt{<target>} elements, with the following attributes:
+\begin{itemize}
+\item \texttt{id} (\textbf{required}): id that refers to the target term.
+\item \texttt{head} (optional): a "yes" value indicates that the term is the
+  head of the coreference cluster.
+\end{itemize}
+
+Example of a coreference cluster:
+
+\begin{verbatim}[fontsize=\small]
+<coreferences>
+  <coref id="co1" type="entity">
+    <!-- London -->
+    <span >
+      <target id="t12" head="yes"/>
+    </span>
+    <!-- the capital city of England -->
+    <span>
+      <target id="t1"/>
+      <target id="t2"/>
+      <target id="t3" head ="yes"/> <!-- city is the head -->
+      <target id="t4"/>
+      <target id="t5"/>
+    </span>
+  </coref>
+</coreferences>
+\end{verbatim}
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "naf"
+%%% End: 

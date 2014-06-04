@@ -1,0 +1,735 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NAF xml:lang="en" version="v3">
+  <nafHeader>
+    <fileDesc creationtime="2004-04-06"/>
+    <public publicId="3938040573f3b401a3f9c66974fb4c4b" uri="http://usatoday30.usatoday.com/news/world/iraq/2004-04-06-iraqi-shiites_x.htm"/>
+    <linguisticProcessors layer="text">
+      <lp name="ixa-pipe-tok-en" timestamp="2013-06-26T14:15:18Z" beginTimestamp="2013-06-26T14:15:18Z" endTimestamp="2013-06-26T14:17:18Z" version="1.0"/>
+    </linguisticProcessors>
+    <linguisticProcessors layer="terms">
+      <lp name="ixa-pipe-pos-en" timestamp="2013-06-26T14:15:18Z" beginTimestamp="2013-06-26T14:15:18Z" endTimestamp="2013-06-26T14:18:18Z" version="1.0"/>
+    </linguisticProcessors>
+    <linguisticProcessors layer="entities">
+      <lp name="ixa-pipe-nerc-en" timestamp="2013-06-26T14:15:19Z" beginTimestamp="2013-06-26T14:15:19Z" endTimestamp="2013-06-26T14:19:19Z" version="1.0"/>
+    </linguisticProcessors>
+    <linguisticProcessors layer="constitients">
+      <lp name="ixa-pipe-parse-en" timestamp="2013-06-26T14:15:23Z" beginTimestamp="2013-06-26T14:15:23Z" endTimestamp="2013-06-26T14:16:23Z" version="1.0"/>
+    </linguisticProcessors>
+    <linguisticProcessors layer="dependencies">
+      <lp name="core-NLP" timestamp="2013-06-27T10:20:32Z" beginTimestamp="2013-06-27T10:20:32Z" endTimestamp="2013-06-27T10:22:32Z" version="1.0"/>
+    </linguisticProcessors>
+    <linguisticProcessors layer="coreference">
+      <lp name="core-NLP" timestamp="2013-06-27T10:20:46Z" beginTimestamp="2013-06-27T10:20:46Z" endTimestamp="2013-06-27T10:25:46Z" version="1.0"/>
+    </linguisticProcessors>
+    <linguisticProcessors layer="srl">
+      <lp name="mate-tools" timestamp="2013-06-26T17:35:02Z" beginTimestamp="2013-06-26T17:35:02Z" endTimestamp="2013-06-26T17:38:02Z" version="1.0"/>
+    </linguisticProcessors>
+    <linguisticProcessors layer="timex3">
+      <lp name="TimePro" timestamp="2013-10-22T10:13:32Z" beginTimestamp="2013-10-22T10:13:32Z" endTimestamp="2013-10-22T10:16:32Z" version="2.0"/>
+    </linguisticProcessors>
+    <linguisticProcessors layer="terms">
+      <lp name="ukb" version="0.1.6" timestamp="2013-06-27T16:34:59Z" beginTimestamp="2013-06-27T16:34:59Z" endTimestamp="2013-06-27T16:39:59Z"/>
+    </linguisticProcessors>
+  </nafHeader>
+  <raw><![CDATA[Followers of Muqtada al-Sadr clashed with British troops in the city of Amarah in battles late Monday that killed 15 Iraqis and wounded eight, said a coalition spokesman in the city, Wun Hornbyckle.]]>
+  </raw>
+  <topics>
+  <topic source="newsreader"
+	 confidence="0.8"
+	 method="textclassification-svm"
+	 uri="http://en.wikipedia.org/wiki/Category:Iraq">Iraq</topic>
+  <topic confidence="0.6"
+	 source="newsreader"
+	 method="textclassification-svm"
+	 uri="http://en.wikipedia.org/wiki/Category:War">War</topic>
+  </topics>
+  <text>
+    <wf id="w1" sent="1" offset="0" length="9">Followers</wf>
+    <wf id="w2" sent="1" offset="10" length="2">of</wf>
+    <wf id="w3" sent="1" offset="13" length="7">Muqtada</wf>
+    <wf id="w4" sent="1" offset="21" length="7">al-Sadr</wf>
+    <wf id="w5" sent="1" offset="29" length="7">clashed</wf>
+    <wf id="w6" sent="1" offset="37" length="4">with</wf>
+    <wf id="w7" sent="1" offset="42" length="7">British</wf>
+    <wf id="w8" sent="1" offset="50" length="6">troops</wf>
+    <wf id="w9" sent="1" offset="57" length="2">in</wf>
+    <wf id="w10" sent="1" offset="60" length="3">the</wf>
+    <wf id="w11" sent="1" offset="64" length="4">city</wf>
+    <wf id="w12" sent="1" offset="69" length="2">of</wf>
+    <wf id="w13" sent="1" offset="72" length="6">Amarah</wf>
+    <wf id="w14" sent="1" offset="79" length="2">in</wf>
+    <wf id="w15" sent="1" offset="82" length="7">battles</wf>
+    <wf id="w16" sent="1" offset="90" length="4">late</wf>
+    <wf id="w17" sent="1" offset="95" length="6">Monday</wf>
+    <wf id="w18" sent="1" offset="102" length="4">that</wf>
+    <wf id="w19" sent="1" offset="107" length="6">killed</wf>
+    <wf id="w20" sent="1" offset="114" length="2">15</wf>
+    <wf id="w21" sent="1" offset="117" length="6">Iraqis</wf>
+    <wf id="w22" sent="1" offset="124" length="3">and</wf>
+    <wf id="w23" sent="1" offset="128" length="7">wounded</wf>
+    <wf id="w24" sent="1" offset="136" length="5">eight</wf>
+    <wf id="w25" sent="1" offset="141" length="1">,</wf>
+    <wf id="w26" sent="1" offset="143" length="4">said</wf>
+    <wf id="w27" sent="1" offset="148" length="1">a</wf>
+    <wf id="w28" sent="1" offset="150" length="9">coalition</wf>
+    <wf id="w29" sent="1" offset="160" length="9">spokesman</wf>
+    <wf id="w30" sent="1" offset="170" length="2">in</wf>
+    <wf id="w31" sent="1" offset="173" length="3">the</wf>
+    <wf id="w32" sent="1" offset="177" length="4">city</wf>
+    <wf id="w33" sent="1" offset="181" length="1">,</wf>
+    <wf id="w34" sent="1" offset="183" length="3">Wun</wf>
+    <wf id="w35" sent="1" offset="187" length="10">Hornbyckle</wf>
+    <wf id="w36" sent="1" offset="197" length="1">.</wf>
+  </text>
+
+  <terms>
+    <!--Followers-->
+    <term id="t1" type="open" lemma="follower" pos="N" morphofeat="NNS">
+      <span>
+        <target id="w1"/>
+      </span>
+    <externalReferences><externalRef resource="wn30g" reference="eng-30-10099375-n" confidence="0.525004"/><externalRef resource="wn30g" reference="eng-30-10100124-n" confidence="0.474996"/></externalReferences></term>
+    <!--of-->
+    <term id="t2" type="close" lemma="of" pos="P" morphofeat="IN">
+      <span>
+        <target id="w2"/>
+      </span>
+    </term>
+    <!--Muqtada-->
+    <term id="t3" type="close" lemma="Muqtada" pos="R" morphofeat="NNP">
+      <span>
+        <target id="w3"/>
+      </span>
+    </term>
+    <!--al-Sadr-->
+    <term id="t4" type="close" lemma="al-Sadr" pos="R" morphofeat="NNP">
+      <span>
+        <target id="w4"/>
+      </span>
+    </term>
+    <!--clashed-->
+    <term id="t5" type="open" lemma="clash" pos="V" morphofeat="VBD">
+      <span>
+        <target id="w5"/>
+      </span>
+    <externalReferences><externalRef resource="wn30g" reference="eng-30-02667698-v" confidence="0.338607"/><externalRef resource="wn30g" reference="eng-30-01561143-v" confidence="0.331206"/><externalRef resource="wn30g" reference="eng-30-00805228-v" confidence="0.330187"/></externalReferences></term>
+    <!--with-->
+    <term id="t6" type="close" lemma="with" pos="P" morphofeat="IN">
+      <span>
+        <target id="w6"/>
+      </span>
+    </term>
+    <!--British-->
+    <term id="t7" type="open" lemma="british" pos="G" morphofeat="JJ">
+      <span>
+        <target id="w7"/>
+      </span>
+    <externalReferences><externalRef resource="wn30g" reference="eng-30-03022177-a" confidence="1"/></externalReferences></term>
+    <!--troops-->
+    <term id="t8" type="open" lemma="troop" pos="N" morphofeat="NNS">
+      <span>
+        <target id="w8"/>
+      </span>
+    <externalReferences><externalRef resource="wn30g" reference="eng-30-08274354-n" confidence="0.260075"/><externalRef resource="wn30g" reference="eng-30-08274565-n" confidence="0.254552"/><externalRef resource="wn30g" reference="eng-30-08274718-n" confidence="0.251149"/><externalRef resource="wn30g" reference="eng-30-08274443-n" confidence="0.234224"/></externalReferences></term>
+    <!--in-->
+    <term id="t9" type="close" lemma="in" pos="P" morphofeat="IN">
+      <span>
+        <target id="w9"/>
+      </span>
+    </term>
+    <!--the-->
+    <term id="t10" type="close" lemma="the" pos="D" morphofeat="DT">
+      <span>
+        <target id="w10"/>
+      </span>
+    </term>
+    <!--city-->
+    <term id="t11" type="open" lemma="city" pos="N" morphofeat="NN">
+      <span>
+        <target id="w11"/>
+      </span>
+    <externalReferences><externalRef resource="wn30g" reference="eng-30-08524735-n" confidence="0.409059"/><externalRef resource="wn30g" reference="eng-30-08540903-n" confidence="0.298137"/><externalRef resource="wn30g" reference="eng-30-08226335-n" confidence="0.292804"/></externalReferences></term>
+    <!--of-->
+    <term id="t12" type="close" lemma="of" pos="P" morphofeat="IN">
+      <span>
+        <target id="w12"/>
+      </span>
+    </term>
+    <!--Amarah-->
+    <term id="t13" type="close" lemma="Amarah" pos="R" morphofeat="NNP">
+      <span>
+        <target id="w13"/>
+      </span>
+    </term>
+    <!--in-->
+    <term id="t14" type="close" lemma="in" pos="P" morphofeat="IN">
+      <span>
+        <target id="w14"/>
+      </span>
+    </term>
+    <!--battles-->
+    <term id="t15" type="open" lemma="battle" pos="N" morphofeat="NNS">
+      <span>
+        <target id="w15"/>
+      </span>
+    <externalReferences><externalRef resource="wn30g" reference="eng-30-00958896-n" confidence="0.348986"/><externalRef resource="wn30g" reference="eng-30-00953559-n" confidence="0.33882"/><externalRef resource="wn30g" reference="eng-30-00788973-n" confidence="0.312194"/></externalReferences></term>
+    <!--late-->
+    <term id="t16" type="open" lemma="late" pos="G" morphofeat="JJ">
+      <span>
+        <target id="w16"/>
+      </span>
+    <externalReferences><externalRef resource="wn30g" reference="eng-30-00816481-a" confidence="0.163124"/><externalRef resource="wn30g" reference="eng-30-01730444-a" confidence="0.147602"/><externalRef resource="wn30g" reference="eng-30-00819235-a" confidence="0.147529"/><externalRef resource="wn30g" reference="eng-30-01901186-a" confidence="0.147527"/><externalRef resource="wn30g" reference="eng-30-00820721-a" confidence="0.144476"/><externalRef resource="wn30g" reference="eng-30-01729819-a" confidence="0.12525"/><externalRef resource="wn30g" reference="eng-30-00097674-a" confidence="0.124492"/></externalReferences></term>
+    <!--Monday-->
+    <term id="t17" type="close" lemma="Monday" pos="R" morphofeat="NNP">
+      <span>
+        <target id="w17"/>
+      </span>
+    </term>
+    <!--that-->
+    <term id="t18" type="close" lemma="that" pos="P" morphofeat="IN">
+      <span>
+        <target id="w18"/>
+      </span>
+    </term>
+    <!--killed-->
+    <term id="t19" type="open" lemma="kill" pos="V" morphofeat="VBN">
+      <span>
+        <target id="w19"/>
+      </span>
+    <externalReferences><externalRef resource="wn30g" reference="eng-30-00355365-v" confidence="0.0976024"/><externalRef resource="wn30g" reference="eng-30-01323958-v" confidence="0.0904195"/><externalRef resource="wn30g" reference="eng-30-00355524-v" confidence="0.0749113"/><externalRef resource="wn30g" reference="eng-30-00355177-v" confidence="0.0738921"/><externalRef resource="wn30g" reference="eng-30-01325536-v" confidence="0.0726058"/><externalRef resource="wn30g" reference="eng-30-01407376-v" confidence="0.0700196"/><externalRef resource="wn30g" reference="eng-30-01325774-v" confidence="0.0638881"/><externalRef resource="wn30g" reference="eng-30-02198819-v" confidence="0.0611069"/><externalRef resource="wn30g" reference="eng-30-02473688-v" confidence="0.0602257"/><externalRef resource="wn30g" reference="eng-30-01407235-v" confidence="0.0599336"/><externalRef resource="wn30g" reference="eng-30-00478830-v" confidence="0.0596249"/><externalRef resource="wn30g" reference="eng-30-01809617-v" confidence="0.0555725"/><externalRef resource="wn30g" reference="eng-30-00355038-v" confidence="0.0538224"/><externalRef resource="wn30g" reference="eng-30-02748495-v" confidence="0.0533216"/><externalRef resource="wn30g" reference="eng-30-01202374-v" confidence="0.0530537"/></externalReferences></term>
+    <!--15-->
+    <term id="t20" type="close" lemma="15" pos="O" morphofeat="CD">
+      <span>
+        <target id="w20"/>
+      </span>
+    </term>
+    <!--Iraqis-->
+    <term id="t21" type="close" lemma="Iraqis" pos="R" morphofeat="NNP">
+      <span>
+        <target id="w21"/>
+      </span>
+    </term>
+    <!--and-->
+    <term id="t22" type="close" lemma="and" pos="C" morphofeat="CC">
+      <span>
+        <target id="w22"/>
+      </span>
+    </term>
+    <!--wounded-->
+    <term id="t23" type="open" lemma="wound" pos="V" morphofeat="VBD">
+      <span>
+        <target id="w23"/>
+      </span>
+    <externalReferences><externalRef resource="wn30g" reference="eng-30-00069879-v" confidence="0.507804"/><externalRef resource="wn30g" reference="eng-30-01793177-v" confidence="0.492196"/></externalReferences></term>
+    <!--eight-->
+    <term id="t24" type="close" lemma="eight" pos="O" morphofeat="CD">
+      <span>
+        <target id="w24"/>
+      </span>
+    </term>
+    <!--,-->
+    <term id="t25" type="close" lemma="," pos="O" morphofeat=",">
+      <span>
+        <target id="w25"/>
+      </span>
+    </term>
+    <!--said-->
+    <term id="t26" type="open" lemma="say" pos="V" morphofeat="VBD">
+      <span>
+        <target id="w26"/>
+      </span>
+    <externalReferences><externalRef resource="wn30g" reference="eng-30-00928959-v" confidence="0.124117"/><externalRef resource="wn30g" reference="eng-30-01009240-v" confidence="0.121626"/><externalRef resource="wn30g" reference="eng-30-00923197-v" confidence="0.107646"/><externalRef resource="wn30g" reference="eng-30-01016002-v" confidence="0.0886616"/><externalRef resource="wn30g" reference="eng-30-00978549-v" confidence="0.0879375"/><externalRef resource="wn30g" reference="eng-30-00979870-v" confidence="0.0824707"/><externalRef resource="wn30g" reference="eng-30-01009821-v" confidence="0.0819548"/><externalRef resource="wn30g" reference="eng-30-02730813-v" confidence="0.0774936"/><externalRef resource="wn30g" reference="eng-30-00746718-v" confidence="0.0769266"/><externalRef resource="wn30g" reference="eng-30-00945499-v" confidence="0.0760341"/><externalRef resource="wn30g" reference="eng-30-00917300-v" confidence="0.0751326"/></externalReferences></term>
+    <!--a-->
+    <term id="t27" type="close" lemma="a" pos="D" morphofeat="DT">
+      <span>
+        <target id="w27"/>
+      </span>
+    </term>
+    <!--coalition-->
+    <term id="t28" type="open" lemma="coalition" pos="N" morphofeat="NN">
+      <span>
+        <target id="w28"/>
+      </span>
+    <externalReferences><externalRef resource="wn30g" reference="eng-30-08293982-n" confidence="0.342379"/><externalRef resource="wn30g" reference="eng-30-00382109-n" confidence="0.334133"/><externalRef resource="wn30g" reference="eng-30-14418662-n" confidence="0.323488"/></externalReferences></term>
+    <!--spokesman-->
+    <term id="t29" type="open" lemma="spokesman" pos="N" morphofeat="NN">
+      <span>
+        <target id="w29"/>
+      </span>
+    <externalReferences><externalRef resource="wn30g" reference="eng-30-10638310-n" confidence="1"/></externalReferences></term>
+    <!--in-->
+    <term id="t30" type="close" lemma="in" pos="P" morphofeat="IN">
+      <span>
+        <target id="w30"/>
+      </span>
+    </term>
+    <!--the-->
+    <term id="t31" type="close" lemma="the" pos="D" morphofeat="DT">
+      <span>
+        <target id="w31"/>
+      </span>
+    </term>
+    <!--city-->
+    <term id="t32" type="open" lemma="city" pos="N" morphofeat="NN">
+      <span>
+        <target id="w32"/>
+      </span>
+    <externalReferences><externalRef resource="wn30g" reference="eng-30-08524735-n" confidence="0.409059"/><externalRef resource="wn30g" reference="eng-30-08540903-n" confidence="0.298137"/><externalRef resource="wn30g" reference="eng-30-08226335-n" confidence="0.292804"/></externalReferences></term>
+    <!--,-->
+    <term id="t33" type="close" lemma="," pos="O" morphofeat=",">
+      <span>
+        <target id="w33"/>
+      </span>
+    </term>
+    <!--Wun-->
+    <term id="t34" type="close" lemma="Wun" pos="R" morphofeat="NNP">
+      <span>
+        <target id="w34"/>
+      </span>
+    </term>
+    <!--Hornbyckle-->
+    <term id="t35" type="close" lemma="Hornbyckle" pos="R" morphofeat="NNP">
+      <span>
+        <target id="w35"/>
+      </span>
+    </term>
+    <!--.-->
+    <term id="t36" type="close" lemma="." pos="O" morphofeat=".">
+      <span>
+        <target id="w36"/>
+      </span>
+    </term>
+  </terms>
+
+  <deps>
+    <!--nsubj(clashed-5, Followers-1)-->
+    <dep from="t5" to="t1" rfunc="nsubj"/>
+    <!--nn(al-Sadr-4, Muqtada-3)-->
+    <dep from="t4" to="t3" rfunc="nn"/>
+    <!--prep_of(Followers-1, al-Sadr-4)-->
+    <dep from="t1" to="t4" rfunc="prep_of"/>
+    <!--root(ROOT-0, clashed-5)-->
+    <dep from="t1" to="t5" rfunc="root"/>
+    <!--amod(troops-8, British-7)-->
+    <dep from="t8" to="t7" rfunc="amod"/>
+    <!--prep_with(clashed-5, troops-8)-->
+    <dep from="t5" to="t8" rfunc="prep_with"/>
+    <!--det(city-11, the-10)-->
+    <dep from="t11" to="t10" rfunc="det"/>
+    <!--prep_in(clashed-5, city-11)-->
+    <dep from="t5" to="t11" rfunc="prep_in"/>
+    <!--prep_of(city-11, Amarah-13)-->
+    <dep from="t11" to="t13" rfunc="prep_of"/>
+    <!--prep_in(clashed-5, battles-15)-->
+    <dep from="t5" to="t15" rfunc="prep_in"/>
+    <!--advmod(Monday-17, late-16)-->
+    <dep from="t17" to="t16" rfunc="advmod"/>
+    <!--tmod(battles-15, Monday-17)-->
+    <dep from="t15" to="t17" rfunc="tmod"/>
+    <!--nsubj(killed-19, that-18)-->
+    <dep from="t19" to="t18" rfunc="nsubj"/>
+    <!--nsubj(wounded-23, that-18)-->
+    <dep from="t23" to="t18" rfunc="nsubj"/>
+    <!--nsubj(said-26, that-18)-->
+    <dep from="t26" to="t18" rfunc="nsubj"/>
+    <!--rcmod(battles-15, killed-19)-->
+    <dep from="t15" to="t19" rfunc="rcmod"/>
+    <!--num(Iraqis-21, 15-20)-->
+    <dep from="t21" to="t20" rfunc="num"/>
+    <!--dobj(killed-19, Iraqis-21)-->
+    <dep from="t19" to="t21" rfunc="dobj"/>
+    <!--rcmod(battles-15, wounded-23)-->
+    <dep from="t15" to="t23" rfunc="rcmod"/>
+    <!--conj_and(killed-19, wounded-23)-->
+    <dep from="t19" to="t23" rfunc="conj_and"/>
+    <!--dobj(wounded-23, eight-24)-->
+    <dep from="t23" to="t24" rfunc="dobj"/>
+    <!--rcmod(battles-15, said-26)-->
+    <dep from="t15" to="t26" rfunc="rcmod"/>
+    <!--conj_and(killed-19, said-26)-->
+    <dep from="t19" to="t26" rfunc="conj_and"/>
+    <!--det(spokesman-29, a-27)-->
+    <dep from="t29" to="t27" rfunc="det"/>
+    <!--nn(spokesman-29, coalition-28)-->
+    <dep from="t29" to="t28" rfunc="nn"/>
+    <!--dobj(said-26, spokesman-29)-->
+    <dep from="t26" to="t29" rfunc="dobj"/>
+    <!--det(city-32, the-31)-->
+    <dep from="t32" to="t31" rfunc="det"/>
+    <!--prep_in(said-26, city-32)-->
+    <dep from="t26" to="t32" rfunc="prep_in"/>
+    <!--nn(Hornbyckle-35, Wun-34)-->
+    <dep from="t35" to="t34" rfunc="nn"/>
+    <!--appos(city-32, Hornbyckle-35)-->
+    <dep from="t32" to="t35" rfunc="appos"/>
+  </deps>
+
+  <entities>
+    <entity id="e1" type="misc">
+      <references>
+        <span>
+          <!--British-->
+          <target id="t7"/>
+        </span>
+      </references>
+      <externalReferences>
+        <externalRef reference="http://dbpedia.org/resource/United_Kingdom" resource="spotlight_v1"/>
+      </externalReferences>
+    </entity>
+    <entity id="e2" type="location">
+      <references>
+        <span>
+          <!--Amarah-->
+          <target id="t13"/>
+        </span>
+      </references>
+      <externalReferences>
+        <externalRef reference="http://dbpedia.org/resource/Amarah" resource="spotlight_v1"/>
+      </externalReferences>
+    </entity>
+    <entity id="e3" type="misc">
+      <references>
+        <span>
+          <!--Iraqis-->
+          <target id="t21"/>
+        </span>
+      </references>
+      <externalReferences>
+        <externalRef reference="http://dbpedia.org/resource/Iraq" resource="spotlight_v1"/>
+      </externalReferences>
+    </entity>
+    <entity id="e4" type="person">
+      <references>
+        <span>
+          <!--Wun Hornbyckle-->
+          <target id="t34"/>
+          <target id="t35"/>
+        </span>
+      </references>
+    </entity>
+  </entities>
+
+  <coreferences>
+    <coref id="co1">
+      <!-- the city -->
+      <span><target id="t31"/><target id="t32"/></span>
+      <!-- Wun Hornbyckle -->
+      <span><target id="t34"/><target id="t35"/></span>
+    </coref>
+  </coreferences>
+
+  <constituency>
+    <tree>
+      <nt id="nter1" label="TOP"/>
+      <nt id="nter2" label="S"/>
+      <nt id="nter3" label="NP"/>
+      <nt id="nter4" label="NP"/>
+      <nt id="nter5" label="NNP"/>
+      <nt id="nter6" label="PP"/>
+      <nt id="nter7" label="IN"/>
+      <nt id="nter8" label="NP"/>
+      <nt id="nter9" label="NNP"/>
+      <nt id="nter10" label="."/>
+      <nt id="nter11" label="S"/>
+      <nt id="nter12" label="VP"/>
+      <nt id="nter13" label="VBD"/>
+      <nt id="nter14" label="PP"/>
+      <nt id="nter15" label="IN"/>
+      <nt id="nter16" label="NP"/>
+      <nt id="nter17" label="JJ"/>
+      <nt id="nter18" label="NNS"/>
+      <nt id="nter19" label="PP"/>
+      <nt id="nter20" label="IN"/>
+      <nt id="nter21" label="NP"/>
+      <nt id="nter22" label="NP"/>
+      <nt id="nter23" label="NP"/>
+      <nt id="nter24" label="DT"/>
+      <nt id="nter25" label="NN"/>
+      <nt id="nter26" label="PP"/>
+      <nt id="nter27" label="IN"/>
+      <nt id="nter28" label="NP"/>
+      <nt id="nter29" label="NNP"/>
+      <nt id="nter30" label="PP"/>
+      <nt id="nter31" label="IN"/>
+      <nt id="nter32" label="NP"/>
+      <nt id="nter33" label="NNS"/>
+      <nt id="nter34" label="NP"/>
+      <nt id="nter35" label="NP"/>
+      <nt id="nter36" label="NNP"/>
+      <nt id="nter37" label="SBAR"/>
+      <nt id="nter38" label="WHNP"/>
+      <nt id="nter39" label="WDT"/>
+      <nt id="nter40" label="S"/>
+      <nt id="nter41" label="VP"/>
+      <nt id="nter42" label="VP"/>
+      <nt id="nter43" label="VBD"/>
+      <nt id="nter44" label="NP"/>
+      <nt id="nter45" label="CD"/>
+      <nt id="nter46" label="NNP"/>
+      <nt id="nter47" label="CC"/>
+      <nt id="nter48" label="VP"/>
+      <nt id="nter49" label="VBN"/>
+      <nt id="nter50" label="NP"/>
+      <nt id="nter51" label=","/>
+      <nt id="nter52" label="VP"/>
+      <nt id="nter53" label="VBD"/>
+      <nt id="nter54" label="NP"/>
+      <nt id="nter55" label="NP"/>
+      <nt id="nter56" label="NP"/>
+      <nt id="nter57" label="DT"/>
+      <nt id="nter58" label="NN"/>
+      <nt id="nter59" label="NN"/>
+      <nt id="nter60" label="PP"/>
+      <nt id="nter61" label="IN"/>
+      <nt id="nter62" label="NP"/>
+      <nt id="nter63" label="DT"/>
+      <nt id="nter64" label="NN"/>
+      <nt id="nter65" label="NP"/>
+      <nt id="nter66" label="NNP"/>
+      <nt id="nter67" label="NNP"/>
+      <nt id="nter68" label="."/>
+      <t id="ter1"><span><target id="t1"/></span></t>
+      <t id="ter2"><span><target id="t2"/></span></t>
+      <t id="ter3"><span><target id="t3"/></span></t>
+      <t id="ter4"><span><target id="t4"/></span></t>
+      <t id="ter5"><span><target id="t5"/></span></t>
+      <t id="ter6"><span><target id="t6"/></span></t>
+      <t id="ter7"><span><target id="t7"/></span></t>
+      <t id="ter8"><span><target id="t8"/></span></t>
+      <t id="ter9"><span><target id="t9"/></span></t>
+      <t id="ter10"><span><target id="t10"/></span></t>
+      <t id="ter11"><span><target id="t11"/></span></t>
+      <t id="ter12"><span><target id="t12"/></span></t>
+      <t id="ter13"><span><target id="t13"/></span></t>
+      <t id="ter14"><span><target id="t14"/></span></t>
+      <t id="ter15"><span><target id="t15"/></span></t>
+      <t id="ter16"><span><target id="t16"/></span></t>
+      <t id="ter17"><span><target id="t17"/></span></t>
+      <t id="ter18"><span><target id="t18"/></span></t>
+      <t id="ter19"><span><target id="t19"/></span></t>
+      <t id="ter20"><span><target id="t20"/></span></t>
+      <t id="ter21"><span><target id="t21"/></span></t>
+      <t id="ter22"><span><target id="t22"/></span></t>
+      <t id="ter23"><span><target id="t23"/></span></t>
+      <t id="ter24"><span><target id="t24"/></span></t>
+      <t id="ter25"><span><target id="t25"/></span></t>
+      <t id="ter26"><span><target id="t26"/></span></t>
+      <t id="ter27"><span><target id="t27"/></span></t>
+      <t id="ter28"><span><target id="t28"/></span></t>
+      <t id="ter29"><span><target id="t29"/></span></t>
+      <t id="ter30"><span><target id="t30"/></span></t>
+      <edge id="tre1" from="nter2" to="nter1"/>
+      <edge id="tre2" from="nter3" to="nter2"/>
+      <edge id="tre3" from="nter4" to="nter3"/>
+      <edge id="tre4" from="nter5" to="nter4"/>
+      <edge id="tre5" from="ter1" to="nter5"/>
+      <edge id="tre6" from="nter6" to="nter3"/>
+      <edge id="tre7" from="nter7" to="nter6"/>
+      <edge id="tre8" from="ter2" to="nter7"/>
+      <edge id="tre9" from="nter8" to="nter6"/>
+      <edge id="tre10" from="nter9" to="nter8"/>
+      <edge id="tre11" from="ter3" to="nter9"/>
+      <edge id="tre12" from="nter10" to="nter2"/>
+      <edge id="tre13" from="ter4" to="nter10"/>
+      <edge id="tre14" from="nter11" to="nter2"/>
+      <edge id="tre15" from="nter12" to="nter11"/>
+      <edge id="tre16" from="nter13" to="nter12"/>
+      <edge id="tre17" from="ter5" to="nter13"/>
+      <edge id="tre18" from="nter14" to="nter12"/>
+      <edge id="tre19" from="nter15" to="nter14"/>
+      <edge id="tre20" from="ter6" to="nter15"/>
+      <edge id="tre21" from="nter16" to="nter14"/>
+      <edge id="tre22" from="nter17" to="nter16"/>
+      <edge id="tre23" from="ter7" to="nter17"/>
+      <edge id="tre24" from="nter18" to="nter16"/>
+      <edge id="tre25" from="ter8" to="nter18"/>
+      <edge id="tre26" from="nter19" to="nter12"/>
+      <edge id="tre27" from="nter20" to="nter19"/>
+      <edge id="tre28" from="ter9" to="nter20"/>
+      <edge id="tre29" from="nter21" to="nter19"/>
+      <edge id="tre30" from="nter22" to="nter21"/>
+      <edge id="tre31" from="nter23" to="nter22"/>
+      <edge id="tre32" from="nter24" to="nter23"/>
+      <edge id="tre33" from="ter10" to="nter24"/>
+      <edge id="tre34" from="nter25" to="nter23"/>
+      <edge id="tre35" from="ter11" to="nter25"/>
+      <edge id="tre36" from="nter26" to="nter22"/>
+      <edge id="tre37" from="nter27" to="nter26"/>
+      <edge id="tre38" from="ter2" to="nter27"/>
+      <edge id="tre39" from="nter28" to="nter26"/>
+      <edge id="tre40" from="nter29" to="nter28"/>
+      <edge id="tre41" from="ter12" to="nter29"/>
+      <edge id="tre42" from="nter30" to="nter21"/>
+      <edge id="tre43" from="nter31" to="nter30"/>
+      <edge id="tre44" from="ter9" to="nter31"/>
+      <edge id="tre45" from="nter32" to="nter30"/>
+      <edge id="tre46" from="nter33" to="nter32"/>
+      <edge id="tre47" from="ter13" to="nter33"/>
+      <edge id="tre48" from="nter34" to="nter12"/>
+      <edge id="tre49" from="nter35" to="nter34"/>
+      <edge id="tre50" from="nter17" to="nter35"/>
+      <edge id="tre51" from="ter14" to="nter17"/>
+      <edge id="tre52" from="nter36" to="nter35"/>
+      <edge id="tre53" from="ter15" to="nter36"/>
+      <edge id="tre54" from="nter37" to="nter34"/>
+      <edge id="tre55" from="nter38" to="nter37"/>
+      <edge id="tre56" from="nter39" to="nter38"/>
+      <edge id="tre57" from="ter16" to="nter39"/>
+      <edge id="tre58" from="nter40" to="nter37"/>
+      <edge id="tre59" from="nter41" to="nter40"/>
+      <edge id="tre60" from="nter42" to="nter41"/>
+      <edge id="tre61" from="nter43" to="nter42"/>
+      <edge id="tre62" from="ter17" to="nter43"/>
+      <edge id="tre63" from="nter44" to="nter42"/>
+      <edge id="tre64" from="nter45" to="nter44"/>
+      <edge id="tre65" from="ter18" to="nter45"/>
+      <edge id="tre66" from="nter46" to="nter44"/>
+      <edge id="tre67" from="ter19" to="nter46"/>
+      <edge id="tre68" from="nter47" to="nter41"/>
+      <edge id="tre69" from="ter20" to="nter47"/>
+      <edge id="tre70" from="nter48" to="nter41"/>
+      <edge id="tre71" from="nter49" to="nter48"/>
+      <edge id="tre72" from="ter21" to="nter49"/>
+      <edge id="tre73" from="nter50" to="nter48"/>
+      <edge id="tre74" from="nter45" to="nter50"/>
+      <edge id="tre75" from="ter22" to="nter45"/>
+      <edge id="tre76" from="nter51" to="nter2"/>
+      <edge id="tre77" from="ter23" to="nter51"/>
+      <edge id="tre78" from="nter52" to="nter2"/>
+      <edge id="tre79" from="nter53" to="nter52"/>
+      <edge id="tre80" from="ter24" to="nter53"/>
+      <edge id="tre81" from="nter54" to="nter52"/>
+      <edge id="tre82" from="nter55" to="nter54"/>
+      <edge id="tre83" from="nter56" to="nter55"/>
+      <edge id="tre84" from="nter57" to="nter56"/>
+      <edge id="tre85" from="ter25" to="nter57"/>
+      <edge id="tre86" from="nter58" to="nter56"/>
+      <edge id="tre87" from="ter26" to="nter58"/>
+      <edge id="tre88" from="nter59" to="nter56"/>
+      <edge id="tre89" from="ter27" to="nter59"/>
+      <edge id="tre90" from="nter60" to="nter55"/>
+      <edge id="tre91" from="nter61" to="nter60"/>
+      <edge id="tre92" from="ter9" to="nter61"/>
+      <edge id="tre93" from="nter62" to="nter60"/>
+      <edge id="tre94" from="nter63" to="nter62"/>
+      <edge id="tre95" from="ter10" to="nter63"/>
+      <edge id="tre96" from="nter64" to="nter62"/>
+      <edge id="tre97" from="ter11" to="nter64"/>
+      <edge id="tre98" from="nter51" to="nter54"/>
+      <edge id="tre99" from="ter23" to="nter51"/>
+      <edge id="tre100" from="nter65" to="nter54"/>
+      <edge id="tre101" from="nter66" to="nter65"/>
+      <edge id="tre102" from="ter28" to="nter66"/>
+      <edge id="tre103" from="nter67" to="nter65"/>
+      <edge id="tre104" from="ter29" to="nter67"/>
+      <edge id="tre105" from="nter68" to="nter2"/>
+      <edge id="tre106" from="ter30" to="nter68"/>
+    </tree>
+  </constituency>
+
+  <srl>
+    <!-- 1 follower.01 : A1[2 of] -->
+    <predicate id="pr1" uri="URI_OF_follower.01">
+      <span><target id="t1"/></span>
+      <role id="rl1" semRole="A1">
+	<!-- of -->
+	<span><target id="t2"/></span>
+      </role>
+    </predicate>
+    <!-- 5 clash.01 : A0[1 followers] A1[6 with] AM-LOC[9 in] -->
+    <predicate id="pr2" uri="URI_OF_clash.01">
+      <span><target id="t5"/></span>
+      <role id="rl2" semRole="A0">
+	<!-- followers -->
+	<span><target id="t1"/></span>
+      </role>
+      <role id="l32" semRole="A1">
+	<!-- with -->
+	<span><target id="t6"/></span>
+      </role>
+      <role id="rl4" semRole="AM-LOC">
+	<!-- in -->
+	<span><target id="t9"/></span>
+      </role>
+    </predicate>
+    <!-- 8 troop.01 : A2[7 British] -->
+    <predicate id="pr3" uri="URI_OF_troop.01">
+      <span><target id="t8"/></span>
+      <role id="rl5" semRole="A2">
+	<!-- British -->
+	<span><target id="t7"/></span>
+      </role>
+    </predicate>
+    <!-- 11 city.01 : A1[12 of] -->
+    <predicate id="pr4" uri="URI_OF_city.01">
+      <span><target id="t11"/></span>
+      <role id="rl6" semRole="A1">
+	<!-- of -->
+	<span><target id="t12"/></span>
+      </role>
+    </predicate>
+    <!-- 19 kill.01 : R-A0[18 that] A0[11 city] A1[21 Iraqis]
+	 NOTE: A0 should be [15 battles] -->
+    <predicate id="pr5" uri="URI_OF_kill.01">
+      <span><target id="t19"/></span>
+      <role id="rl7" semRole="R-A0">
+	<!-- that -->
+	<span><target id="t18"/></span>
+      </role>
+      <role id="rl8" semRole="A0">
+	<!-- city -->
+	<span><target id="t11"/></span>
+      </role>
+      <role id="rl93" semRole="A1">
+	<!-- Iraquis -->
+	<span><target id="t21"/></span>
+      </role>
+    </predicate>
+    <!-- 23 wound.01 : A0[1 followers] A1[eight]
+	 NOTE: A0 should be [15 battles] -->
+    <predicate id="pr6" uri="URI_OF_wound.01">
+      <span><target id="t23"/></span>
+      <role id="rl10" semRole="A0">
+	<!-- followers -->
+	<span><target id="t1"/></span>
+      </role>
+      <role id="rl11" semRole="A1">
+	<!-- eight -->
+	<span><target id="t24"/></span>
+      </role>
+    </predicate>
+    <!-- 26 say.01 : A0[29 spokesman] -->
+    <predicate id="pr7" uri="URI_OF_say.01">
+      <span><target id="t26"/></span>
+      <role id="rl12" semRole="A0">
+	<!-- spokesman -->
+	<span><target id="t29"/></span>
+      </role>
+    </predicate>
+    <!-- 29 spokesman.01 : A0[29 spokesman] A2[28 coalition] -->
+    <predicate id="pr8" uri="URI_OF_spokesman.01">
+      <span><target id="t29"/></span>
+      <role id="rl13" semRole="A0">
+	<!-- spokesman -->
+	<span><target id="t29"/></span>
+      </role>
+      <role id="rl14" semRole="A2">
+	<!-- coalition -->
+	<span><target id="t28"/></span>
+      </role>
+    </predicate>
+  </srl>
+  <timeExpressions>
+    <timex3 id="tmx1" type="DATE">
+      <span>
+	<target id="w17"/>
+      </span>
+    </timex3>
+  </timeExpressions>
+  <factualitylayer>
+    <factvalue id="w19" prediction="CT+" confidence="0.9211625450434778"/>
+    <factvalue id="w5" prediction="CT+" confidence="0.9404844085799826"/>
+    <factvalue id="w26" prediction="CT+" confidence="0.8379289630516332"/>
+    <factvalue id="w23" prediction="CT+" confidence="0.9717756091958029"/>
+  </factualitylayer>
+</NAF>

@@ -1,0 +1,54 @@
+
+\section{Topics layer}
+\label{sec:topics-layer}
+
+This layer encodes the topics for the document. The topics correspond
+to the whole document, and are usually assigned by authomatic methods,
+such as text classification processors. The topics are annotated
+within the \texttt{<topics>} element, and each topic is enclosed by a
+\texttt{<topic>} element.
+
+The \texttt{<topic>} element has the following attributes:
+\begin{itemize}
+\item \texttt{source} (optional): A reference to the entity
+  responsible for creating the annotation.
+\item \texttt{method} (optional): The name of the method used to
+  create the annotation. This attribute is usually used in conjunction
+  with the \texttt{source} attribute.
+\item \texttt{confidence} (optional): this attribute is optional but
+  its presence is highly recommended. It gives a value of
+  ``confidence'' for the annotation. The confidence value can be in
+  fact almost anything (similarity score, the value of the margin on a
+  SVM based classification, etc), as long as it can be used to sort
+  all annotations sharing the \texttt{source} and \texttt{method}
+  attributes.
+\item \texttt{uri} (optional): if the topic is a resource
+  from an external reference, an URI to this resource. For instace, it
+  could be a URI pointing to a Wikipedia category page, etc.
+\end{itemize}
+
+The content of the \texttt{<topic>} element is a string with the
+topic.
+
+Here is an example of topic annotation:
+
+\begin{Verbatim}
+<topics>
+  <topic source="newsreader"
+	 confidence="0.8"
+	 method="textclassification-svm"
+	 URI="http://en.wikipedia.org/wiki/Category:Tower_mills">
+   Tower Mills</topic>
+  <topic confidence="0.2"
+	 source="newsreader"
+	 method="textclassification-svm"
+	 URI="http://en.wikipedia.org/wiki/Category:Windmills_in_Somerset">
+   Windmills in Somerset</topic>
+</topics>
+\end{Verbatim}
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "naf"
+%%% End: 

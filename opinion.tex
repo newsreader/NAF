@@ -1,0 +1,140 @@
+
+\section{Opinion layer}
+\label{sec:opinion-layer}
+
+The sentiment related information in NAF is represented at two levels: the
+(already existing) term layer and a (new) opinion layer. The term layer
+represents information copied from an external source like the sentiment
+lexicon. Information can be stored at both word and sense-synset
+level. Sentiment information in the term layer is the building block for the
+sentiment analysis tool which then tries to generate information needed to
+fill the slots (opinion holder, opinion target, opinion epression) of an
+opinion triplet. These triplets are represented in the opinion
+layer. Starting from these triplets, final sentiment analysis results can be
+calculated.
+
+Basic forms of sentiment analysis where polarity is aggregated at sentence
+or document level may ignore the opinion layer triplets and make use of the
+term level sentiment only. In these cases (for example, polarity
+classification of product reviews) , opinion target (i. e. the product) and
+opinion holder (i. e. the reviewer) are known on beforehand. However, when
+more complex sentiment analysis is performed, the opinion triplets are
+needed. An example of such an analysis, is product feature-based SA where
+the target of the opinion is not just the product but some specific feature
+of the product. Another example concerns the analysis of , for example, news
+or blogs where different people (i. e. opinion holders) may have different
+opinions about different targets. In those cases, aggregation of the
+polarity values found in the text, is not enough.\\
+
+
+The \texttt{<opinion>} element has one attribute:
+\begin{itemize}
+\item \texttt{id} (\textbf{required}): the unique identifier of the opinion,
+  starting with the prefix ``o''.
+\end{itemize}
+
+The \texttt{<opinion>} element contains of the following subelements:
+\begin{itemize}
+\item \texttt{<opinion\_holder>}: the holder of the opinion, that is, the
+  speaker or some actor in the text.
+\item \texttt{<opinion\_target>} :  the target of the opinion (about what).
+\item \texttt{<opinion\_expression>}: the opinion expression, which spans the
+  terms comprising the opinion proper.
+\end{itemize}
+These three elements contain a \texttt{<span>} sub-element spanning terms.\\
+
+The \texttt{<opinion\_holder>} element has the following attributes:
+\begin{itemize}
+\item \texttt{type} (optional): the type of the holder (for instance,
+  ``Speaker/Writer'').
+\end{itemize}
+
+The \texttt{<opinion\_expression>} element has the following attributes:
+\begin{itemize}
+\item \texttt{polarity} (optional): refers to the positive or negative
+  orientation of the expression.
+\item \texttt{strength}: refers to the strength of the expression.
+\item \texttt{subjectivity}: refers to whether an expression is subjective
+  or not.
+\item \texttt{sentiment\_semantic\_type}: refers to sentiment related
+  semantic types like emotion, judgment, belief, speculation.
+\item \texttt{sentiment\_product\_feature} : refers to specific features of
+  entities, to be used in feature/aspect-based sentiment analysis.
+\end{itemize}
+
+% The fillers of the three elements (holder, target, type) can be found in one
+% sentence or in different ones (cf. ex. 1). Moreover, one sentence can
+% contain multiple opinion triplets (cf. ex. 2).
+
+
+% Example
+
+% (1)
+% Vicky Masing,"http://twitter.com/VickyMasing/statuses/245094342799286273",2012-09-10T10:13:24Z,"english","Fountain of Bellagio Las Vegas. One has got to witness that magical show. Definitely beautiful, definitely mesmerizing."
+
+% opinion expression: Definitely beautiful, definitely mesmerizing.
+% polarity=positive, strength=strong, sentiment_semantic_type=evaluation,
+% sentiment_product_feature=""
+% opinion holder : Speaker/Writer
+% opinion target : Fountain of Bellagio Las Vegas
+
+% (2)
+% We stayed at The Toren as a transit hotel for our trip from saudi arabia to USA, the hotel was just amazing in all aspects,
+% the service was great, the people working their were really helpful and nice, the food at the breakfast was delicious and
+% fresh and the location is great, very near to tram stops, the central station, Shopping...
+
+% opinion expression:             really helpful and nice
+% polarity:                               positive 
+% strength:                               strong 
+% sentiment_semantic_type:                evaluation
+% sentiment_product_feature:      staff
+% opinion holder :                        Speaker/Writer
+% opinion target :                        people working there
+
+% opinion expression:             delicious
+% polarity:                               positive
+%  strength:                      strong
+%  sentiment_semantic_type:               evaluation
+% sentiment_product_feature:      breakfast
+% opinion holder :                        Speaker/Writer
+% opinion target :                        the food at the breakfast
+
+% (N.B. there are more opinion triplets in this fragment than the ones given here).
+
+
+NAF Example:
+
+\begin{verbatim}[fontsize=\small]
+<opinions>
+  <!-- They had a nightmare with Hilton Hotel Paris. -->
+  <opinion id="o1">
+    <opinion_holder type="Speaker/Writer" >
+      <span>
+        <target id="t1"/>
+      </span>
+    </opinion_holder>
+    <opinion_target>
+      <span>
+        <target id="t6"/>
+        <target id="t7"/>
+        <target id="t8"/>
+      </span>
+    </opinion_target>
+    <opinion_expression polarity="negative" strength="strong" 
+                        subjectivity="subjectivity"
+                        sentiment_semantic_type="evaluation"
+                        sentiment_product_feature="">
+      <span>
+        <target id="t3"/>
+        <target id="t4"/>
+      </span>
+    </opinion_expression>
+  </opinion>
+</opinions>
+\end{verbatim}
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "naf"
+%%% End: 

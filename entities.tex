@@ -1,0 +1,117 @@
+
+\section{Named Entities}
+\label{sec:named-entities}
+
+Named entities are information units such as names, including person,
+organization and location names, and numeric expressions including time,
+date, money and percent expressions. NAF describes named entity mentions
+present in text in a separate layer (\texttt{<entities>}), described in this
+section. The \texttt{<entity>} element is used to represent a named entity
+in the document. It may be used either for referencing single mentioned
+entities or multi-mentioned entities: in the latter case, the element
+contains clusters of term spans, which we call mentions, each mention
+referencing the same entity. The text anchor is described by means of the
+\texttt{<span>} elements, which always refer to term
+elements. \texttt{<entity>} elements also annotates the type of the entity
+mention. Besides, it can be linked to an external resource (such as
+Wikipedia) using the \texttt{<externalRef>} element.
+
+The \texttt{<entity>} element has the following attributes:
+\begin{itemize}
+\item \texttt{id} (\textbf{required}): unique id, starting with the prefix ``e''.
+\item \texttt{type} (optional): named entity type. Some possible values:
+  \begin{itemize}
+  \item \texttt{Time}
+  \item \texttt{Location}
+  \item \texttt{Organization}
+  \item \texttt{Person}
+  \item \texttt{Money}
+  \item \texttt{Percent}
+  \item \texttt{Date}
+  \item \texttt{Misc}
+\end{itemize}
+\end{itemize}
+
+The \texttt{<entity>} element has the following sub-elements:
+\begin{itemize}
+\item \texttt{<references>} (\textbf{required}): this element contains one or
+  more \texttt{<span>} element, each one spaning terms.
+\item \texttt{externalReferences} (optional): contains one or more
+  \texttt{<externalRef>} element.
+\end{itemize}
+
+A \texttt{<span>} sub-element can be used to reference the different
+occurrences of the same named entity in the document or mentions of it,
+using \texttt{<target>} elements to refer to the terms it spans. If the
+entity is composed by multiple words, multiple target elements are used.
+
+The \texttt{<target>} element has the following attributes:
+\begin{itemize}
+\item \texttt{id} (\textbf{required}): id that refers to the target term.
+\item \texttt{head} (optional): a "yes" value indicates that the term is the
+  head of the mention.
+\end{itemize}
+
+The optional \texttt{<externalRef>} sub-element is used to associate terms
+to external lexical or semantic resources. See Section
+\ref{sec:external-references}.
+
+Example of an entity mention:
+
+\begin{verbatim}[fontsize=\small]
+<entities>
+  <!-- John -->
+  <entity id="e1" type="person">
+    <references>
+      <span>
+        <target id="t1"/>
+      </span>
+    </references>
+  </entity>
+  <!-- New York -->
+  <entity id="e2" type="location">
+    <references>
+      <span>
+        <target id="t8"/>
+      </span>
+    </references>
+    <externalReferences>
+      <externalRef resource="Wikipedia"
+                   reference="New_York"
+                   confidence="0.85"/>
+      <externalRef resource="Wikipedia"
+                   reference="New_York,Lincolnshire"
+                   confidence="0.15"/>
+    </externalReferences>
+  </entity>
+  <!-- London -->
+  <entity id="e3" type="location">
+    <references>
+      <!-- London -->
+      <span>
+        <target id="t12" head="yes"/>
+      </span>
+      <!-- The capital city of England -->
+      <span>
+        <target id="t1" head="yes"/>
+        <target id="t2" head="yes"/>
+        <target id="t3" head="yes"/>
+        <target id="t4" head="yes"/>
+        <target id="t5" head="yes"/>
+      </span>
+    </references>
+    <externalReferences>
+      <externalRef reference="ref01011020" 
+                   resource="GeoNames"/>
+      <externalRef reference="http://wwww.wikipedia.com/London" 
+                   resource="Wikipedia"/>
+    </externalReferences>
+  </entity>
+</entities>
+\end{verbatim}
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "naf"
+%%% End: 

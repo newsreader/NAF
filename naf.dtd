@@ -1,0 +1,518 @@
+<!-- DTD NAF -->
+<!ELEMENT NAF (nafHeader|raw|topics|text|terms|deps|chunks|entities|coreferences|constituency|srl|opinions|timeExpressions|factualitylayer|tunits|locations|dates)*>
+
+<!-- NAF ELEMENT -->
+<!ATTLIST NAF
+	  doc CDATA #IMPLIED
+	  version CDATA #IMPLIED
+	  xml:lang CDATA #IMPLIED>
+
+<!-- NAFHEADER ELEMENT -->
+<!ELEMENT nafHeader (fileDesc?,public?,linguisticProcessors*)>
+
+<!-- FILEDESC ELEMENT -->
+<!--
+<fileDesc> is an empty element containing information about the
+computer document itself. It has the following attributes:
+
+- title: the title of the document (optional).
+- author: the author of the document (optional).
+- creationtime: when the document was created. In ISO 8601. (optional)
+- filename: the original file name (optional).
+- filetype: the original format (PDF, HTML, DOC, etc) (optional).
+- pages: number of pages of the original document (optional).
+-->
+
+<!ELEMENT fileDesc EMPTY>
+<!ATTLIST fileDesc
+          title CDATA #IMPLIED
+          author CDATA #IMPLIED
+          creationtime CDATA #IMPLIED
+	  filename CDATA #IMPLIED
+          filetype CDATA #IMPLIED
+          pages CDATA #IMPLIED>
+
+<!-- PUBLIC ELEMENT -->
+<!-- 
+<public> is an empty element which stores public information about
+the document, such as its URI. It has the following attributes:
+
+- publicId: a public identifier (for instance, the number inserted by the capture server) (optional).
+- uri: a public URI of the document (optional).
+
+-->
+
+<!ELEMENT public EMPTY>
+<!ATTLIST public
+          publicId CDATA #IMPLIED
+          uri CDATA #IMPLIED>
+
+		  
+<!-- LINGUISTICPROCESSORS ELEMENT -->
+<!--  
+<linguisticProcessors> elements store the information about which linguistic processors
+produced the NAF document. There can be several <linguisticProcessors> elements, one
+per NAF layer. NAF layers correspond to the top-level elements of the
+documents, such as "text", "terms", "deps" etc.
+
+-->
+
+<!ELEMENT linguisticProcessors (lp)+>
+<!ATTLIST linguisticProcessors
+          layer CDATA #REQUIRED>
+
+
+<!-- LP ELEMENT -->
+<!-- 
+<lp> elements describe one specific linguistic processor. <lp> elements 
+have the following attributes:
+
+- name: the name of the processor
+- version: processor's version
+- timestamp: a timestamp, denoting the date/time at which the processor was
+  launched. The timestamp follows the XML Schema xs:dateTime type (See
+  http://www.w3.org/TR/xmlschema-2/#isoformats). In summary, the date is
+  specified following the form "YYYY-MM-DDThh:mm:ss" (all fields
+  required). To specify a time zone, you can either enter a dateTime in UTC
+  time by adding a "Z" behind the time ("2002-05-30T09:00:00Z") or you can
+  specify an offset from the UTC time by adding a positive or negative time
+  behind the time ("2002-05-30T09:00:00+06:00").
+- beginTimestamp (optional): a timestamp, denoting the date/time at
+  which the processor started the process. It follows the XML Schema
+  xs:dateTime format.
+- endTimestamp (optional): a timestamp, denoting the date/time at
+  which the processor ended the process. It follows the XML Schema
+  xs:dateTime format.
+
+-->
+
+<!ELEMENT lp EMPTY>
+<!ATTLIST lp
+          name CDATA #REQUIRED
+          version CDATA #REQUIRED
+          timestamp CDATA #IMPLIED
+	  beginTimestamp CDATA #IMPLIED
+	  endTimestamp CDATA #IMPLIED>
+
+<!-- RAW ELEMENT -->
+<!ELEMENT raw (#PCDATA)>
+
+<!-- TOPICS ELEMENT -->
+<!ELEMENT topics (topic)+>
+
+<!-- TOPIC ELEMENT -->
+<!ELEMENT topic (#PCDATA)>
+<!ATTLIST topic
+	  source CDATA #IMPLIED
+	  method CDATA #IMPLIED
+	  confidence CDATA #IMPLIED
+	  uri CDATA #IMPLIED>
+
+
+<!-- TEXT ELEMENT -->
+<!ELEMENT text (wf)+>
+
+<!-- WORDFORM ELEMENT -->
+<!--
+<wf> elements describe and contain all word foorms generated after the tokenization step
+<wf> elements have the following attributes:
+- id: the id of the word form (REQUIRED and UNIQUE)
+- sent: sentence id of the word form (optional)
+- para: paragraph id of the word form (optional)
+- page: page id of the word form (optional)
+- offset: the offset (in characters) of the word form (optional)
+- length: the length (in characters) of the word form (optional)
+- xpath: in case of source xml files, the xpath expression identifying the original word form (optional)
+
+-->
+<!ELEMENT wf (#PCDATA)>
+<!ATTLIST wf
+	  id ID #REQUIRED
+	  sent CDATA #IMPLIED
+	  para CDATA #IMPLIED
+	  page CDATA #IMPLIED
+	  offset CDATA #IMPLIED
+	  length CDATA #IMPLIED
+	  xpath CDATA #IMPLIED>
+
+<!-- TERMS ELEMENT -->
+<!ELEMENT terms (term)+>
+
+<!-- TERM ELEMENT -->
+<!--
+    attributes of term elements
+
+    id: unique identifier (REQUIRED AND UNIQUE)
+
+    type: type of the term. (REQUIRED) Currently, 3 values are possible:
+       open: open category term
+       close: close category term
+
+    lemma: lemma of the term (REQUIRED).
+
+    pos: part of speech. (REQUIRED) The first letter of the pos attribute
+          must be one of the following:
+
+	  N	common noun
+	  R	proper noun
+	  G	adjective
+	  V	verb
+	  P	preposition
+	  A	adverb
+	  C	conjunction
+	  D	determiner
+	  O	other
+
+	  more complex pos attributes may be formed by concatenating values separated
+	  by a dot ".". For example, in Basque we have "V.ADI.SIN" for simple verbs
+	  or "V.ADI.KON" for complex verbs.
+
+    morphofeat: morphosyntactic feature encoded as a single attribute.
+
+    case: declension case of the term (otpional).
+
+    head: if the term is a compound, the id of the head component (otpional).
+-->
+<!ELEMENT term (sentiment?|span|externalReferences|component)+>
+<!ATTLIST term
+	  id ID #REQUIRED
+	  type CDATA #IMPLIED
+	  lemma CDATA #IMPLIED
+	  pos CDATA #IMPLIED
+	  morphofeat CDATA #IMPLIED
+	  netype CDATA #IMPLIED
+	  case CDATA #IMPLIED
+	  head CDATA #IMPLIED>
+
+	  
+<!-- SENTIMENT FEATURES ELEMENTS -->
+<!--
+<sentiment> elements have the following sub-element:
+-	Resource: identifier and reference to an external sentiment resource 
+-	Polarity: Refers to the property of a word to express positive, negative or no sentiment. These values are possible: 
+	-	Positive
+	-	Negative
+	-	Neutral
+	-	Or numerical value on a numerical scale
+-	Strength: refers to the strength of the polarity
+	-	Weak
+	-	Average
+	-	Strong
+	-	Or Numerical value
+-	Subjectivity: refers to the property of a words to express an opionion (or not)
+	-	Subjective/Objective
+	-	Factual/opinionated
+-	Sentiment_semantic_type: refers to a sentiment-related semantic type
+	-	Aesthetics_evaluation
+	-	Moral_judgment
+	-	Emotion
+	-	etc
+-	Sentiment modifier: refers to words which modify  the polarity of another word
+	-	Intensifier/weakener polarity shifter
+-	Sentiment_marker: refers to words which themselves do not carry polarity, but are kind of vehicles of it
+	-	Find, think, in my opinion, according to....
+-	Sentiment_product_feature: refers to a domain; mainly used in feature-based sentiment analysis
+	-	Values are related to specific domain. For the tourist domain, for example, staff, cleanliness, beds, bathroom, transportation, location, etc.. 
+-->
+<!ELEMENT sentiment EMPTY>
+<!ATTLIST sentiment
+	  resource CDATA #IMPLIED
+	  polarity CDATA #IMPLIED
+	  strength CDATA #IMPLIED
+	  subjectivity CDATA #IMPLIED
+	  sentiment_semantic_type CDATA #IMPLIED
+	  sentiment_product_feature CDATA #IMPLIED
+	  sentiment_modifier CDATA #IMPLIED
+	  sentiment_marker CDATA #IMPLIED>
+
+
+<!-- EXTERNALREFERENCES ELEMENT -->	  
+<!--
+The <externalReferences> element is used to associate terms to
+external resources, such as elements of a Knowledge base, an ontology,
+etc. It consists of several <externalRef> elements, one per
+association.
+-->
+
+<!ELEMENT externalReferences (externalRef)+>
+
+<!-- EXTERNALREF ELEMENT -->
+<!-- 
+<externalRef> elements have the following attributes:- resource: indicates the identifier of the resource referred to. 
+- reference: code of the referred element. If the element is a
+  synset of some version of WordNet, it follows the pattern:
+
+    [a-z]{3}-[0-9]{2}-[0-9]+-[nvars]
+
+  which is a string composed by four fields separated by a dash. 
+  The four fields are the following:
+
+
+  - Language code (three characters).
+  - WordNet version (two digits).
+  - Synset identifier composed by digits.
+  - POS character:
+    n noun
+    v verb
+    a adjective
+    r adverb
+  examples of valid patterns are: ``ENG-20-12345678-n'', 
+  ``SPA-16-017403-v'', etc.
+- confidence: a floating number between 0 and 1. Indicates the confidence weight of the association
+-->
+<!ELEMENT externalRef (externalRef)*>
+<!ATTLIST externalRef
+          resource CDATA #IMPLIED
+          reference CDATA #REQUIRED
+          reftype CDATA #IMPLIED
+          status CDATA #IMPLIED
+          source CDATA #IMPLIED
+	  confidence CDATA #IMPLIED>
+
+<!-- COMPONENT ELEMENT -->
+<!--
+Compound and multiword terms can be represented in NAF by including <component> elements within <term> elements.
+The <component> elements have the following attributes:
+-	id: unique identifier (REQUIRED and UNIQUE)
+-	lemma: lemma of the term (REQUIRED)
+-	pos: part of speech (REQUIRED)
+-	case: declension case (optional) 
+
+-->
+<!ELEMENT component (externalReferences)*>
+<!ATTLIST component
+	  id ID #REQUIRED
+	  lemma CDATA #REQUIRED
+	  pos CDATA #REQUIRED
+	  case CDATA #IMPLIED>
+
+<!-- DEPS ELEMENT -->
+<!ELEMENT deps (dep)+>
+
+<!-- DEP ELEMENT -->
+<!--
+The <dep> elements have the following attributes:
+-	from: term id of the source element (REQUIRED)
+-	to: term id of the target element (REQUIRED)
+-	rfunc: relational function.(REQUIRED)
+-       case: declension case (optional)
+-->
+<!ELEMENT dep EMPTY>
+<!ATTLIST dep
+	  from IDREF #REQUIRED
+	  to IDREF #REQUIRED
+	  rfunc CDATA #REQUIRED
+	  case CDATA #IMPLIED>
+
+<!-- CHUNKS ELEMENT -->
+<!ELEMENT chunks (chunk)+>
+<!-- CHUNK ELEMENT -->
+<!--
+The <chunk> elements have the following attributes:
+-	id: unique identifier (REQUIRED)
+-	head: the chunk head’s term id  (REQUIRED)
+-	phrase: type of the phrase (REQUIRED)
+-	case: declension case (optional)
+-->
+<!ELEMENT chunk (span)+>
+<!ATTLIST chunk
+	  id ID #REQUIRED
+	  head IDREF #REQUIRED
+	  phrase CDATA #REQUIRED
+	  case CDATA #IMPLIED>
+
+<!-- ENTITIES ELEMENT -->
+<!ELEMENT entities (entity)+>
+
+<!-- ENTITY ELEMENT -->
+<!--
+A named entity element has the following attributes: 
+-	id: the id for the named entity (REQUIRED)
+-	type:  type of the named entity. (REQUIRED) Currently, 8 values are possible: 
+	-	Person
+	-	Organization
+	-	Location
+	-	Date
+	-	Time
+	-	Money
+	-	Percent
+	-	Misc 
+-->
+<!ELEMENT entity (references|externalReferences)+>
+<!ATTLIST entity
+	  id ID #REQUIRED
+	  type CDATA #REQUIRED>
+
+<!-- COREFERENCES ELEMENT -->
+
+<!ELEMENT coreferences (coref)+>
+
+<!-- COREF ELEMENT -->
+<!--
+<coref> element has the following attribute:
+-	id: unique id, starting with the prefix "co"
+-       type: type of the coref set (entity, event, etc)
+-->
+<!ELEMENT coref (span)+>
+<!ATTLIST coref
+	  id ID #REQUIRED
+	  type CDATA #IMPLIED>
+	  
+
+<!-- CONSITUENCY PARSING -->
+
+<!ELEMENT constituency (tree)+>
+<!ELEMENT tree (nt|t|edge)+>
+
+<!ELEMENT nt EMPTY>
+<!ATTLIST nt
+	  id ID #REQUIRED
+	  label CDATA #REQUIRED>
+
+<!ELEMENT t (span)>
+<!ATTLIST t
+	  id ID #REQUIRED>
+
+<!ELEMENT edge EMPTY>
+<!ATTLIST edge
+	  id ID #IMPLIED
+	  from IDREF #REQUIRED
+	  to IDREF #REQUIRED
+	  head CDATA #IMPLIED>
+
+<!-- SEMANTIC ROLE LABELING -->
+
+<!ELEMENT srl (predicate)+>
+
+<!ELEMENT predicate (externalReferences|span|role)+>
+<!ATTLIST predicate
+	  id ID #REQUIRED
+	  uri CDATA #IMPLIED
+	  confidence CDATA #IMPLIED>
+
+<!ELEMENT role (externalReferences|span)+>
+<!ATTLIST role
+	  id ID #REQUIRED
+	  uri CDATA #IMPLIED
+	  confidence CDATA #IMPLIED
+	  semRole CDATA #REQUIRED>
+
+<!-- OPINIONS ELEMENT -->
+<!ELEMENT opinions (opinion)+>
+
+<!-- OPINION ELEMENT -->
+<!--
+The <opinion> layer has one attribute: 
+-	id:  the unique identifier of the opinion
+
+The <opinion> layer consists of the following subelement:
+-	opinion_holder:  whose opinion: speaker or some actor in the text
+-	opinion _target :  about what
+-	opinion_expression: the expression
+
+-->
+<!ELEMENT opinion (opinion_holder | opinion_target | opinion_expression)+>
+<!ATTLIST opinion
+	  id ID #REQUIRED>
+
+<!-- OPINION_HOLDER AND OPINION_TARGET ELEMENT -->
+<!--
+<opinion_holder> and <opinion_target> elements have the following sub-element:
+-	span: this element spans the target  term. Target elements are used to refer to the target term,, using term ids. If the term is a multiword, multiple target elements are used.
+-->	  
+<!ELEMENT opinion_holder (span)+>
+<!ATTLIST opinion_holder
+	  type CDATA #IMPLIED>
+
+<!ELEMENT opinion_target (span)+>
+<!ATTLIST opinion_target
+	  type CDATA #IMPLIED>
+
+<!-- OPINION_EXPRESSION -->
+<!--
+<opinion_expression> has the following attributes:
+-	polarity:  refers to the positive or negative orientation of the expression
+-	strength:  refers to the strength of the expression
+-	subjectivity:  refers to whether an expression is subjective or not
+-	sentiment_semantic_type:  refers to sentiment related semantic types like emotion, judgment, belief, speculation
+-	sentiment_product_feature :  refers to specific features of entities, to be used in feature/aspect-based sentiment analysis
+-->
+<!ELEMENT opinion_expression (span)+>
+<!ATTLIST opinion_expression
+	  polarity CDATA #IMPLIED
+	  strength CDATA #IMPLIED
+	  subjectivity CDATA #IMPLIED
+	  sentiment_semantic_type CDATA #IMPLIED
+	  sentiment_product_feature CDATA #IMPLIED>
+
+<!ELEMENT timeExpressions (timex3)*>
+
+<!-- timex3 expressions -->
+<!ELEMENT timex3 (span)>
+<!ATTLIST timex3
+	  id ID #REQUIRED
+	  type CDATA #REQUIRED
+	  beginPoint IDREF #IMPLIED
+	  endPoint IDREF #IMPLIED
+	  quant CDATA #IMPLIED
+	  freq  CDATA #IMPLIED
+	  functionInDocument CDATA #IMPLIED
+	  temporalFunction CDATA #IMPLIED
+	  value CDATA #IMPLIED
+	  valueFromFunction CDATA #IMPLIED
+	  mod CDATA #IMPLIED
+	  anchorTimeID IDREF #IMPLIED>
+
+<!-- factuality layer -->
+
+<!ELEMENT factualitylayer (factvalue)+>
+<!ELEMENT factvalue EMPTY>
+<!ATTLIST factvalue 
+	  id IDREF #REQUIRED
+	  prediction CDATA #REQUIRED
+	  confidence CDATA #IMPLIED>
+	  
+<!-- REFERENCES AND SPANS  -->	  
+<!-- REFERENCES ELEMENT (only used in Entity layer)-->
+<!ELEMENT references (span)+>
+
+<!-- SPAN ELEMENT -->
+<!ELEMENT span (target)+>
+
+<!-- TARGET ELEMENT -->
+<!ELEMENT target EMPTY>
+<!ATTLIST target
+	  id IDREF #REQUIRED
+	  head CDATA #IMPLIED>
+
+<!ELEMENT tunits (#PCDATA)*>
+<!ELEMENT locations (#PCDATA)*>
+<!ELEMENT dates (#PCDATA)*>
+
+<!-- OLD ELEMENTS DEPRECATED -->
+<!--
+<!ELEMENT events (event)+>
+<!ELEMENT event (roles)+>
+<!ATTLIST event
+	  id ID #REQUIRED
+	  span IDREF #REQUIRED
+	  lemma CDATA #REQUIRED
+	  pos CDATA #REQUIRED
+	  eiid CDATA #IMPLIED
+	  class CDATA #IMPLIED
+	  tense CDATA #IMPLIED
+	  aspect CDATA #IMPLIED
+	  polarity CDATA #IMPLIED>
+
+<!ELEMENT roles (role)+>
+<!ELEMENT role EMPTY>
+<!ATTLIST role
+	  id IDREF #REQUIRED
+	  role CDATA #REQUIRED>
+
+<!ELEMENT quantifiers (quantifier)+>
+<!ELEMENT quantifier (span)+>
+<!ATTLIST quantifier
+	  qid ID #REQUIRED>
+
+-->

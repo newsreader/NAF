@@ -1,0 +1,70 @@
+
+\section{Chunks}
+\label{sec:chunks}
+
+Chunks are noun or prepositional phrases, spanning terms.\\
+
+The \texttt{<chunk>} element has the following attributes:
+\begin{itemize}
+\item \texttt{id} (\textbf{required}): unique identifier, starting with the prefix ``c''.
+\item \texttt{head} (\textbf{required)}: the id of the chunk's head.
+\item \texttt{phrase} (optional): type of the phrase.
+\item \texttt{case} (optional): declension case.
+\end{itemize}
+
+Example of chunk annotations:
+\begin{verbatim}[fontsize=\small]
+<chunks>
+  <!-- John -->
+  <chunk id="c1" head="t1" phrase="NP">
+    <span>
+      <target id="t1"/>
+    </span>
+  </chunk>
+  <!-- taught -->
+  <chunk id="c2" head="t2" phrase="V">
+    <span>
+      <target id="t2"/>
+    </span>
+  </chunk>
+  <!-- Mathematics -->
+  <chunk id="c3" head="t3" phrase="NP">
+    <span>
+      <target id="t3"/>
+    </span>
+  </chunk>
+  <!-- 20 minutes -->
+  <chunk id="c5" head="t5" phrase="NP">
+    <span>
+      <target id="t4"/>
+      <target id="t5"/>
+    </span>
+  </chunk>
+  <!-- every -->
+  <chunk id="c6" head="t6" phrase="R">
+    <span>
+      <target id="t6"/>
+    </span>
+  </chunk>
+  <!-- every Monday -->
+  <chunk id="c7" head="t7" phrase="NP">
+    <span>
+      <target id="t6"/>
+      <target id="t7"/>
+    </span>
+  </chunk>
+  <!-- in New York -->
+  <chunk id="c9" head="t9" phrase="PP">
+    <span>
+      <target id="t8"/>
+      <target id="t9"/>
+    </span>
+  </chunk>
+</chunks>
+\end{verbatim}
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "naf"
+%%% End: 

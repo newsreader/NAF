@@ -1,0 +1,229 @@
+
+\section{Root element}
+\label{sec:root-element}
+
+All NAF documents have a root element \texttt{<NAF>} which has the following
+attributes:
+
+\begin{itemize}
+\item \texttt{xml:lang} (\textbf{required}): language identifier .
+\item \texttt{version} (\textbf{required}): the version of NAF. For
+  newsreader, we will use version \textbf{v1}
+\end{itemize}
+
+Example:
+\begin{Verbatim}[fontsize=\small]
+<NAF xml:lang="en" version="v3">
+  <!--- ... --->
+</NAF>
+\end{Verbatim}
+
+\section{NAF header}
+\label{sec:naf-header}
+
+NAF documents may have a header for describing information about the
+document, such as its original name, URI or a list of the linguistic
+processors which generated the NAF document. The NAF header is represented
+within the \texttt{<nafHeader>} element, which is optional but highly
+recommended. The header element has the following sub-elements:
+
+\subsection{fileDesc element}
+\label{sec:filedesc-element}
+
+\texttt{<fileDesc>} is an empty element containing information about the
+original document itself. It has the following attributes:
+\begin{itemize}
+\item \texttt{title} (optional): the title of the document.
+\item \texttt{author} (optional): the author of the document.
+\item \texttt{creationtime} (optional): a timestamp following the
+  \emph{xs:dateTime}\footnote{See
+      \texttt{http://www.w3.org/TR/xmlschema-2/\#isoformats}. In
+    summary, the date is specified following the form
+    ``YYYY-MM-DDThh:mm:ss'' (all fields required). To specify a time
+    zone, you can either enter a dateTime in UTC time by adding a "Z"
+    behind the time (``2002-05-30T09:00:00Z'') or you can specify an
+    offset from the UTC time by adding a positive or negative time
+    behind the time (``2002-05-30T09:00:00+06:00'').} format that
+  specifies the time when the document was created.
+\item \texttt{filename} (optional): the original file name.
+\item \texttt{filetype} (optional): the original format (PDF, HTML, DOC, etc).
+\item \texttt{pages} (optional): number of pages of the original document.
+\end{itemize}
+
+Example:
+
+\begin{Verbatim}[fontsize=\small]
+ <fileDesc creationtime="2014-01-01T00:00:00Z"
+           title="The best residence in the world."
+           author="casa400"
+           filename="residence_hostal"
+           filetype="PDF" pages="19"/>
+\end{Verbatim}
+
+% \subsection{dcDesc element}
+% \label{sec:dcdesc-element}
+
+% \texttt{<dcDesc>} is an element containing sub-elements that mimic those of
+% the Dublin Core \footnote{dublincore.org/documents/dcmi-terms/}. The
+% elements which describe various aspects of the original
+% document. Specifically, we include those sub-elements:
+
+% \begin{itemize}
+% % \item \texttt{<title>}: A title for the document.
+% \item \texttt{<creator>}: An entity primarily responsible for making the document.
+% \item \texttt{<subject>}: The topic of the document.
+% \item \texttt{<description>}: An account of the document.
+% \item \texttt{<publisher>}: An entity responsible for making the document available.
+% \item \texttt{<contributor>}: An entity responsible for making contributions to the document.
+% \item \texttt{<date>}: A point or period of time associated with an event
+%   in the lifecycle of the resource. The content of the element should be of
+%   \emph{xs:dateTyme} type (see below).
+% \item \texttt{<type>}: The nature or genre of the resource.
+% \item \texttt{<format>}: The file format, physical medium, or dimensions of the resource.
+% %\item \texttt{dcidentifier}: ---
+% % \item \texttt{<source>}: A related resource from which the described resource is derived.
+% % \item \texttt{<language>}: A language of the resource.
+% % \item \texttt{<relation>}: A related resource.
+% % \item \texttt{<coverage>}: The spatial or temporal topic of the resource,
+% %   the spatial applicability of the resource, or the jurisdiction under which
+% %   the resource is relevant.
+% \item \texttt{<rights>}: Information about rights held in and over the resource.
+% \end{itemize}
+
+% Please note:
+% \begin{itemize}
+% \item The contents of each of those sub-elements are textual. Only the
+%   \texttt{<date>} elements has a \emph{xs:datetime} type, so that date
+%   expressions are normalized. In \ref{sec:ling-proc} section we describe the
+%   format of this type.
+% \item There can be any number of those subelements inside a
+%   \texttt{<dcDesc>} element.
+% \end{itemize}
+
+% Example:
+
+% \begin{Verbatim}[fontsize=\small]
+% <dcDesc>
+%   <description>An example document for explaining NAF.</description>
+%   <creator>Aitor</creator>
+%   <subject>Example</subject>
+%   <subject>Small</subject>
+% </dcDesc>
+% \end{Verbatim}
+
+
+\subsection{public element}
+\label{sec:public-element}
+
+\texttt{<public>} is an empty element which stores public information about
+the document, such as its URI. It has the following attributes:
+\begin{itemize}
+\item \texttt{publicId} (optional): a public identifier (for instance, the
+  number inserted by the capture server, or the MD5 hash number of the
+  original document).
+\item \texttt{uri} (optional): a public URI of the document.
+\end{itemize}
+
+Example:
+\begin{Verbatim}[fontsize=\small]
+  <public publicId="50ee45d106f9caf2d1cf38f29419efa8"
+          uri="http://casa400.com/docs/residence.pdf"/>
+\end{Verbatim}
+
+\subsection{Linguistic Processors}
+\label{sec:ling-proc}
+
+The header also stores the information about which linguistic processors
+produced the NAF document, described under \texttt{<linguisticProcessors>}
+elements. There can be several \texttt{<linguisticProcessors>} elements, one
+per NAF layer. NAF layers correspond to the top-level elements of the
+documents, such as "text", "terms", "deps" etc.  Each
+\texttt{<linguisticProcessors>} element contains one or several
+\texttt{<lp>} elements, each one describing one specific linguistic
+processor.\\
+
+The \texttt{<lp>} element, if present, has the following attributes:
+\begin{itemize}
+\item \texttt{name} (\textbf{required}): the name of the processor
+\item \texttt{version} (optional): processor's version
+\item \texttt{timestamp} (optional): a timestamp, denoting the
+  date/time at which the processor was launched. It follows the XML
+  Schema \emph{xs:dateTime} format.
+\item \texttt{beginTimestamp} (optional): a timestamp, denoting the
+  date/time at which the processor started the process. It follows the XML Schema
+  \emph{xs:dateTime} format.
+\item \texttt{endTimestamp} (optional): a timestamp, denoting the date/time
+  at which the processor ended the process. It follows the XML Schema
+  \emph{xs:dateTime} format.
+\end{itemize}
+
+Example:
+
+\begin{Verbatim}
+<linguisticProcessors layer="text">
+   <lp name="Freeling" version="2.1"
+       timestamp="2012-06-25T10:05:00Z"
+       beginTimestamp="2012-06-25T10:05:00Z"
+       endTimestamp="2012-06-25T10:12:00Z"/>
+ </linguisticProcessors>
+ <linguisticProcessors layer="terms">
+  <lp name="Freeling" version="2.1"
+      timestamp="2012-06-25T10:10:19Z"
+      beginTimestamp="2012-06-25T10:10:19Z"
+      endTimestamp="2012-06-25T10:15:19Z"/>
+  <lp name="ukb" version="0.1.2"
+      timestamp="2012-06-25T16:10:19Z"
+      beginTimestamp="2012-06-25T16:10:19Z"
+      endTimestamp="2012-06-25T16:20:19Z"/>
+</linguisticProcessors>
+<linguisticProcessors layer="namedEntities">
+  <lp name="Standfort_NE"
+      version="0.1"
+      timestamp="20090626_00:10:19Z"
+      beginTimestamp="20090626_00:10:19Z"
+      endTimestamp="20090626_00:14:19Z"/>
+</linguisticProcessors>
+\end{Verbatim}
+
+Here is a full example of a NAF header:
+
+\begin{Verbatim}
+<nafHeader>
+ <fileDesc creationtime="2014-01-01T00:00:00Z"
+           title="The best residence in the world."
+           author="casa400"
+           filename="residence_hostal"
+           filetype="PDF" pages="19"/>
+  <public publicId="3_3012"
+          uri="http://casa400.com/docs/residence.pdf" />
+  <linguisticProcessors layer="text">
+     <lp name="Freeling" version="2.1"
+         timestamp="2012-06-25T10:05:00Z"
+         beginTimestamp="2012-06-25T10:05:00Z"
+         endTimestamp="2012-06-25T10:12:00Z"/>
+   </linguisticProcessors>
+   <linguisticProcessors layer="terms">
+    <lp name="Freeling" version="2.1"
+        timestamp="2012-06-25T10:10:19Z"
+        beginTimestamp="2012-06-25T10:10:19Z"
+        endTimestamp="2012-06-25T10:15:19Z"/>
+    <lp name="ukb" version="0.1.2"
+        timestamp="2012-06-25T16:10:19Z"
+        beginTimestamp="2012-06-25T16:10:19Z"
+        endTimestamp="2012-06-25T16:20:19Z"/>
+  </linguisticProcessors>
+  <linguisticProcessors layer="namedEntities">
+    <lp name="Standfort_NE"
+        version="0.1"
+        timestamp="2009-06-26T00:10:19Z"
+        beginTimestamp="2009-06-26T00:10:19Z"
+        endTimestamp="2009-06-26T00:14:19Z"/>
+  </linguisticProcessors>
+</nafHeader>
+\end{Verbatim}
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "naf"
+%%% End: 

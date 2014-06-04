@@ -1,0 +1,35 @@
+\section{Factuality}
+\label{sec:factuality}
+
+The factuality layer encodes the veracity or \emph{factuality} of events as
+mentioned in the text. This information is useful for recognizing whether
+the events mentioned in the text actually happened (factual events), did not
+happen (contrafactual events), or there is some uncertainty about the event
+occurring or not.
+
+The factuality information is described under the \texttt{<factualityLayer>}
+element. Each piece of information regarding factuality of an event is
+represented by an empty element \texttt{<factvalue>}, whose attributes are
+the following:
+
+\begin{itemize}
+\item \texttt{id} (\textbf{required}): the word id of the event token
+\item \texttt{prediction} (\textbf{required}): the factuality value (nominal
+  value) that is predicted by the classifier, according to the
+  FactBank~\cite{sauri2009factbank} factuality classification scheme.
+\item \texttt{confidence} (optional): a numerical value indicating the
+  confidence the classifier has in its prediction.
+\end{itemize}
+
+\begin{verbatim}
+<factualitylayer>
+  <factvalue id="w179" prediction="CT+" confidence="0.89"/>
+  <factvalue id="w108" prediction="CT+" confidence="0.93"/>
+</factualitylayer>
+\end{verbatim}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "naf"
+%%% End: 
+

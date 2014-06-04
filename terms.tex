@@ -1,0 +1,403 @@
+
+\section{Terms}
+\label{sec:terms}
+
+Terms are lexical units which refer to word forms (and groups multi word
+forms). Terms are attached to several morphosyntactic information (such as
+part of speech, lemma, etc), and may be linked to external resources like
+WordNet senses, etc.\\
+
+The \texttt{<term>} element has the following attributes:
+\begin{itemize}
+\item \texttt{id} (\textbf{required}): unique identifier starting with the
+  prefix ``t''. If the term is a compound term (see Section
+  \ref{sec:compound-terms}), the prefix is ``t.mw''.
+\item \texttt{type} (optional): type of the term. Currently, 2 values are
+  possible:
+  \begin{itemize}
+  \item \texttt{open}: open category term
+  \item \texttt{close}: close category term
+  \end{itemize}
+\item \texttt{lemma} (optional): lemma of the term
+\item \texttt{pos} (optional): part of speech. The first letter of the pos
+  attribute must be one of the following:
+  \begin{itemize}
+  \item [N] common noun
+  \item [R] proper noun
+  \item [G] adjective
+  \item [V] verb
+  \item [P] preposition
+  \item [A] adverb
+  \item [C] conjunction
+  \item [D] determiner
+  \item [O] other
+  \end{itemize}
+\item \texttt{morphofeat} (optional): morphosyntactic feature encoded as a
+  single attribute.
+\item \texttt{head} (optional): if the term is a compound, the id of the
+  head component (see Section \ref{sec:compound-terms}).
+\item \texttt{case} (optional): declension case of the term.
+\end{itemize}
+
+The \texttt{<term>} element have the following sub-element:
+\begin{itemize}
+\item \texttt{span}: used to identify the tokens that the term spans. A
+  single term may refer to one or more words, in case of multiword
+  expressions. The \texttt{<span>} element has as many \texttt{<target>}
+  sub-elements as spanned tokens (see example below).
+\end{itemize}
+
+Example of term level annotations:
+\begin{verbatim}[fontsize=\small]
+<terms>
+  <term id="t1" lemma="John" pos="R">
+    <span>
+      <target id="w1"/>
+    </span>
+  </term>
+  <term id="t2" type="open" lemma="teach" pos="V">
+    <span>
+      <target id="w2"/>
+    </span>
+  </term>
+  <term id="t3" lemma="mathematics" pos="N">
+    <span>
+      <target id="w3"/>
+    </span>
+  </term>
+  <term id="t4" lemma="20" pos="N">
+    <span>
+      <target id="w4"/>
+    </span>
+  </term>
+  <term id="t5" lemma="minute" pos="N">
+    <span>
+      <target id="w5"/>
+    </span>
+  </term>
+  <term id="t5" lemma="every" pos="D">
+    <span>
+      <target id="w6"/>
+    </span>
+  </term>
+  <term id="t6" lemma="Monday" pos="N">
+    <span>
+      <target id="w7"/>
+    </span>
+  </term>
+  <term id="t7" lemma="in" pos="P">
+    <span>
+      <target id="w8"/>
+    </span>
+  </term>
+  <term id="t.mw8" lemma="New_York" pos="R">
+    <span>
+      <target id="w9"/>
+      <target id="w10"/>
+    </span>
+  </term>
+</terms>
+\end{verbatim}
+
+
+\subsection{Sentiment features}
+\label{sec:sentiment-features}
+
+The term layer represents sentiment information which is context-independent
+and that can be found in a sentiment lexicon. It is related to concepts
+expressed by words/ terms (e.g. ``beautiful'') or multi-word expressions
+(e. g. ``out of order''). NAF provides possibilities to store sentiment
+information at term level and at sense/synset level. In the latter case, the
+sentiment information is included in the \texttt{<externalReference>}
+section (Section \ref{sec:external-references}) and a word sense
+disambiguation process may identify the correct sense along its sentiment
+information. \\
+
+%The extension contains the following information categories.
+
+The \texttt{<sentiment>} element has the following attributes:
+\begin{itemize}
+\item \texttt{Resource} (\textbf{required}): identifier and reference to an external sentiment
+  resource.
+\item \texttt{Polarity} (\textbf{required}): Refers to the property of a
+  word/sense to express positive, negative or no sentiment. These values are
+  possible:
+  \begin{itemize}
+  \item positive
+  \item negative
+  \item neutral
+  \item Or a numerical value.
+  \end{itemize}
+\item \texttt{Strength} (optional): refers to the strength of the polarity.
+  \begin{itemize}
+  \item weak
+  \item average
+  \item strong
+  \item Or a numerical value
+  \end{itemize}
+\item \texttt{Subjectivity} (optional): refers to the property of a words to express an
+  opinion (or not).
+  \begin{itemize}
+  \item subjective
+  \item objective
+  \item factual
+  \item opinionated
+  \end{itemize}
+\item \texttt{Sentiment\_semantic\_type} (optional): refers to a
+  sentiment-related semantic type. Possible values:
+  \begin{itemize}
+  \item Aesthetics\_evaluation
+  \item Moral\_judgment
+  \item Emotion
+  \item etc.
+  \end{itemize}
+\item \texttt{Sentiment\_modifier} (optional): refers to words which modify
+  the polarity of another word. Possible values:
+  \begin{itemize}
+  \item intensifier polarity shifter
+  \item weakener polarity shifter
+  \end{itemize}
+\item \texttt{Sentiment\_marker} (optional): refers to words which
+  themselves do not carry polarity, but are kind of vehicles of it. Possible
+  values:
+  \begin{itemize}
+  \item Find, think, in my opinion, according to ...
+  \end{itemize}
+\item \texttt{Sentiment\_product\_feature} (optional): refers to a domain;
+  mainly used in feature-based sentiment analysis. Values are related to
+  specific domain. These are some possible values for for the tourist
+  domain:
+  \begin{itemize}
+  \item staff, cleanliness, beds, bathroom, transportation, location, etc..
+  \end{itemize}
+\end{itemize}
+
+Table \ref{tab:sent-attr-some} shows sentiment values for some words.
+
+\begin{table}[t]
+  \centering
+  \ttfamily
+  \small
+  \begin{tabular}{|c|l|}
+    \hline
+    \textrm{Word} & \textrm{Sentiment attributes}\\
+    \hline
+    \multirow{6}{*}{\textrm{beatiful}} & polarity = "positive" \\
+    & strength = "average" \\
+    & subjectivity = "subjective"\\
+    & sentiment\_semantic\_type = "aesthetics\_evaluation"\\
+    & sentiment\_modifier = ""\\
+    & sentiment\_product\_feature = "general"\\
+    \hline
+    \multirow{6}{*}{\textrm{valley}} & polarity = "negative"\\
+    & strength = "average"\\
+    & subjectivity = "factual"\\
+    & sentiment\_semantic\_type = ""\\
+    & sentiment\_modifier = ""\\
+    & sentiment\_product\_feature = "beds"\\
+    \hline
+    \multirow{6}{*}{\textrm{very}} & polarity = ""\\
+    & strength = ""\\
+    & subjectivity = ""\\
+    & sentiment\_semantic\_type = ""\\
+    & sentiment\_modifier = "intensifier"\\
+    & sentiment\_product\_feature = ""\\
+    \hline
+  \end{tabular}
+  \caption{\textrm{Sentiment attributes.}}
+  \label{tab:sent-attr-some}
+\end{table}
+
+
+Example:
+\begin{verbatim}[fontsize=\small]
+<!-- term level sentiment annotation -->
+<term id="t2" lemma="nice" pos="G">
+  <sentiment resource="VUA_polarityLexicon_word" polarity="positive"
+    strength="average" subjectivity="subjective"
+    sentiment_semantic_type="behaviour/trait" />
+  <span><target id="w2"/></span>
+<!-- sense level sentiment annotation -->
+</term>
+<term id="t5" lemma="warm" pos="G">
+  <sentiment/>
+  <span><target id="w5"/></span>
+  <externalReferences>
+    <externalRef resource="WN-ENG" reference="c_1009" conf="0.38">
+      <sentiment resource="VUA_polarityLexicon_synset" polarity="positive"
+          strength="average" subjectivity="subjective"
+         sentiment_semantic_type="behaviour/traitEvaluation"/>
+    </externalRef>
+    <externalRef resource="WN-ENG" reference="c_1008" conf="0.31">
+      <sentiment resource="VUA_polarityLexicon_synset" polarity="positive"
+         strength="average" subjectivity="objective"
+         sentiment_semantic_type="temperature"/>
+    </externalRef>
+  </externalReferences>
+</term>
+\end{verbatim}
+
+\subsection{External References}
+\label{sec:external-references}
+
+The \texttt{<externalReferences>} element is used to associate terms to
+external resources, such as elements of a Knowledge base, an ontology,
+etc. It consists of several \texttt{<externalRef>} elements, one per
+association. The \texttt{<externalRef>} elements may be nested, meaning that
+each externalRef refines the relation expressed by the parent element.\\
+
+The \texttt{<externalRef>} element has the following attributes:
+\begin{itemize}
+\item \texttt{resource} (\textbf{required}): indicates the identifier of the
+  resource referred to.
+\item \texttt{reference} (\textbf{required}): code of the referred
+  element. If the element is a synset of some version of WordNet, it is
+  recommended to follow the pattern:\\
+  \begin{center}
+    \texttt{[a-z]{3}-[0-9]{2}-[0-9]+-[nvars]}
+  \end{center}
+  which is a string composed by four fields separated by a dash. The four
+  fields are the following:
+  \begin{itemize}
+  \item Language code (three characters, lowercase).
+  \item WordNet version (two digits).
+  \item Synset identifier composed by digits.
+  \item POS character:
+    \begin{itemize}
+    \item [n] noun
+    \item [v] verb
+    \item [a] adjective
+    \item [r] adverb
+    \end{itemize}
+  \end{itemize}
+  examples of valid patterns are: ``eng-20-12345678-n'',
+  ``spa-16-017403-v'', etc.
+\item \texttt{reftype} (optional): indicates the kind of relation the
+  externalRef is expressing.
+\item \texttt{status} (optional): indicates the status of the relationship.
+\item \texttt{source} (optional): the name of the process which created the
+  external reference.
+\item \texttt{confidence} (optional): a floating number between 0 and
+  1. Indicates the confidence weight of the association.
+\end{itemize}
+
+Example of term level annotations:
+\begin{verbatim}[fontsize=\small]
+<terms>
+  <term id="t1" lemma="John" pos="R">
+    <span>
+      <target id="w1"/>
+    </span>
+  </term>
+  <term id="t2" type="open" lemma="teach" pos="V">
+    <span>
+      <target id="w2"/>
+    </span>
+    <externalReferences>
+      <externalRef resource="WN-1.7" reference="eng-17-00861095-v"
+                   confidence="0.80">
+        <externalRef resource="ontology" reference="Teach"
+                     reftype="SubClassOf">
+        </externalRef>
+      </externalRef>
+      <externalRef resource="WN-1.7" reference="eng-17-00859568-v"
+                   confidence="0.20"/>
+    </externalReferences>
+  </term>
+  <term id="t3" lemma="mathematics" pos="N">
+    <span>
+      <target id="w3"/>
+    </span>
+    <externalReferences>
+      <externalRef resource="WN-1.7" reference="eng-17-04597590-n"
+                   confidence="1.0"/>
+    </externalReferences>
+  </term>
+  <term id="t4" lemma="20" pos="N">
+    <span>
+      <target id="w4"/>
+    </span>
+  </term>
+  <term id="t5" lemma="minute" pos="N">
+    <span>
+      <target id="w5"/>
+    </span>
+  </term>
+  <externalReferences>
+    <externalRef resource="WN-1.7" reference="eng-17-12621100-n"
+                 confidence="0.80"/>
+    <externalRef resource="WN-1.7" reference="eng-17-12631889-n"
+                 confidence="0.20"/>
+  </externalReferences>
+  <term id="t5" lemma="every" pos="D">
+    <span>
+      <target id="w6"/>
+    </span>
+  </term>
+  <term id="t6" lemma="Monday" pos="N">
+    <span>
+      <target id="w7"/>
+    </span>
+    <externalReferences>
+      <externalRef resource="WN-1.7" reference="eng-17-12557842-n"
+                   confidence="1.0"/>
+    </externalReferences>
+  </term>
+  <term id="t7" lemma="in" pos="P">
+    <span>
+      <target id="w8"/>
+    </span>
+  </term>
+  <term id="mw8" lemma="New_York" pos="R">
+    <span>
+      <target id="w9"/>
+      <target id="w10"/>
+    </span>
+  </term>
+</terms>
+\end{verbatim}
+
+\subsection{Compound terms}
+\label{sec:compound-terms}
+
+Compound terms can be represented in NAF by including \texttt{<component>}
+elements within \texttt{<term>} elements. For example, the term
+landbouwbeleid (English: agriculture policy) would look like this:
+
+\begin{verbatim}[fontsize=\small]
+<term id="t.mw7" head="t.mw7.1" lemma="landbouwbeleid" pos="N" type="open">
+  <span>
+    <target id="w7"/>
+  </span>
+  <component id="t.mw7.1" lemma="landbouw" pos="N">
+    <externalReferences>...</externalReferences>
+  </component>
+  <component id="t.mw7.2" lemma="beleid" pos="N">
+    <externalReferences>...</externalReferences>
+  </component>
+  <externalReferences>...</externalReferences>
+</term>
+\end{verbatim}
+
+Note: the \texttt{id} attribute of compound terms start with the prefix ``t.mw''.\\
+
+The \texttt{<component>} element has the following attributes:
+\begin{itemize}
+\item \texttt{id} (\textbf{required)}: unique identifier for the component
+  starting with the same prefix as its parent \texttt{<term>} element. For
+  instance, if the parent \texttt{<term>} element's \texttt{id} is
+  \texttt{t.mw7}, the prefix for the \texttt{id} attribute of the
+  \texttt{<component>} elements is \texttt{t.mw7} (for instance,
+  \texttt{t.mw7.1}, \texttt{t.mw7.2}, etc).
+\item \texttt{lemma} (optional): lemma of the term.
+\item \texttt{head} (optional): the identifier of the head component (one of
+  the \texttt{<component>} sub-element).
+\item \texttt{pos} (optional): part of speech.
+\item \texttt{case} (optional): declension case.
+\end{itemize}
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "naf"
+%%% End: 

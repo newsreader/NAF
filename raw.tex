@@ -1,0 +1,28 @@
+
+\section{Raw layer}
+\label{sec:raw-layer}
+
+NAF document can encode a ``raw'' layer with the actual document to be
+processed. This layer is entirely optional, and is encoded as a
+\texttt{CDATA} section.
+
+Given this input document:
+\begin{quote}
+  John taught mathematics 20 minutes every Monday in New York.
+
+  He liked it a lot!
+\end{quote}
+
+The NAF raw layer would look like:
+\begin{verbatim}[fontsize=\small]
+  <raw><![CDATA[John taught mathematics 20 minutes every Monday in New York.
+
+He liked it a lot!]]>
+  </raw>
+\end{verbatim}
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "naf"
+%%% End: 

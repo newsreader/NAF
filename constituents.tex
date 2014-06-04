@@ -1,0 +1,127 @@
+\section{Constituency parsing}
+\label{sec:constituency-parsing}
+
+This layer represent the output of constituency analysis parsers, i.e., full
+syntactic tree of sentences. The top element of the layer is
+\texttt{<constituency>}, and each sentence (parse tree) is represented by a
+\texttt{<tree>} element. Inside each \texttt{<tree>}, there are three types
+of elements:
+\begin{itemize}
+\item \texttt{<nt>} elements representing non-terminal nodes.
+\item \texttt{<t>} elements representing terminal nodes.
+\item \texttt{<edge>} elements representing in-tree edges.
+\end{itemize}
+
+The \texttt{<nt>} element represents the internal nodes of the parse
+tree. It has the following attribute:
+\begin{itemize}
+\item \texttt{id} (\textbf{required}): unique identifier starting with the
+  prefix ``nter'';
+\item \texttt{label} (\textbf{required}): the category label of the node
+  (for instance, 'S', 'NP', 'VP', etc).
+\end{itemize}
+
+The \texttt{<t>} element represents the leaf nodes of the parse tree. It has
+the following attributes:
+\begin{itemize}
+\item \texttt{id} (\textbf{required}): unique identifier starting with the
+  prefix ``ter'';
+\end{itemize}
+
+The \texttt{<t>} element contains a \texttt{<span>} element pointing to the
+\emph{term} layer.  Each \texttt{<span>} contains one or more
+\texttt{<target>} elements, with the following attributes:
+
+\begin{itemize}
+\item \texttt{id} (\textbf{required}): id of the target term.
+\end{itemize}
+
+The \texttt{<edge>} attribute links child nodes with its parent. It has the
+following attribute:
+
+\begin{itemize}
+\item \texttt{id} (optional) unique identifier starting with the
+  prefix ``tre'' (tree edge);
+\item \texttt{from} (\textbf{required}): id of the child node. The child node can be a terminal
+  or a non-terminal.
+\item \texttt{to} (\textbf{required}): id of the parent node. The parent
+  node is a non-terminal.
+\item \texttt{head} (optional): a "yes" value indicates that the child node
+  is the head constituent of the sub-tree pointed by the parent node.
+\end{itemize}
+
+Note that the order in which the \texttt{<edge>} elements appear in the XML
+document is important. In particular, it has to maintain the relative order
+among the sub-clauses of constituents. Therefore, in NAF the order of the
+edges pointing to the same parent (having the same value for the \texttt{to}
+attribute) has to be preserved.
+
+Given the sentence:
+
+\begin{quote}
+  The dog ate the cat.  
+\end{quote}
+
+Its lispified parse tree is (heads are marked with an asterisk):
+\begin{quote}
+  (S (NP (DET The) *(NN dog)) *(VP *(V ate) (NP ((DET the) *(NN cat)))) (. .))
+\end{quote}
+
+The NAF representation would be as follows:
+
+\begin{verbatim}[fontsize=\small]
+<constituency>
+  <tree>
+    <!-- Non-terminals -->
+    <nt id="nter0"  label="ROOT"/>
+    <nt id="nter1"  label="S"/>
+    <nt id="nter2"  label="NP"/>
+    <nt id="nter3"  label="VP"/>
+    <nt id="nter4"  label="V"/>
+    <nt id="nter5"  label="NP"/>
+    <nt id="nter6"  label="DET"/>
+    <nt id="nter7"  label="NN"/>
+    <nt id="nter8"  label="DET"/>
+    <nt id="nter9"  label="NN"/>
+    <nt id="nter10" label="."/>
+    <!-- Terminals -->
+    <!-- The -->
+    <t id="ter1"><span><target id="t1"/></span></t>
+    <!-- dog -->
+    <t id="ter2"><span><target id="t2"/></span></t>
+    <!-- ate -->
+    <t id="ter3"><span><target id="t3"/></span></t>
+    <!-- the -->
+    <t id="ter4"><span><target id="t4"/></span></t>
+    <!-- cat -->
+    <t id="ter5"><span><target id="t5"/></span></t>
+    <!-- . -->
+    <t id="ter6"><span><target id="t6"/></span></t>
+
+    <!-- tree edges. Note: order is important! -->
+    <edge id="tre1" from="nter1" to="nter0"/>             <!-- ROOT <- S -->
+    <edge id="tre2" from="nter2" to="nter1"/>             <!-- S <- NP -->
+    <edge id="tre3" from="nter6" to="nter2"/>             <!-- NP <- DET -->
+    <edge id="tre4" from="ter1" to="nter6"/>              <!-- DET <- The -->
+    <edge id="tre5" from="nter7" to="nter2" head="yes"/>  <!-- NP <- NN (head) -->
+    <edge id="tre6" from="ter2" to="nter7"/>              <!-- NN <- dog -->
+    <edge id="tre7" from="nter3" to="nter1" head="yes"/>  <!-- S  <- VP (head) -->
+    <edge id="tre8" from="nter4" to="nter3" head="yes"/>  <!-- VP <- V (head) -->
+    <edge id="tre9" from="ter3" to="nter4"/>              <!-- V  <- ate -->
+    <edge id="tre10" from="nter5" to="nter3"/>            <!-- VP <- NP -->
+    <edge id="tre11" from="nter8" to="nter5"/>            <!-- NP <- DET -->
+    <edge id="tre12" from="ter4" to="nter8"/>             <!-- DET <- the -->
+    <edge id="tre13" from="nter9" to="nter5" head="yes"/> <!-- NP <- NN (head) -->
+    <edge id="tre14" from="ter5" to="nter5"/>             <!-- NN <- cat -->
+    <edge id="tre15" from="ter6" to="nter10"/>            <!-- . <- . -->
+    <edge id="tre16" from="nter10" to="nter1"/>           <!-- S <- . -->
+  </tree>
+</constituency>
+\end{verbatim}
+
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "naf"
+%%% End: 

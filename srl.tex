@@ -1,0 +1,105 @@
+
+\section{Semantic Role Labeling}
+\label{sec:semant-role-label}
+
+Semantic Role Labeling (SRL) is a shallow semantic analysis which detects
+semantic arguments associated with predicates. In NAF, the SRL information
+is stored on a separate layer, whose top element is \texttt{<srl>}.
+
+Each annotated predicate is represented by an \texttt{<predicate>}
+element. The \texttt{<predicate>} element has the following attributes:
+\begin{itemize}
+\item \texttt{id} (\textbf{required}): the identifier of the predicate,
+  starting with the prefix ``pr''.
+\item \texttt{uri} (optional): An URI to an external resource representing the model of
+  an event/predicate. For instance, it could be a reference to a frame in
+  \emph{FrameNet} (@@rref), \texttt{PropBank} (@@rref), etc.
+\item \texttt{confidence} (optional): a floating number between 0 and
+  1. Indicates the confidence weight of the association.
+\end{itemize}
+
+
+Inside \texttt{<predicate>}, there are the following sub-elements:
+\begin{itemize}
+\item One \texttt{<externalReferences>} element, which links the predicate
+  with one or more external resources.
+\item One \texttt{<span>} element, spaning terms, and which point to the
+  surface form of the predicate in the document.
+\item One or more \texttt{<role>} elements which fill the arguments of the
+  predicate.
+\end{itemize}
+
+As always in NAF, the \texttt{<span>} element contains one or more
+\texttt{<target>} elements with the following attribute:
+
+\begin{itemize}
+\item \texttt{id} (\textbf{required}): id of the target term.
+\end{itemize}
+
+The \texttt{<role>} element represents filler of a particular argument of
+the predicate. It has the following attributes:
+\begin{itemize}
+\item \texttt{id} (\textbf{required}): the id of the role, starting with
+  prefix ``rl''.
+\end{itemize}
+
+Inside \texttt{<role>}, there are the following sub-elements:
+\begin{itemize}
+\item One \texttt{<externalReferences>} element, which links the predicate
+  with one or more external resources.
+\item One \texttt{<span>} element, spaning terms, and which point to the
+  surface form of the predicate in the document.
+\end{itemize}
+
+Each \texttt{<span>} contains one or more \texttt{<target>}
+elements, with the following attributes:
+
+\begin{itemize}
+\item \texttt{id} (\textbf{required}): id of the target term.
+\end{itemize}
+
+Given the following sentence:
+
+\begin{quote}
+  She was making apple jam for her friends and it was a surprise.
+\end{quote}
+
+The SRL layer would be encoded as follows:
+
+\begin{verbatim}[fontsize=\small]
+<srl>
+  <predicate id="pr1" uri="http://framenet.net/Make" confidence=0.9>
+    <!-- making -->
+     <externalReferences>
+        <externalRef reference="cognition" reftype="mcr:cognition" resource="2"/>
+        <externalRef reference="cognition" reftype="mcr:cognition" resource="mc"/>
+        <externalRef reference="eng-30-00690614-v" resource="wn:eng-30"/>
+      </externalReferences>
+    <span>
+      <target id="t3"/>
+    </span>
+    <role id="rl1" semRole="Agent">
+      <!-- She -->
+      <externalReferences>
+        <externalRef reference="participant" resource="1"/>
+      </externalReferences>
+      <span>
+	<target id="t1"/>
+      </span>
+    </role>
+    <role id="rl2" semRole="Theme">
+      <!-- apple jam -->
+      <span>
+	<target id="t4"/>
+	<target id="t5"/>
+      </span>
+    </role>
+  </predicate>
+</srl>
+\end{verbatim}
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "naf"
+%%% End: 

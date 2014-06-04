@@ -1,0 +1,127 @@
+
+\section{Events}
+\label{sec:events}
+
+@@TODO: intro about events\\
+
+\subsection{Time expressions}
+\label{sec:time-expressions}
+
+NAF follows TimeML schema for annotating time expressions under the
+\texttt{timeExpressions} layer. Inside \texttt{timeExpressions} there are
+many \texttt{<timex3>} elements, each one describing one time
+expression. The \texttt{<timex3>} in NAF have the same semantics as
+TimeML. The only difference is that TimeML inserts \texttt{<timex3>}
+elements along with the running text in the document, wheras NAF uses a
+stand-off approach. Please refer to TimeML specification document (@@ref)
+for further information.
+
+The \texttt{<timex3>} element has the following attributes:
+\begin{itemize}
+\item \texttt{id} (\textbf{required}): unique identifier starting with
+  the prefix ``tmx'' (``tmx1'', ``tmx2'', etc.)
+
+\item \texttt{type} (\textbf{required}): type of the timex3
+  expression. Possible values:
+  \begin{itemize}
+  \item DATE
+  \item TIME
+  \item DURATION
+  \item SET
+  \end{itemize}
+
+\item \texttt{beginPoint} (optional): term id of beginning point.
+\item \texttt{endPoint} (optional): term id of end point.
+\item \texttt{quant} (optional): used for specifying sets that denote
+  quantified times. Generally a literal from the text that quelifies over
+  the expression. Usual values are ``EVERY'', ``SOME'', etc.
+\item \texttt{freq} (optional): Used for specifying sets that denote
+  quantified times. It contains an integer value and a time granularity to
+  represent any frequency contained in the set. Usual values are ``2X''
+  (twice-a-month), ``3D'' (three-days), etc.
+
+\item \texttt{functionInDocument} (default value: ``NONE''): indicates the
+  function of the timex3 providing an anchor to other temporal expressions
+  in the document. One of this values:
+
+  \begin{tabular}{|c|p{9cm}|}
+    \hline
+    Value & Description \\
+    \hline
+    CREATION\_TIME     & date and time the identified resource where first created.\\
+    EXPIRATION\_TIME   & date and time when the right to publish material expires.\\
+    MODIFICATION\_TIME & date and time the resource was last modified.\\
+    PUBLICATION\_TIME  & date and time when the resource is released to the public.\\
+    RELEASE\_TIME      & date and time when the resource may be distributed.\\
+    RECEPTION\_TIME    & date and time when the resource was received on current system.\\
+    NONE & ---\\
+    \hline
+
+  \end{tabular}
+
+\item \texttt{temporalFunction} (default: ``false''): whether the timex3 is
+  used as a temporal function (``two weeks ago''). Possible values are
+  ``true'' or ``false''.
+
+\item \texttt{value} (optional): XML datatype based on 2002 TIDES guideline
+  (expanding ISO 8601) for representing dates, times and durations. Possible
+  values are ``Duration'', ``Time'', ``WeekDate'', ``Season'',
+  ``PartOfYear'', ``ParPrFu'', etc.
+
+\item \texttt{valueFromFunction} (optional): used when the value is taken
+  from a temporal function timex3. The value is the identifier (tmx3id) of
+  the timex3.
+
+\item \texttt{mod} (optional): Used for temporal modifiers that cannot be
+  expressed either within value proper, or via links or temporal
+  functions. Possible values:
+  \begin{itemize}
+  \item BEFORE
+  \item AFTER
+  \item ON\_OR\_BEFORE
+  \item ON\_OR\_AFTER
+  \item LESS\_THAN
+  \item MORE\_THAN
+  \item EQUAL\_OR\_LESS
+  \item EQUAL\_OR\_MORE
+  \item START
+  \item MID
+  \item END
+  \item APPROX
+  \end{itemize}
+
+\item \texttt{anchorTimeID} (optional): point to another timex3 in case of
+  expression such as ``last week'', which have a functional
+  interpretation. \texttt{anchorTimeID} provides the reference point to
+  which the function interpretation applies. The value is the identifier
+  (tmx3id) of the timex3.
+\item \texttt{comment} (optional): optional comment.
+\end{itemize}
+
+The \texttt{<timex3>} element has one sub-element, \texttt{<span>}, which
+groups the word forms the expression is referring to\footnote{Note that
+  usually span elements refer to terms, but timex3 span elements reger to
+  word forms.}.
+
+\begin{verbatim}[fontsize=\small]
+<timeExpressions>
+  <timex3 id="tmx1" type="DURATION">
+    <span>
+      <target id="w17"/>
+      <target id="w18"/>
+      <target id="w19"/>
+      <target id="w20"/>
+    </span>
+  </timex3>
+  <timex3 id="tmx2" type="DATE">
+    <span>
+      <target id="w22"/>
+    </span>
+  </timex3>
+</timeExpressions>
+\end{verbatim}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "naf"
+%%% End:

@@ -1,0 +1,104 @@
+\section{Introduction}
+\label{sec:introduction}
+
+This document presents the first draft of NAF: NLP Annotation Format
+to be used within the NewsReader project. This version of NAF evolves for
+the format used in Kyoto, described in \cite{KAF}.
+
+
+% @@
+% [ASF: How about ``NLP Annotation Format'': since we're hoping NAF will be used beyond the project]
+
+% @@TODO: add text. add references. add TAF, NIF, SEM\\
+
+The following properties and desiderata are used as guidelines for defining NAF:
+
+\begin{enumerate}
+\item NAF should properly represent linguistic information focusing on two
+  kind of linguistic processes (LPs):
+  \begin{enumerate}
+  \item within document processing: LPs whose granularity is the document
+  \item cross document processing, for (event) coreference, etc.
+  \end{enumerate}
+  \item NAF should be simple
+  \item NAF should work for existing NLP modules developed by the partners in NewsReader, i.e. it should be easy and little afford to adapt existing tools to use NAF.
+  \item All elements in NAF will be identified with URIs (not document/XML-object internal ids)
+  \item NAF should be flexible so that it can contain additional information and alternative representations:
+  \begin{enumerate}
+  \item It should be possible (and preferably easy) to integrate alternative modules (that may be developed by third parties) in the pipeline
+  \item It should be possible to represent other RDF-based layers that link to the URIs used in the SEM annotation layer or to background knowledge
+  \end{enumerate}
+\end{enumerate}
+
+The general approach for creating NAF will be to start with KAF, which already supports a number of desiderata mentioned above.
+An overview of properties taken from KAF and proposed changes is given below:
+
+\begin{enumerate}
+  \item NAF will follow the stand-off/multi-layer architecture as also used in related formats such as KAF
+  \item NAF will be presented in XML, using the KAF schema as a starting point
+  \item The current ids in KAF will be converted to URIs
+  \item Additional elements may be added, for instance, to allow for references to the SEM layer or background knowledge
+  \item Elements may need to be reordered to turn KAF into a proper RDF graph
+\end{enumerate}
+
+% There have been numerous attempts to standardize some aspect of natural
+% language processing. To date, the focus of standards (in various stages of
+% development) includes morphosyntactic annotation (MAF) [3], syntactic
+% annotation (SynAF) [4], and semantic annotation (e.g. SemAF [5]). The
+% beforementioned standards concentrate on a specific stage of annotation. The
+% two meta-models present different degrees of maturity; MAF has entered the
+% last stages of the ISO process, whereas SynAF is at the level of Working
+% Draft standard.
+
+% A problem for these formats is that they are difficult to combine. For
+% instance, we might want to do both syntactic annotation and semantic
+% annotation, and integrate the results. The Linguistic Annotation Framework
+% (LAF) [6] is an ISO standard proposal of a data model for linguistic
+% annotation. It allows individual annotations within the annotation framework
+% to refer to each other, so that the result is a combined analysis of the
+% source text.
+
+% Rather than a data model, our aim is a layered annotation format, where
+% several processes can add information without losing anything which is
+% produced by any previous process. NAF provides annotation layers for basic
+% natural language processing and is open to extensions with other annotation
+% layers needed by specific applications, which may be standardized later
+% on. NAF is compatible with LAF but imposes a more specific standardization
+% of the annotation format itself.
+
+% NAF data format has been inspired by standard specifications available in
+% the field of Language Resources. Basic motivations for that were to ensure
+% intra- and inter-operability and portability. MAF and SynAF were
+% investigated as far linguistic annotation for morpho-syntactic and syntactic
+% information, respectively, is concerned.
+
+% NAF can be seen as a three-layer format for text annotation: the first two
+% layers, explicitly dedicated to representing morphosyntactic and syntactic
+% information, are inspired by MAF and SynAF and are implemented "over" the
+% semantic layer. For semantic annotation, the ISO community provides SemAF
+% which is especially dedicated to the representation of events and time. We
+% decided to boost semantic annotation and devised a dialect of the ISO
+% standards, where semantic notation is tailored to the specific purposes of
+% the project. NAF layers are to be seen as dialects of the ISO standards, yet
+% maintaining (different degrees of) mappability to them. Therefore, NAF does
+% not corrupt the compliance with ISO standards and their underlying
+% philosophy; instead, it is in line with the strategy in ISO which provides
+% high-level models (meta-models) able to be adapted, tailored and implemented
+% according to specific needs.
+
+NAF comprises several annotations over a text at different linguistic levels
+(morphosyntactic, syntactic, semantic) and adopts a stand off strategy for
+annotating the source text. The following overall rules are followed in all
+layers:
+
+\begin{itemize}
+\item \texttt{<span>} elements are used for grouping linguistic elements.
+\item Linguistic annotations of a particular level always span elements of previous levels.
+\item Linguistic annotations of different levels are not mixed.
+\end{itemize}
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "naf"
+%%% End: 
