@@ -58,7 +58,7 @@ to external lexical or semantic resources. See Section
 
 Example of an entity mention:
 
-\begin{verbatim}[fontsize=\small]
+\begin{Verbatim}[fontsize=\small]
 <entities>
   <!-- John -->
   <entity id="e1" type="person">
@@ -93,11 +93,11 @@ Example of an entity mention:
       </span>
       <!-- The capital city of England -->
       <span>
-        <target id="t1" head="yes"/>
-        <target id="t2" head="yes"/>
-        <target id="t3" head="yes"/>
-        <target id="t4" head="yes"/>
-        <target id="t5" head="yes"/>
+        <target id="t1" />
+        <target id="t2" />
+        <target id="t3" head="yes"/> <!-- city is the head -->
+        <target id="t4" />
+        <target id="t5" />
       </span>
     </references>
     <externalReferences>
@@ -108,7 +108,7 @@ Example of an entity mention:
     </externalReferences>
   </entity>
 </entities>
-\end{verbatim}
+\end{Verbatim}
 
 
 %%% Local Variables: 

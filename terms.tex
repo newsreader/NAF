@@ -48,7 +48,7 @@ The \texttt{<term>} element have the following sub-element:
 \end{itemize}
 
 Example of term level annotations:
-\begin{verbatim}[fontsize=\small]
+\begin{Verbatim}[fontsize=\small]
 <terms>
   <term id="t1" lemma="John" pos="R">
     <span>
@@ -97,7 +97,7 @@ Example of term level annotations:
     </span>
   </term>
 </terms>
-\end{verbatim}
+\end{Verbatim}
 
 
 \subsection{Sentiment features}
@@ -210,7 +210,7 @@ Table \ref{tab:sent-attr-some} shows sentiment values for some words.
 
 
 Example:
-\begin{verbatim}[fontsize=\small]
+\begin{Verbatim}[fontsize=\small]
 <!-- term level sentiment annotation -->
 <term id="t2" lemma="nice" pos="G">
   <sentiment resource="VUA_polarityLexicon_word" polarity="positive"
@@ -235,7 +235,7 @@ Example:
     </externalRef>
   </externalReferences>
 </term>
-\end{verbatim}
+\end{Verbatim}
 
 \subsection{External References}
 \label{sec:external-references}
@@ -282,7 +282,7 @@ The \texttt{<externalRef>} element has the following attributes:
 \end{itemize}
 
 Example of term level annotations:
-\begin{verbatim}[fontsize=\small]
+\begin{Verbatim}[fontsize=\small]
 <terms>
   <term id="t1" lemma="John" pos="R">
     <span>
@@ -355,7 +355,7 @@ Example of term level annotations:
     </span>
   </term>
 </terms>
-\end{verbatim}
+\end{Verbatim}
 
 \subsection{Compound terms}
 \label{sec:compound-terms}
@@ -364,7 +364,7 @@ Compound terms can be represented in NAF by including \texttt{<component>}
 elements within \texttt{<term>} elements. For example, the term
 landbouwbeleid (English: agriculture policy) would look like this:
 
-\begin{verbatim}[fontsize=\small]
+\begin{Verbatim}[fontsize=\small]
 <term id="t.mw7" head="t.mw7.1" lemma="landbouwbeleid" pos="N" type="open">
   <span>
     <target id="w7"/>
@@ -377,7 +377,7 @@ landbouwbeleid (English: agriculture policy) would look like this:
   </component>
   <externalReferences>...</externalReferences>
 </term>
-\end{verbatim}
+\end{Verbatim}
 
 Note: the \texttt{id} attribute of compound terms start with the prefix ``t.mw''.\\
 
