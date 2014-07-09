@@ -368,11 +368,18 @@ landbouwbeleid (English: agriculture policy) would look like this:
 <term id="t.mw7" head="t.mw7.1" lemma="landbouwbeleid" pos="N" type="open">
   <span>
     <target id="w7"/>
+    <target id="w8/>
   </span>
-  <component id="t.mw7.1" lemma="landbouw" pos="N">
+  <component id="t.mw7.1" lemma="landbouw" pos="N" type="open">
+    <span>
+     <target id="w7"/>
+    </span>
     <externalReferences>...</externalReferences>
   </component>
-  <component id="t.mw7.2" lemma="beleid" pos="N">
+  <component id="t.mw7.2" lemma="beleid" pos="N" type="open">
+    <span>
+     <target id="w8"/>
+    </span>
     <externalReferences>...</externalReferences>
   </component>
   <externalReferences>...</externalReferences>
@@ -381,21 +388,9 @@ landbouwbeleid (English: agriculture policy) would look like this:
 
 Note: the \texttt{id} attribute of compound terms start with the prefix ``t.mw''.\\
 
-The \texttt{<component>} element has the following attributes:
-\begin{itemize}
-\item \texttt{id} (\textbf{required)}: unique identifier for the component
-  starting with the same prefix as its parent \texttt{<term>} element. For
-  instance, if the parent \texttt{<term>} element's \texttt{id} is
-  \texttt{t.mw7}, the prefix for the \texttt{id} attribute of the
-  \texttt{<component>} elements is \texttt{t.mw7} (for instance,
-  \texttt{t.mw7.1}, \texttt{t.mw7.2}, etc).
-\item \texttt{lemma} (optional): lemma of the term.
-\item \texttt{head} (optional): the identifier of the head component (one of
-  the \texttt{<component>} sub-element).
-\item \texttt{pos} (optional): part of speech.
-\item \texttt{case} (optional): declension case.
-\end{itemize}
-
+The \texttt{<component>} element has the same attributes and structure as
+the \texttt{term} element, the only difference being that components can not
+contain more \texttt{component} elements.
 
 %%% Local Variables: 
 %%% mode: latex

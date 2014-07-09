@@ -279,12 +279,16 @@ The <component> elements have the following attributes:
 -	case: declension case (optional) 
 
 -->
-<!ELEMENT component (externalReferences)*>
+<!ELEMENT component (sentiment?|span|externalReferences)+>
 <!ATTLIST component
 	  id ID #REQUIRED
-	  lemma CDATA #REQUIRED
-	  pos CDATA #REQUIRED
-	  case CDATA #IMPLIED>
+	  type CDATA #IMPLIED
+	  lemma CDATA #IMPLIED
+	  pos CDATA #IMPLIED
+	  morphofeat CDATA #IMPLIED
+	  netype CDATA #IMPLIED
+	  case CDATA #IMPLIED
+	  head CDATA #IMPLIED>
 
 <!-- DEPS ELEMENT -->
 <!ELEMENT deps (dep)+>
