@@ -1,8 +1,39 @@
 
-\section{Events}
+\section{Time expressions and events}
+\label{sec:time-expr-events}
+
+This section describes representing relations among events, events and time
+expressions, or relations among time expressions. We first describe how to
+represent events and time relations. Then, we describe how to represent
+relations among them.
+
+\subsection{Events}
 \label{sec:events}
 
-% @@TODO: intro about events\\
+Within NAF, events are represented as coreference clusters in the
+coreference layer \ref{sec:coreference}. Thus, the way to refer to those
+events is to just span to a coreference element (c.f. Section
+\ref{sec:coreference}). For instance, the following example:
+
+\begin{Verbatim}
+<coreferences>
+  <coref id="coevent2" type="event">
+    <span>
+      <!--liked-->
+      <target id="t13"/>
+    </span>
+  </coref>
+  <coref id="coevent1" type="event">
+    <span>
+      <!--taught-->
+      <target id="t2"/>
+    </span>
+  </coref>
+</coreferences>
+\end{Verbatim}
+
+\noindent the coreference clusters \texttt{coevent2} and
+\texttt{coevent1} (of type ``event'') represent two events.
 
 \subsection{Time expressions}
 \label{sec:time-expressions}
@@ -98,10 +129,10 @@ The \texttt{<timex3>} element has the following attributes:
 \item \texttt{comment} (optional): optional comment.
 \end{itemize}
 
-The \texttt{<timex3>} element has one sub-element, \texttt{<span>}, which
-groups the word forms the expression is referring to\footnote{Note that
-  usually span elements refer to terms, but timex3 span elements reger to
-  word forms.}.
+The \texttt{<timex3>} element may have one sub-element, \texttt{<span>},
+which groups the word forms the expression is referring to\footnote{Note
+  that usually span elements refer to terms, but timex3 span elements refer
+  to word forms.}.
 
 \begin{Verbatim}[fontsize=\small]
 <timeExpressions>
@@ -120,6 +151,74 @@ groups the word forms the expression is referring to\footnote{Note that
   </timex3>
 </timeExpressions>
 \end{Verbatim}
+
+\subsection{Temporal relations}
+\label{sec:temporal-relations}
+
+Temporal relations describe several relations that hold between events and
+time expressions of a document. In NAF, all temporal relations are encoded
+within the \texttt{temporalRelations} layer. The layer comprises elements of
+type \texttt{tlink}, one per temporal relation, which mimics the semantics
+of \texttt{tlink} elements of TimeML.
+
+The \texttt{tlink} element is an empty element which contains the following
+attributes:
+
+\begin{itemize}
+\item \texttt{id} (\textbf{required}): unique identifier starting with
+  the prefix ``tlink'' (``tlink1'', ``tlink2'', etc.)
+\item \texttt{from} (\textbf{required}): the source of the temporal relation.
+\item \texttt{to} (\textbf{required}): the target of the temporal relation.
+\item \texttt{fromType} (\texttt{required}): the type of the element the
+  \texttt{from} attribute points to. It can be one of the following:
+  \begin{itemize}
+  \item event. The element is an event.
+  \item timex. The element is a time expression.
+  \end{itemize}
+\item \texttt{toType} (\texttt{required}): the type of the element the
+  \texttt{to} attribute points to. The possible values are the same as the
+  \texttt{fromType} attribute.
+\item \texttt{reltype} (\texttt{required}): the type of the
+  relation. Usually it will have the same value as the \texttt{relType}
+  attribute of TimeML's \texttt{tlink} element, namely:
+  \begin{itemize}
+  \item BEFORE
+  \item AFTER
+  \item INCLUDES
+  \item IS\_INCLUDED
+  \item DURING
+  \item SIMULTANEOUS
+  \item IAFTER
+  \item IBEFORE
+  \item IDENTITY
+  \item BEGINS
+  \item ENDS
+  \item BEGUN\_BY
+  \item ENDED\_BY
+  \item DURING\_INV
+  \end{itemize}
+\end{itemize}
+
+Here is an example of temporal relations in NAF:
+\begin{Verbatim}
+<temporalRelations>
+  <tlink from="coevent46" fromType="event"
+         relType="SIMULTANEOUS"
+         to="coevent47" toType="event"/>
+  <tlink from="tmx0" fromType="timex"
+         relType="AFTER"
+         to="tmx1" toType="timex"/>
+  <tlink from="coevent48" fromType="event"
+         relType="BEFORE"
+         to="tmx0" toType="timex"/>
+</temporalRelations>
+\end{Verbatim}
+
+The first \texttt{tlink} states that events \texttt{coevent46} and
+\texttt{coevent47} occur simultaneously. The second states that time
+expression \texttt{tmx0} occurred after time expression \texttt{tmx1}. The
+last \texttt{tlink} states that event \texttt{coevent48} occurred before
+time expression \texttt{tmx0}.
 
 %%% Local Variables:
 %%% mode: latex

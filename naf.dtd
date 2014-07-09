@@ -1,5 +1,5 @@
 <!-- DTD NAF -->
-<!ELEMENT NAF (nafHeader|raw|topics|text|terms|deps|chunks|entities|coreferences|constituency|srl|opinions|timeExpressions|factualitylayer|tunits|locations|dates)*>
+<!ELEMENT NAF (nafHeader|raw|topics|text|terms|deps|chunks|entities|coreferences|constituency|srl|opinions|timeExpressions|factualitylayer|tunits|locations|dates|temporalRelations)*>
 
 <!-- NAF ELEMENT -->
 <!ATTLIST NAF
@@ -466,6 +466,18 @@ The <opinion> layer consists of the following subelement:
 	  valueFromFunction CDATA #IMPLIED
 	  mod CDATA #IMPLIED
 	  anchorTimeID IDREF #IMPLIED>
+
+<!-- time relations -->
+
+<!ELEMENT timeRelations (tlink)*>
+<!ELEMENT tlink EMPTY>
+<!ATTLIST tlink
+	  id ID #REQUIRED
+	  from IDREF #REQUIRED
+	  to IDREF #REQUIRED
+	  fromType CDATA #REQUIRED
+	  toType CDATA #REQUIRED
+	  relType CDATA #REQUIRED>
 
 <!-- factuality layer -->
 

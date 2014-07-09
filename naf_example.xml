@@ -88,7 +88,11 @@
       <span>
         <target id="w1"/>
       </span>
-    <externalReferences><externalRef resource="wn30g" reference="eng-30-10099375-n" confidence="0.525004"/><externalRef resource="wn30g" reference="eng-30-10100124-n" confidence="0.474996"/></externalReferences></term>
+      <externalReferences>
+	<externalRef resource="wn30g" reference="eng-30-10099375-n" confidence="0.525004"/>
+	<externalRef resource="wn30g" reference="eng-30-10100124-n" confidence="0.474996"/>
+      </externalReferences>
+    </term>
     <!--of-->
     <term id="t2" type="close" lemma="of" pos="P" morphofeat="IN">
       <span>
