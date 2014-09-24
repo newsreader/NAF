@@ -469,7 +469,7 @@ The <opinion> layer consists of the following subelement:
 
 <!-- time relations -->
 
-<!ELEMENT timeRelations (tlink)*>
+<!ELEMENT temporalRelations (tlink)*>
 <!ELEMENT tlink EMPTY>
 <!ATTLIST tlink
 	  id ID #REQUIRED
