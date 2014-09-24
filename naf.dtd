@@ -452,7 +452,7 @@ The <opinion> layer consists of the following subelement:
 <!ELEMENT timeExpressions (timex3)*>
 
 <!-- timex3 expressions -->
-<!ELEMENT timex3 (span)>
+<!ELEMENT timex3 (span)*>
 <!ATTLIST timex3
 	  id ID #REQUIRED
 	  type CDATA #REQUIRED
