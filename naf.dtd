@@ -260,7 +260,7 @@ association.
   ``SPA-16-017403-v'', etc.
 - confidence: a floating number between 0 and 1. Indicates the confidence weight of the association
 -->
-<!ELEMENT externalRef (externalRef)*>
+<!ELEMENT externalRef (sentiment|externalRef)*>
 <!ATTLIST externalRef
           resource CDATA #IMPLIED
           reference CDATA #REQUIRED
