@@ -479,7 +479,7 @@ The <opinion> layer consists of the following subelement:
 	  toType CDATA #REQUIRED
 	  relType CDATA #REQUIRED>
 
-<!-- time relations -->
+<!-- causal relations -->
 
 <!ELEMENT causalRelations (clink)*>
 <!ELEMENT clink EMPTY>
@@ -487,8 +487,6 @@ The <opinion> layer consists of the following subelement:
 	  id ID #REQUIRED
 	  from IDREF #REQUIRED
 	  to IDREF #REQUIRED
-	  fromType CDATA #IMPLIED
-	  toType CDATA #IMPLIED
 	  relType CDATA #IMPLIED>
 
 <!-- factuality layer -->
