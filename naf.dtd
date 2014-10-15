@@ -357,7 +357,7 @@ A named entity element has the following attributes:
 -	id: unique id, starting with the prefix "co"
 -       type: type of the coref set (entity, event, etc)
 -->
-<!ELEMENT coref (span)+>
+<!ELEMENT coref (span|externalReferences)+>
 <!ATTLIST coref
 	  id ID #REQUIRED
 	  type CDATA #IMPLIED>
