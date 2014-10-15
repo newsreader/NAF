@@ -309,9 +309,9 @@
     <!--Football Championship Subdivision-->
     <mark id="m42" lemma="Football Championship Subdivision">
       <span>
-	<target id="w128"/>
-	<target id="w129"/>
-	<target id="w130"/>
+	<target id="w20"/>
+	<target id="w21"/>
+	<target id="w22"/>
       </span>
       <externalReferences>
 	<externalRef resource="spotlight"

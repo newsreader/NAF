@@ -1,5 +1,5 @@
 <!-- DTD NAF -->
-<!ELEMENT NAF (nafHeader|raw|topics|text|terms|deps|chunks|entities|coreferences|constituency|srl|opinions|timeExpressions|factualitylayer|tunits|locations|dates|temporalRelations|causalRelations)*>
+<!ELEMENT NAF (nafHeader|raw|topics|text|terms|deps|chunks|entities|coreferences|constituency|srl|opinions|timeExpressions|factualitylayer|tunits|locations|dates|temporalRelations|causalRelations|markables)*>
 
 <!-- NAF ELEMENT -->
 <!ATTLIST NAF
@@ -291,6 +291,10 @@ The <component> elements have the following attributes:
 	  head CDATA #IMPLIED>
 
 <!-- MARKABLES ELEMENT -->
+
+<!ELEMENT markables (mark)+>
+<!ATTLIST markables
+	  source CDATA #REQUIRED>
 
 <!ELEMENT mark (sentiment?|span|externalReferences)+>
 <!ATTLIST mark
