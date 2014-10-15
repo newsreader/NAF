@@ -92,7 +92,8 @@ have the following attributes:
           version CDATA #REQUIRED
           timestamp CDATA #IMPLIED
 	  beginTimestamp CDATA #IMPLIED
-	  endTimestamp CDATA #IMPLIED>
+	  endTimestamp CDATA #IMPLIED
+	  hostname CDATA #IMPLIED>
 
 <!-- RAW ELEMENT -->
 <!ELEMENT raw (#PCDATA)>
