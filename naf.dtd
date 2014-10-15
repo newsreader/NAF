@@ -290,6 +290,18 @@ The <component> elements have the following attributes:
 	  case CDATA #IMPLIED
 	  head CDATA #IMPLIED>
 
+<!-- MARKABLES ELEMENT -->
+
+<!ELEMENT mark (sentiment?|span|externalReferences)+>
+<!ATTLIST mark
+	  id ID #REQUIRED
+	  type CDATA #IMPLIED
+	  lemma CDATA #IMPLIED
+	  pos CDATA #IMPLIED
+	  morphofeat CDATA #IMPLIED
+	  case CDATA #IMPLIED>
+
+
 <!-- DEPS ELEMENT -->
 <!ELEMENT deps (dep)+>
 
