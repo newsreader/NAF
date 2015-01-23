@@ -27,6 +27,12 @@ string within the input document referred by the token, which is the string
 starting at character \texttt{offset} and ending at \texttt{offset + length}
 (exclusive).
 
+The identifiers associated with sentences, paragraphs and pages
+(\texttt{sent}, \texttt{para} and \texttt{page} attributes) have to be
+numeric positive values in increasing order. The motivation is that the NAF
+has to allow queries such as ``give me the words of the next (previous)
+sentence'', which requires sentence identifiers to be numbers.
+
 The NAF tokenization looks like:
 \begin{Verbatim}[fontsize=\small]
 <text>
