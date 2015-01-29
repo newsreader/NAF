@@ -4,8 +4,20 @@
 This layer represent the output of constituency analysis parsers, i.e., full
 syntactic tree of sentences. The top element of the layer is
 \texttt{<constituency>}, and each sentence (parse tree) is represented by a
-\texttt{<tree>} element. Inside each \texttt{<tree>}, there are three types
-of elements:
+\texttt{<tree>} element.
+
+The \texttt{<tree>} element has one optional attribute:
+\begin{itemize}
+\item \texttt{type} (optional): the type of the tree. 
+\end{itemize}
+
+Sometimes \texttt{<tree>} elements can be used to represent sentence
+structures that are not proper syntactic constituent trees. One typical
+example is grouping nested clauses inside a sentence. In those cases, it is
+useful to mark the \texttt{<tree>} element with a type (for instance,
+\texttt{type="clause"}).
+
+Inside each \texttt{<tree>}, there are three types of elements:
 \begin{itemize}
 \item \texttt{<nt>} elements representing non-terminal nodes.
 \item \texttt{<t>} elements representing terminal nodes.

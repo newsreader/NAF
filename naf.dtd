@@ -384,6 +384,8 @@ A named entity element has the following attributes:
 
 <!ELEMENT constituency (tree)+>
 <!ELEMENT tree (nt|t|edge)+>
+<!ATTLIST tree
+	  type CDATA #IMPLIED>
 
 <!ELEMENT nt EMPTY>
 <!ATTLIST nt
