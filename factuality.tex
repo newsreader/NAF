@@ -1,32 +1,47 @@
 \section{Factuality}
 \label{sec:factuality}
 
-The factuality layer encodes the veracity or \emph{factuality} of events as
-mentioned in the text. This information is useful for recognizing whether
-the events mentioned in the text actually happened (factual events), did not
-happen (contrafactual events), or there is some uncertainty about the event
-occurring or not.
+Information about the veracity or factuality of events can be represented in the factuality layer.\footnote{This layer replaces the former {\tt<factualitylayer>} which did not provide the flexibility required for representing scope or for including information from different approaches. Check out git version XX for information about the old representation.} The information stored in this layer is relevant for finding out whether something happened or not according to a source. It includes information on whether something is certain, probable or possible, it is true or false and whether it is a statement about the future (implying speculation).
 
-The factuality information is described under the \texttt{<factualityLayer>}
-element. Each piece of information regarding factuality of an event is
-represented by an empty element \texttt{<factvalue>}, whose attributes are
-the following:
+The  information is represented pointing to ontologies and specific values, which provides flexibility to add different kinds of information related to factuality and to include information from various modules trained on differently annotated datasets. In the example below, we use the values of factbank and the NewsReader annotations.
+
+The top element of the layer is {\tt <factuality>}. It contains {\tt expression} elements for which we have information concerning their factuality. The expression element has the following attribute and subelements:
 
 \begin{itemize}
-\item \texttt{id} (\textbf{required}): the word id of the event token
-\item \texttt{prediction} (\textbf{required}): the factuality value (nominal
-  value) that is predicted by the classifier, according to the
-  FactBank~\cite{sauri2009factbank} factuality classification scheme.
-\item \texttt{confidence} (optional): a numerical value indicating the
-  confidence the classifier has in its prediction.
+\item id (\textbf{required}): the identifier of the factuality element. It takes the prefix ``f''.
+\item one {\tt <span>} element (\textbf{required}): which points to the terms the factuality has scope over. Typically, the terms will correspond to the terms making up a predicate which may be accompanied by one or more of its roles. 
+\item one ore more {\tt <factVal>} that provide information about the factuality of the expression in the span.
 \end{itemize}
 
-\begin{Verbatim}
-<factualitylayer>
-  <factvalue id="w179" prediction="CT+" confidence="0.89"/>
-  <factvalue id="w108" prediction="CT+" confidence="0.93"/>
-</factualitylayer>
-\end{Verbatim}
+The {\tt <factVal} element has the following attributes:
+
+\begin{itemize}
+\item value (\textbf{obligatory}): indicates the output of the factuality module
+\item resource (\textbf{obligatory}): points to the ontology or theory that introduced the value
+\item confidence (optional): indicates the confidence of the module (if provided)
+\item source (optional): indicates the module that generated the result (if more than one module was used, else this information can be obtained unambiguously from the NAF header).
+\end{itemize}
+
+
+\begin{verbatim}
+<factuality>
+    <expression id="f1">
+        <span>
+            <target id= 't3' />
+            <target id= 't4' />
+            <target id= 't5' />
+            <target id= 't6' />
+            <target id= 't7' />
+        </span>
+    <factVal value="CT+" resource="FactBank" confidence=0.83 />
+    <factVal value="CERTAIN" resource="nwr:AttributionCertainty" confidence=0.79/>
+    <factVal value="PROBABLE" resource="nwr:AttributionCertainty" confidence=0.11/>
+    <factVal value="NONFUTURE" resource="nwr:AttributionTime" confidence=0.91/>
+    <factVal value="POS" resource="nwr:AttributionPolarity" confidence=0.67/>
+    </expression>
+</factuality>
+\end{verbatim}
+
 
 %%% Local Variables: 
 %%% mode: latex
