@@ -294,8 +294,6 @@
 <!-- MARKABLES ELEMENT -->
 
 <!ELEMENT markables (mark)+>
-<!ATTLIST markables
-          source CDATA #REQUIRED>
 
 <!ELEMENT mark (sentiment?|span|externalReferences)+>
 <!ATTLIST mark
@@ -304,7 +302,8 @@
           lemma CDATA #IMPLIED
           pos CDATA #IMPLIED
           morphofeat CDATA #IMPLIED
-          case CDATA #IMPLIED>
+          case CDATA #IMPLIED
+          source CDATA #IMPLIED>
 
 
 <!-- DEPS ELEMENT -->

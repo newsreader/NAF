@@ -3,24 +3,19 @@
 
 NAF includes a ``markable'' layer, whose purpose is to group tokens and
 attach information to them. The layer is repsesented under a
-\texttt{<markables>} element. This element has the following attribute:
-\begin{itemize}
-\item \texttt{source}: the source (or purpose) of the layer.
-\end{itemize}
-
-There can be many \texttt{<markable>} layers within NAF, and ideally each
-one will have a different \texttt{source} attribute.
+\texttt{<markables>} element. 
 
 The \texttt{<markable>} layer comprises one or more \texttt{<mark>}
-elements, one per token group. The \texttt{<mark>} element has one mandatory
-attribute:
+elements, one per token group. The \texttt{<mark>} element has the following
+attributes:
 \begin{itemize}
 \item \texttt{id} (\textbf{required}): unique identifier starting with the
   prefix ``m''.
+\item \texttt{source} (optional): the source (or purpose) of the layer.
 \end{itemize}
 
 Apart from this, \texttt{<mark>} element has the same attributes and
-sub-elements as the \texttt{<tern>} element described in section
+sub-elements as the \texttt{<term>} element described in section
 \ref{sec:terms}\footnote{Except that \texttt{<mark>} elements do not contain
   component sub-elements.}.
 
@@ -28,9 +23,10 @@ Below is an example of a markable layer produced by a tool which links token
 groups to DBpedia entities:
 
 \begin{Verbatim}[fontsize=\small]
-<markables source="DBpedia">
+<markables>
   <!--Football Championship Subdivision-->
-  <mark id="m42" lemma="Football Championship Subdivision">
+  <mark id="m42" lemma="Football Championship Subdivision"
+        source="DBpedia">
     <span>
       <target id="w128"/>
       <target id="w129"/>

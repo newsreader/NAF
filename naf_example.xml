@@ -305,9 +305,9 @@
     </term>
   </terms>
 
-  <markables source="DBpedia">
+  <markables>
     <!--Football Championship Subdivision-->
-    <mark id="m42" lemma="Football Championship Subdivision">
+    <mark id="m42" lemma="Football Championship Subdivision" source="DBpedia">
       <span>
 	<target id="w20"/>
 	<target id="w21"/>
