@@ -1,7 +1,7 @@
 \section{Factuality}
 \label{sec:factuality}
 
-Information about the veracity or factuality of events can be represented in the factuality layer.\footnote{This layer replaces the former {\tt<factualitylayer>} which did not provide the flexibility required for representing scope or for including information from different approaches. Check out the git version with tag v3 for information about the old representation.} The information stored in this layer is relevant for finding out whether something happened or not according to a source. It includes information on whether something is certain, probable or possible, it is true or false and whether it is a statement about the future (implying speculation).
+Information about the veracity or factuality of events can be represented in the factuality layer. The information stored in this layer is relevant for finding out whether something happened or not according to a source. It includes information on whether something is certain, probable or possible, it is true or false and whether it is a statement about the future (implying speculation).
 
 The  information is represented pointing to ontologies and specific values, which provides flexibility to add different kinds of information related to factuality and to include information from various modules trained on differently annotated datasets. In the example below, we use the values of factbank and the NewsReader annotations.
 
@@ -13,7 +13,7 @@ The top element of the layer is {\tt <factuality>}. It contains {\tt expression}
 \item one ore more {\tt <factVal>} that provide information about the factuality of the expression in the span.
 \end{itemize}
 
-The {\tt <factVal} element has the following attributes:
+The {\tt <factVal>} element has the following attributes:
 
 \begin{itemize}
 \item value (\textbf{obligatory}): indicates the output of the factuality module
