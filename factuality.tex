@@ -16,32 +16,35 @@ The top element of the layer is {\tt <factuality>}. It contains {\tt expression}
 The {\tt <factVal>} element has the following attributes:
 
 \begin{itemize}
-\item value (\textbf{obligatory}): indicates the output of the factuality module
-\item resource (\textbf{obligatory}): points to the ontology or theory that introduced the value
-\item confidence (optional): indicates the confidence of the module (if provided)
-\item source (optional): indicates the module that generated the result (if more than one module was used, else this information can be obtained unambiguously from the NAF header).
+\item \texttt{value} (\textbf{obligatory}): indicates the output of the factuality module
+\item \texttt{resource} (\textbf{obligatory}): points to the ontology or theory that introduced the value
+\item \texttt{confidence} (optional): indicates the confidence of the module (if provided)
+\item \texttt{source} (optional): indicates the module that generated the result (if more than one module was used, else this information can be obtained unambiguously from the NAF header).
 \end{itemize}
 
-
-\begin{verbatim}
+\begin{Verbatim}[fontsize=\small]
 <factuality>
-    <expression id="f1">
-        <span>
-            <target id= 't3' />
-            <target id= 't4' />
-            <target id= 't5' />
-            <target id= 't6' />
-            <target id= 't7' />
-        </span>
-    <factVal value="CT+" resource="FactBank" confidence=0.83 />
-    <factVal value="CERTAIN" resource="nwr:AttributionCertainty" confidence=0.79/>
-    <factVal value="PROBABLE" resource="nwr:AttributionCertainty" confidence=0.11/>
-    <factVal value="NONFUTURE" resource="nwr:AttributionTime" confidence=0.91/>
-    <factVal value="POS" resource="nwr:AttributionPolarity" confidence=0.67/>
-    </expression>
+  <expression id="f1">
+    <span>
+        <target id="t3"/>
+        <target id="t4"/>
+        <target id="t5"/>
+        <target id="t6"/>
+        <target id="t7"/>
+    </span>
+    <factVal value="CT+" resource="FactBank" 
+             confidence="0.83"/>
+    <factVal value="CERTAIN" resource="nwr:AttributionCertainty" 
+             confidence="0.79"/>
+    <factVal value="PROBABLE" resource="nwr:AttributionCertainty"
+             confidence="0.11"/>
+    <factVal value="NONFUTURE" resource="nwr:AttributionTime"
+             confidence="0.91"/>
+    <factVal value="POS" resource="nwr:AttributionPolarity"
+             confidence="0.67"/>
+  </expression>
 </factuality>
-\end{verbatim}
-
+\end{Verbatim}
 
 %%% Local Variables: 
 %%% mode: latex

@@ -1,5 +1,5 @@
 <!-- DTD NAF -->
-<!ELEMENT NAF (nafHeader|raw|topics|text|terms|deps|chunks|entities|coreferences|constituency|srl|opinions|timeExpressions|factualitylayer|tunits|locations|dates|temporalRelations|causalRelations|markables)*>
+<!ELEMENT NAF (nafHeader|raw|topics|text|terms|deps|chunks|entities|coreferences|constituency|srl|opinions|timeExpressions|factualitylayer|tunits|locations|dates|temporalRelations|causalRelations|markables|factuality)*>
 
 <!-- NAF ELEMENT -->
 <!ATTLIST NAF
@@ -509,6 +509,19 @@ The <opinion> layer consists of the following subelement:
 	  relType CDATA #IMPLIED>
 
 <!-- factuality layer -->
+
+<!ELEMENT factuality (expression)+>
+<!ATTLIST expression 
+		  id ID #REQUIRED>
+<!ELEMENT expression (span,factVal+)>
+<!ELEMENT factVal EMPTY>
+<!ATTLIST factVal
+		  value CDATA #REQUIRED
+		  resource CDATA #REQUIRED
+		  confidence CDATA #IMPLIED
+		  source CDATA #IMPLIED>
+
+<!-- factuality layer (old) -->
 
 <!ELEMENT factualitylayer (factvalue)+>
 <!ELEMENT factvalue EMPTY>

@@ -745,10 +745,25 @@
       </span>
     </timex3>
   </timeExpressions>
-  <factualitylayer>
-    <factvalue id="w19" prediction="CT+" confidence="0.9211625450434778"/>
-    <factvalue id="w5" prediction="CT+" confidence="0.9404844085799826"/>
-    <factvalue id="w26" prediction="CT+" confidence="0.8379289630516332"/>
-    <factvalue id="w23" prediction="CT+" confidence="0.9717756091958029"/>
-  </factualitylayer>
+  <factuality>
+	<expression id="f1">
+      <span>
+        <target id="t3"/>
+        <target id="t4"/>
+        <target id="t5"/>
+        <target id="t6"/>
+        <target id="t7"/>
+      </span>
+      <factVal value="CT+" resource="FactBank" 
+               confidence="0.83"/>
+      <factVal value="CERTAIN" resource="nwr:AttributionCertainty" 
+               confidence="0.79"/>
+      <factVal value="PROBABLE" resource="nwr:AttributionCertainty"
+               confidence="0.11"/>
+      <factVal value="NONFUTURE" resource="nwr:AttributionTime"
+               confidence="0.91"/>
+      <factVal value="POS" resource="nwr:AttributionPolarity"
+               confidence="0.67"/>
+	</expression>
+  </factuality>
 </NAF>
