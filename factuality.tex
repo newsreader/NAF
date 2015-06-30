@@ -5,7 +5,7 @@ Information about the veracity or factuality of events can be represented in the
 
 The  information is represented pointing to ontologies and specific values, which provides flexibility to add different kinds of information related to factuality and to include information from various modules trained on differently annotated datasets. In the example below, we use the values of factbank and the NewsReader annotations.
 
-The top element of the layer is {\tt <factuality>}. It contains {\tt expression} elements for which we have information concerning their factuality. The expression element has the following attribute and subelements:
+The top element of the layer is {\tt <factualities>}. It contains {\tt <factuality>} elements for which we have information concerning their factuality. The \texttt{<factuality>} element has the following attribute and subelements:
 
 \begin{itemize}
 \item id (\textbf{required}): the identifier of the factuality element. It takes the prefix ``f''.
@@ -23,8 +23,8 @@ The {\tt <factVal>} element has the following attributes:
 \end{itemize}
 
 \begin{Verbatim}[fontsize=\small]
-<factuality>
-  <expression id="f1">
+<factualities>
+  <factuality id="f1">
     <span>
         <target id="t3"/>
         <target id="t4"/>
@@ -42,8 +42,8 @@ The {\tt <factVal>} element has the following attributes:
              confidence="0.91"/>
     <factVal value="POS" resource="nwr:AttributionPolarity"
              confidence="0.67"/>
-  </expression>
-</factuality>
+  </factuality>
+</factualities>
 \end{Verbatim}
 
 %%% Local Variables: 

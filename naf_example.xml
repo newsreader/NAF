@@ -745,8 +745,8 @@
       </span>
     </timex3>
   </timeExpressions>
-  <factuality>
-	<expression id="f1">
+  <factualities>
+	<factuality id="f1">
       <span>
         <target id="t3"/>
         <target id="t4"/>
@@ -764,6 +764,6 @@
                confidence="0.91"/>
       <factVal value="POS" resource="nwr:AttributionPolarity"
                confidence="0.67"/>
-	</expression>
-  </factuality>
+	</factuality>
+  </factualities>
 </NAF>
