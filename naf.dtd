@@ -132,8 +132,8 @@
           sent CDATA #IMPLIED
           para CDATA #IMPLIED
           page CDATA #IMPLIED
-          offset CDATA #IMPLIED
-          length CDATA #IMPLIED
+          offset CDATA #REQUIRED
+          length CDATA #REQUIRED
           xpath CDATA #IMPLIED>
 
 <!-- TERMS ELEMENT -->
