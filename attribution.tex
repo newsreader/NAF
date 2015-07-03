@@ -1,0 +1,44 @@
+\section{Attribution Layer}\label{sec:attribution}
+
+The attribution layer is meant to represent information about the source of a statement, when this is explicitly mentioned in the text. It consists of {\tt <statement>} elements that contain, at least, the  {\tt <statement\_target>} and, typically, the {\tt <statement_source>}. If present, the  {\tt <statement\_cue>} can also be represented. All elements contain a span that points to relevant terms in the term layer.
+
+A  {\tt <statement>} has the following subelements:
+
+\begin{itemize}
+\item statement\_target (\textbf{required}): provides the span of terms that constitute the statement itself, i.e.\ where the attribution applies to (in the example below \textit{Hilton Hotel Paris was a nightmare}).
+\item statement\_source: provides the span that expresses the source of the statement (\textit{They} in the example)
+\item statement\_cue: provides the span that explicitly links the statement to the source (\textit{said} in the example, but also expressions such as \textit{according to})
+\end{itemize}  
+
+
+\begin{verbatim}
+<attribution>
+    <!-- They said Hilton Hotel Paris was a nightmare. -->
+    <statement id="a1">
+        <statement_target>
+            <span>
+                <target id="t3">
+                <target id="t4">
+                <target id="t5">
+                <target id="t6">
+                <target id="t7">
+            </span>
+        </statement_target>
+        <statement_source>
+            <span>
+                <target id="t1">
+            </span>
+        </statement_source>
+        <statement_cue>
+            <span>
+                <target id="t2">
+            </span>
+        </statement_cue>
+    </statement>
+</attribution>
+\end{verbatim}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "naf"
+%%% End: 
