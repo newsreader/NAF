@@ -1,5 +1,5 @@
 <!-- DTD NAF -->
-<!ELEMENT NAF (nafHeader|raw|topics|text|terms|deps|chunks|entities|coreferences|constituency|srl|opinions|timeExpressions|factualitylayer|tunits|locations|dates|temporalRelations|causalRelations|markables|factualities)*>
+<!ELEMENT NAF (nafHeader|raw|topics|text|terms|deps|chunks|entities|coreferences|constituency|srl|opinions|timeExpressions|factualitylayer|tunits|locations|dates|temporalRelations|causalRelations|markables|attribution|factualities)*>
 
 <!-- NAF ELEMENT -->
 <!ATTLIST NAF
@@ -506,6 +506,15 @@
           from IDREF #REQUIRED
           to IDREF #REQUIRED
           relType CDATA #IMPLIED>
+
+<!-- attribution layer -->
+<!ELEMENT attribution (statement)+>
+<!ELEMENT statement (statement_target| statement_source | statement_cue)+>
+<!ATTLIST statement
+          id ID #REQUIRED>
+<!ELEMENT statement_target (span)>
+<!ELEMENT statement_source (span)>
+<!ELEMENT statement_cue (span)>
 
 <!-- factuality layer -->
 
