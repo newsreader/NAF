@@ -487,7 +487,7 @@
 
 <!-- time relations -->
 
-<!ELEMENT temporalRelations (tlink)*>
+<!ELEMENT temporalRelations (tlink|predicateAnchor)*>
 <!ELEMENT tlink EMPTY>
 <!ATTLIST tlink
           id ID #REQUIRED
@@ -496,6 +496,13 @@
           fromType CDATA #REQUIRED
           toType CDATA #REQUIRED
           relType CDATA #REQUIRED>
+
+<!ELEMENT predicateAnchor (span)+>
+<!ATTLIST predicateAnchor
+          id ID #IMPLIED
+          anchorTime CDATA #IMPLIED
+          beginPoint IDREF #IMPLIED
+          endPoint IDREF #IMPLIED>
 
 <!-- causal relations -->
 
