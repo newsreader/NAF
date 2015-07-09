@@ -500,7 +500,7 @@
 <!ELEMENT predicateAnchor (span)+>
 <!ATTLIST predicateAnchor
           id ID #IMPLIED
-          anchorTime CDATA #IMPLIED
+          anchorTime IDREF #IMPLIED
           beginPoint IDREF #IMPLIED
           endPoint IDREF #IMPLIED>
 
