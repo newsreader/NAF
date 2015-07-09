@@ -30,6 +30,8 @@ The \texttt{<entity>} element has the following attributes:
   \item \texttt{Date}
   \item \texttt{Misc}
 \end{itemize}
+\item \texttt{source} (optional): the name of the process which created the
+  entity.
 \end{itemize}
 
 The \texttt{<entity>} element has the following sub-elements:
@@ -69,7 +71,7 @@ Example of an entity mention:
     </references>
   </entity>
   <!-- New York -->
-  <entity id="e2" type="location">
+  <entity id="e2" type="location" source="spotlight-v07">
     <references>
       <span>
         <target id="t8"/>

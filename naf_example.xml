@@ -384,7 +384,7 @@
   </deps>
 
   <entities>
-    <entity id="e1" type="misc">
+    <entity id="e1" type="misc" source="spotlight.v07">
       <references>
         <span>
           <!--British-->

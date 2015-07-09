@@ -361,7 +361,8 @@
 <!ELEMENT entity (references|externalReferences)+>
 <!ATTLIST entity
           id ID #REQUIRED
-          type CDATA #REQUIRED>
+          type CDATA #REQUIRED
+		  source CDATA #IMPLIED>
 
 <!-- COREFERENCES ELEMENT -->
 
