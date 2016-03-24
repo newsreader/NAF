@@ -1,0 +1,30 @@
+
+\section{Metadata layer}
+\label{sec:metadata-layer}
+
+This layer can encode any metadata that came with the document and may be useful during processing. This layer consists of elements with generic attributes and should only be used to annotate information that is not assigned by a NLP tool. This layer may contain information similar to other layers, for instance, if the metadata indicates the topics of the document. The correct place of indicating this information depends on the source: if created as part of the analysis of a document, the information should be included in the \texttt{<topics>} layer. If provided by the metadata and already present as the analysis started, it should be included in the \texttt{<metadata_info>} layer. 
+
+The \texttt{<metadata>} element has the following attributes:
+\begin{itemize}
+\item \texttt{feature} (required): a description of the kind of information given (preferably a URI pointing to an ontology), e.g.\ "topic", "birthdate", "revision"
+\item \texttt{value} (required): the value of the information (e.g.\ the actual topic, birth date or revision identifier)
+\item \texttt{confidence} (optional): not likely to be used frequently in this layer, but if the metadata comes with a confidence score for a specific value, this can be indicated here.
+\item \texttt{source} (optional): if the metadata indicates a specific source of the information, this can be indicated here. The default interpretation is that this information is read directly off the input document.
+\end{itemize}
+
+Here is an example of metadata annotation. This example is taken from BiographyNet,\footnote{\url{www.biographynet.nl}} where metadata provides information concerning, among others, the dictionary that published the entry, the name of the person, birth and death date and location. The idea behind \texttt{feature} and \texttt{value} is that they can capture any kind of information.
+
+\begin{Verbatim}
+<metadata_info>
+  <metadata feature="dictionary" value="dvn"/>
+  <metadata feature="persName" value="Aletta Jacobs" />
+  <metadata feature="birth_when" value="1854-02-09" />
+  <metadata feature="death_when" value="1929-08-10" />
+</metadata_info>
+\end{Verbatim}
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "naf"
+%%% End: 
