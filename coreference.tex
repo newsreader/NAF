@@ -7,9 +7,13 @@ mentions) which share the same referent. For instance, ``London'' and ``the
 capital city of England'' are two mentions referring to the same entity. It
 is said that those mentions corefer.  A \texttt{<coref>} element represents
 a mention cluster, and within \texttt{<coref>} each mention is represented
-by a \texttt{<span>} element (which groups term mentions using
-\texttt{<target>} elements). Additionally, one \texttt{<target>} element
-within the \texttt{<span>} may have an attribute \texttt{head} with value
+by a \texttt{<span>} element. One
+\texttt{<span>} within a \texttt{<coref>} may have an attribute
+\texttt{head} with value ``yes'', indicating that this span is the most
+representative mention of the coreference cluster\footnote{Typical
+  candidates for representative mentions are the first Named Entity mention,
+  first nominal mention, etc. }. Within each \texttt{<span>} element, one
+\texttt{<target>} sub-element may have an attribute \texttt{head} with value
 ``yes'' to represent the fact that this particular term is the head of the
 mention. For instance, the head of the mention ``the capital city of
 England'' is ``city''.\\
@@ -22,18 +26,13 @@ The \texttt{<coref>} element has the following attribute:
   etc.
 \end{itemize}
 
-The \texttt{<coref>} element contains as many \texttt{<span>} elements as
-elements in the coreference cluster. Each \texttt{<span>} contains one or
-more \texttt{<target>} elements, with the following attributes:
-\begin{itemize}
-\item \texttt{id} (\textbf{required}): id that refers to the target term.
-\item \texttt{head} (optional): a "yes" value indicates that the term is the
-  head of the coreference cluster.
-\end{itemize}
+As said before, \texttt{<coref>} element contains as many \texttt{<span>}
+elements as elements in the coreference cluster (see section
+\ref{sec:span} for details).
 
 The \texttt{<coref>} element may also contain one
-\texttt{<externalReferences>} elements (see section
-\ref{sec:external-references}, which links the coreference cluster to some
+\texttt{<externalReferences>} element (see section
+\ref{sec:external-references}), which links the coreference cluster to some
 external entity (such as the lowest common subsumer synset in WordNet).
 
 Example of a coreference cluster:
@@ -42,7 +41,7 @@ Example of a coreference cluster:
 <coreferences>
   <coref id="co1" type="entity">
     <!-- London -->
-    <span >
+    <span head="yes"> <!-- London is the representative mention -->
       <target id="t12" head="yes"/>
     </span>
     <!-- the capital city of England -->

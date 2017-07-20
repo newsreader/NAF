@@ -36,23 +36,17 @@ The \texttt{<entity>} element has the following attributes:
 
 The \texttt{<entity>} element has the following sub-elements:
 \begin{itemize}
-\item \texttt{<references>} (\textbf{required}): this element contains one or
-  more \texttt{<span>} element, each one spaning terms.
+\item \texttt{<references>} (\textbf{required}): this element contains one
+  or more \texttt{<span>} element, spanning terms.
 \item \texttt{externalReferences} (optional): contains one or more
-  \texttt{<externalRef>} element.
+  \texttt{<externalRef>} elements.
 \end{itemize}
 
 A \texttt{<span>} sub-element can be used to reference the different
 occurrences of the same named entity in the document or mentions of it,
 using \texttt{<target>} elements to refer to the terms it spans. If the
-entity is composed by multiple words, multiple target elements are used.
-
-The \texttt{<target>} element has the following attributes:
-\begin{itemize}
-\item \texttt{id} (\textbf{required}): id that refers to the target term.
-\item \texttt{head} (optional): a "yes" value indicates that the term is the
-  head of the mention.
-\end{itemize}
+entity is composed by multiple words, multiple target elements are used. See
+Section \ref{sec:span}.
 
 The optional \texttt{<externalRef>} sub-element is used to associate terms
 to external lexical or semantic resources. See Section

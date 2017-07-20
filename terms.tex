@@ -237,6 +237,44 @@ Example:
 </term>
 \end{Verbatim}
 
+\subsection{Spanning elements}
+\label{sec:span}
+
+The \texttt{<span>} element is used to refer to elements of lower
+layers. For example, \texttt{<span>} is used within \texttt{<term>} elements
+to identify the basic tokens they are composed by (\texttt{<wf>} elements in
+the \texttt{text} layer). Similarly, \texttt{<span>} is used in the named
+entity layer (see Section \ref{sec:named-entities}) to refer to the terms
+that comprise the named entity expression.
+
+In NAF, the \texttt{<span>} element has always the same attributes and
+sub-elements, regardless of the specific layer it is used. 
+
+\noindent The \texttt{<span>} element has the following attribute:
+\begin{itemize}
+\item \texttt{head} (optional). This attribute is only meaningful when
+  multiple \texttt{<span>} elements exist in the same level (for instance,
+  on coreference clusters, see Section \ref{sec:coreference}). If present,
+  it specifies that the element is distinguished or preferred over the
+  remaining siblings. Only one \texttt{<span>} element among the siblings
+  can have a \texttt{head} attribute set (usually with the value ``yes'').
+\end{itemize}
+
+\noindent The \texttt{<span>} element must have one or more
+\texttt{<target>} sub-elements, each one pointing to an element of another
+layer. The order of \texttt{<target>} sub-elements within the same
+\texttt{<span>} is important.
+
+\noindent The \texttt{<target>} element has the following attributes:
+\begin{itemize}
+\item \texttt{id} (\textbf{required)}: used to identify the target
+  element. The \texttt{id} attribute must be an identifier of another
+  element and must exist in the NAF document.
+\item \texttt{head} (optional): in \texttt{<span>} elements that refer to
+  more than one element, identifies the distinguished or preferred target.
+\end{itemize}
+
+
 \subsection{External References}
 \label{sec:external-references}
 

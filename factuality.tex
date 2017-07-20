@@ -9,7 +9,11 @@ The top element of the layer is {\tt <factualities>}. It contains {\tt <factuali
 
 \begin{itemize}
 \item id (\textbf{required}): the identifier of the factuality element. It takes the prefix ``f''.
-\item one {\tt <span>} element (\textbf{required}): which points to the terms the factuality has scope over. Typically, the terms will correspond to the terms making up a predicate which may be accompanied by one or more of its roles. 
+\item one {\tt <span>} element (\textbf{required}), which points to the
+  terms the factuality has scope over (see Section
+  \ref{sec:span}). Typically, the terms will correspond to the
+  terms making up a predicate which may be accompanied by one or more of its
+  roles.
 \item one ore more {\tt <factVal>} that provide information about the factuality of the expression in the span.
 \end{itemize}
 

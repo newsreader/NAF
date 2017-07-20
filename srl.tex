@@ -22,18 +22,13 @@ element. The \texttt{<predicate>} element has the following attributes:
 Inside \texttt{<predicate>}, there are the following sub-elements:
 \begin{itemize}
 \item One \texttt{<externalReferences>} element, which links the predicate
-  with one or more external resources.
+  with one or more external resources (see Section
+  \ref{sec:external-references}).
 \item One \texttt{<span>} element, spaning terms, and which point to the
-  surface form of the predicate in the document.
+  surface form of the predicate in the document (see Section
+  \ref{sec:span}).
 \item One or more \texttt{<role>} elements which fill the arguments of the
   predicate.
-\end{itemize}
-
-As always in NAF, the \texttt{<span>} element contains one or more
-\texttt{<target>} elements with the following attribute:
-
-\begin{itemize}
-\item \texttt{id} (\textbf{required}): id of the target term.
 \end{itemize}
 
 The \texttt{<role>} element represents filler of a particular argument of
@@ -54,13 +49,6 @@ Inside \texttt{<role>}, there are the following sub-elements:
   with one or more external resources.
 \item One \texttt{<span>} element, spaning terms, and which point to the
   surface form of the predicate in the document.
-\end{itemize}
-
-Each \texttt{<span>} contains one or more \texttt{<target>}
-elements, with the following attributes:
-
-\begin{itemize}
-\item \texttt{id} (\textbf{required}): id of the target term.
 \end{itemize}
 
 Given the following sentence:
