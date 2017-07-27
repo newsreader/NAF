@@ -553,7 +553,7 @@
 <!-- SPAN ELEMENT -->
 <!ELEMENT span (target)+>
 <!ATTLIST span
-          head CDATA #IMPLIED>
+          primary CDATA #IMPLIED>
 
 <!-- TARGET ELEMENT -->
 <!ELEMENT target EMPTY>

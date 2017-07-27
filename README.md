@@ -7,7 +7,7 @@ This document describes NAF, the NLP Annotation Format. NAF is a
 stand-off, multilayered annotation schema for representing linguistic
 annotations.
 
-You probably are looking to those files:
+You are probably looking for those files:
 
 * The [NAF spec](https://github.com/newsreader/NAF/blob/master/naf.pdf?raw=true)
 * The [NAF dtd](https://github.com/newsreader/NAF/blob/master/naf.dtd?raw=true)

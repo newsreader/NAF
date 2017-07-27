@@ -252,12 +252,13 @@ sub-elements, regardless of the specific layer it is used.
 
 \noindent The \texttt{<span>} element has the following attribute:
 \begin{itemize}
-\item \texttt{head} (optional). This attribute is only meaningful when
+\item \texttt{primary} (optional). This attribute is only meaningful when
   multiple \texttt{<span>} elements exist in the same level (for instance,
   on coreference clusters, see Section \ref{sec:coreference}). If present,
   it specifies that the element is distinguished or preferred over the
   remaining siblings. Only one \texttt{<span>} element among the siblings
-  can have a \texttt{head} attribute set (usually with the value ``yes'').
+  can have a \texttt{primary} attribute set (usually with the value
+  ``yes'').
 \end{itemize}
 
 \noindent The \texttt{<span>} element must have one or more

@@ -7,16 +7,15 @@ mentions) which share the same referent. For instance, ``London'' and ``the
 capital city of England'' are two mentions referring to the same entity. It
 is said that those mentions corefer.  A \texttt{<coref>} element represents
 a mention cluster, and within \texttt{<coref>} each mention is represented
-by a \texttt{<span>} element. One
-\texttt{<span>} within a \texttt{<coref>} may have an attribute
-\texttt{head} with value ``yes'', indicating that this span is the most
-representative mention of the coreference cluster\footnote{Typical
-  candidates for representative mentions are the first Named Entity mention,
-  first nominal mention, etc. }. Within each \texttt{<span>} element, one
-\texttt{<target>} sub-element may have an attribute \texttt{head} with value
-``yes'' to represent the fact that this particular term is the head of the
-mention. For instance, the head of the mention ``the capital city of
-England'' is ``city''.\\
+by a \texttt{<span>} element. One \texttt{<span>} within a \texttt{<coref>}
+may have an attribute \texttt{primary} with value ``yes'', indicating that
+this span is the most representative mention of the coreference
+cluster\footnote{Typical candidates for representative mentions are the
+  first Named Entity mention, first nominal mention, etc. }. Within each
+\texttt{<span>} element, one \texttt{<target>} sub-element may have an
+attribute \texttt{prinary} with value ``yes'' to represent the fact that
+this particular term is the head of the mention. For instance, the head of
+the mention ``the capital city of England'' is ``city''.
 
 The \texttt{<coref>} element has the following attribute:
 \begin{itemize}
@@ -41,7 +40,7 @@ Example of a coreference cluster:
 <coreferences>
   <coref id="co1" type="entity">
     <!-- London -->
-    <span head="yes"> <!-- London is the representative mention -->
+    <span primary="yes"> <!-- London is the representative mention -->
       <target id="t12" head="yes"/>
     </span>
     <!-- the capital city of England -->
