@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE NAF SYSTEM "naf_v3.1.dtd">
+<NAF xml:lang="en" version="v3.1">
+  <nafHeader>
+    <fileDesc creationtime="2020-06-18T10:10:00UTC"/>
+    <public/>
+    <linguisticProcessors layer="raw">
+      <lp beginTimestamp="2020-06-18T10:10:00UTC" endTimestamp="2020-06-18T10:10:00UTC" name="spaCy-model_nl_core_news_sm" version="spaCy_version-2.1.4__model_version-2.1.0"/>
+    </linguisticProcessors>
+    <linguisticProcessors layer="text">
+      <lp beginTimestamp="2020-06-18T10:10:00UTC" endTimestamp="2020-06-18T10:10:00UTC" name="spaCy-model_nl_core_news_sm" version="spaCy_version-2.1.4__model_version-2.1.0"/>
+    </linguisticProcessors>
+    <linguisticProcessors layer="terms">
+      <lp beginTimestamp="2020-06-18T10:10:00UTC" endTimestamp="2020-06-18T10:10:00UTC" name="spaCy-model_nl_core_news_sm" version="spaCy_version-2.1.4__model_version-2.1.0"/>
+    </linguisticProcessors>
+    <linguisticProcessors layer="srl">
+      <lp beginTimestamp="2020-06-18T10:10:00UTC" endTimestamp="2020-06-18T10:10:00UTC" name="spaCy-model_nl_core_news_sm" version="spaCy_version-2.1.4__model_version-2.1.0"/>
+    </linguisticProcessors>
+  </nafHeader>
+    <raw><![CDATA[De presidentsverkiezing deed Amsterdam aan.]]></raw>
+    <text>
+         <wf sent="1" id="w1" length="2" offset="0"><![CDATA[De]]></wf>
+         <wf sent="1" id="w2" length="20" offset="3"><![CDATA[presidentsverkiezing]]>
+            <subtoken id="sub1" length="9" offset="3"><![CDATA[president]]></subtoken>
+            <subtoken id="sub2" length="1" offset="12"><![CDATA[s]]></subtoken>
+            <subtoken id="sub3" length="10" offset="13"><![CDATA[verkiezing]]></subtoken>
+         </wf>
+         <wf sent="1" id="w3" length="4" offset="24"><![CDATA[deed]]></wf>
+         <wf sent="1" id="w4" length="9" offset="29"><![CDATA[Amsterdam]]></wf>
+         <wf sent="1" id="w5" length="3" offset="33"><![CDATA[aan]]></wf>
+    </text>
+    <terms>
+        <term id="t1" lemma="de" pos="DET">
+            <span>
+                <target id="w1"/>
+            </span>
+        </term>
+        <term id="t2" head="t2.c3" lemma="presidentsverkiezing" pos="NOUN" compound_type="endocentric">
+            <span>
+                <target id="w2"/>
+            </span>
+            <component id="t2.c1" lemma="president" pos="NOUN">
+                <span>
+                    <target id="sub1"/>
+                </span>
+            </component>
+            <component id="t2.c2" lemma="s" pos="X">
+                <span>
+                    <target id="sub2"/>
+                </span>
+            </component>
+            <component id="t2.c3" lemma="verkiezing" pos="NOUN">
+                <span>
+                    <target id="sub3" head="yes"/>
+                </span>
+            </component>
+        </term>
+        <term id="t3" lemma="doen" pos="VERB">
+	        <span>
+	            <target id="w3"/>
+            </span>
+        </term>
+        <term id="t4" lemma="Amsterdam" pos="PROPN">
+	        <span>
+	            <target id="w4"/>
+            </span>
+        </term>
+        <term id="t5" lemma="aan" pos="ADP">
+            <span>
+                <target id="w5"/>
+            </span>
+        </term>
+    </terms>
+    <srl>
+      <predicate id="pr1" status='manual'>
+          <span>
+             <target id="t2.c3"/>
+          </span>
+          <externalReferences>
+              <externalRef reference="http://premon.fbk.eu/resource/fn17-change_of_leadership" resource="http://premon.fbk.eu/premon/fn17" source="spaCy_version-2.1.4__model_version-2.1.0" reftype="type" timestamp="2019-12-18T13:01:57"/>
+          </externalReferences>
+         <role id="r1" status="manual">
+            <span>
+                 <target id="t2.c1"/>
+             </span>
+             <externalReferences>
+                 <externalRef reference="http://premon.fbk.eu/resource/fn17-change_of_leadership@function" resource="http://premon.fbk.eu/premon/fn17" source="spaCy_version-2.1.4__model_version-2.1.0" timestamp="2019-12-18T13:02:57"/>
+             </externalReferences>
+         </role>
+     </predicate>
+    </srl>
+</NAF>

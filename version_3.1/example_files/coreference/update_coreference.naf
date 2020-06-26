@@ -1,0 +1,146 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE NAF SYSTEM "naf_v3.1.dtd">
+<NAF xml:lang="en" version="v3.1">
+  <nafHeader>
+    <fileDesc creationtime="2020-03-23T10:18:08UTC"/>
+    <public/>
+    <linguisticProcessors layer="text">
+      <lp beginTimestamp="2020-03-23T10:18:08UTC" endTimestamp="2020-03-23T10:18:08UTC" name="spaCy-model_en_core_web_sm" version="spaCy_version-2.1.4__model_version-2.1.0"/>
+    </linguisticProcessors>
+    <linguisticProcessors layer="terms">
+      <lp beginTimestamp="2020-03-23T10:18:08UTC" endTimestamp="2020-03-23T10:18:08UTC" name="spaCy-model_en_core_web_sm" version="spaCy_version-2.1.4__model_version-2.1.0"/>
+    </linguisticProcessors>
+    <linguisticProcessors layer="raw">
+      <lp beginTimestamp="2020-03-23T10:18:08UTC" endTimestamp="2020-03-23T10:18:08UTC" name="spaCy-model_en_core_web_sm" version="spaCy_version-2.1.4__model_version-2.1.0"/>
+    </linguisticProcessors>
+    <linguisticProcessors layer="coreferences">
+      <lp beginTimestamp="2020-03-23T10:18:08UTC" endTimestamp="2020-03-23T10:18:08UTC" name="spaCy-model_en_core_web_sm" version="spaCy_version-2.1.4__model_version-2.1.0"/>
+    </linguisticProcessors>
+  </nafHeader>
+  <raw>In 1964, there was a murder in the USA. Kitty Genovese was killed.
+</raw>
+  <text>
+    <wf sent="1" id="w1" length="2" offset="0"><![CDATA[In]]></wf>
+    <wf sent="1" id="w2" length="4" offset="3"><![CDATA[1964]]></wf>
+    <wf sent="1" id="w3" length="1" offset="7"><![CDATA[,]]></wf>
+    <wf sent="1" id="w4" length="5" offset="9"><![CDATA[there]]></wf>
+    <wf sent="1" id="w5" length="3" offset="15"><![CDATA[was]]></wf>
+    <wf sent="1" id="w6" length="1" offset="19"><![CDATA[a]]></wf>
+    <wf sent="1" id="w7" length="6" offset="21"><![CDATA[murder]]></wf>
+    <wf sent="1" id="w8" length="2" offset="28"><![CDATA[in]]></wf>
+    <wf sent="1" id="w9" length="3" offset="31"><![CDATA[the]]></wf>
+    <wf sent="1" id="w10" length="3" offset="35"><![CDATA[USA]]></wf>
+    <wf sent="1" id="w11" length="1" offset="38"><![CDATA[.]]></wf>
+    <wf sent="2" id="w12" length="5" offset="40"><![CDATA[Kitty]]></wf>
+    <wf sent="2" id="w13" length="8" offset="46"><![CDATA[Genovese]]></wf>
+    <wf sent="2" id="w14" length="3" offset="55"><![CDATA[was]]></wf>
+    <wf sent="2" id="w15" length="6" offset="59"><![CDATA[killed]]></wf>
+    <wf sent="2" id="w16" length="1" offset="65"><![CDATA[.]]></wf>
+    <wf sent="2" id="w17" length="1" offset="66"><![CDATA[
+]]></wf>
+  </text>
+  <terms>
+    <term id="t1" lemma="in" pos="ADP">
+      <span>
+        <target id="w1"/>
+      </span>
+    </term>
+    <term id="t2" lemma="1964" pos="NUM">
+      <span>
+        <target id="w2"/>
+      </span>
+    </term>
+    <term id="t3" lemma="," pos="PUNCT">
+      <span>
+        <target id="w3"/>
+      </span>
+    </term>
+    <term id="t4" lemma="there" pos="ADV">
+      <span>
+        <target id="w4"/>
+      </span>
+    </term>
+    <term id="t5" lemma="be" pos="VERB">
+      <span>
+        <target id="w5"/>
+      </span>
+    </term>
+    <term id="t6" lemma="a" pos="DET">
+      <span>
+        <target id="w6"/>
+      </span>
+    </term>
+    <term id="t7" lemma="murder" pos="NOUN">
+      <span>
+        <target id="w7"/>
+      </span>
+    </term>
+    <term id="t8" lemma="in" pos="ADP">
+      <span>
+        <target id="w8"/>
+      </span>
+    </term>
+    <term id="t9" lemma="the" pos="DET">
+      <span>
+        <target id="w9"/>
+      </span>
+    </term>
+    <term id="t10" lemma="USA" pos="PROPN">
+      <span>
+        <target id="w10"/>
+      </span>
+    </term>
+    <term id="t11" lemma="." pos="PUNCT">
+      <span>
+        <target id="w11"/>
+      </span>
+    </term>
+    <term id="t12" lemma="Kitty" pos="PROPN">
+      <span>
+        <target id="w12"/>
+      </span>
+    </term>
+    <term id="t13" lemma="Genovese" pos="PROPN">
+      <span>
+        <target id="w13"/>
+      </span>
+    </term>
+    <term id="t14" lemma="be" pos="VERB">
+      <span>
+        <target id="w14"/>
+      </span>
+    </term>
+    <term id="t15" lemma="kill" pos="VERB">
+      <span>
+        <target id="w15"/>
+      </span>
+    </term>
+    <term id="t16" lemma="." pos="PUNCT">
+      <span>
+        <target id="w16"/>
+      </span>
+    </term>
+    <term id="t17" lemma="&#10;" pos="SPACE">
+      <span>
+        <target id="w17"/>
+      </span>
+    </term>
+  </terms>
+  <coreferences>
+    <coref id="co1" status="manual" type="event">
+        <span status="manual">
+            <target id="t7"/>
+        </span>
+        <span status="manual">
+            <target id="t15"/>
+        </span>
+     <externalReferences>
+          <externalRef reference="http://www.wikidata.org/entity/Q18341392"
+                       resource="http://www.wikidata.org"
+                       source="kKJAHkpoI82KwbP55zzzJisHodZ5wSXm"
+                       reftype="http://semanticweb.cs.vu.nl/2009/11/sem/Event"
+                       timestamp="2019-12-18T13:01:57"/>
+     </externalReferences>
+     </coref>
+  </coreferences>
+</NAF>

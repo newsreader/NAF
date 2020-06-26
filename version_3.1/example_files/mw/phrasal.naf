@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE NAF SYSTEM "naf_v3.1.dtd">
+<NAF xml:lang="en" version="v3.1">
+  <nafHeader>
+    <fileDesc creationtime="2020-06-18T10:10:00UTC"/>
+    <public/>
+    <linguisticProcessors layer="raw">
+      <lp beginTimestamp="2020-06-18T10:10:00UTC" endTimestamp="2020-06-18T10:10:00UTC" name="spaCy-model_nl_core_news_sm" version="spaCy_version-2.1.4__model_version-2.1.0"/>
+    </linguisticProcessors>
+    <linguisticProcessors layer="text">
+      <lp beginTimestamp="2020-06-18T10:10:00UTC" endTimestamp="2020-06-18T10:10:00UTC" name="spaCy-model_nl_core_news_sm" version="spaCy_version-2.1.4__model_version-2.1.0"/>
+    </linguisticProcessors>
+    <linguisticProcessors layer="terms">
+      <lp beginTimestamp="2020-06-18T10:10:00UTC" endTimestamp="2020-06-18T10:10:00UTC" name="spaCy-model_nl_core_news_sm" version="spaCy_version-2.1.4__model_version-2.1.0"/>
+    </linguisticProcessors>
+    <linguisticProcessors layer="multiwords">
+      <lp beginTimestamp="2020-06-18T10:10:00UTC" endTimestamp="2020-06-18T10:10:00UTC" name="spaCy-model_nl_core_news_sm" version="spaCy_version-2.1.4__model_version-2.1.0"/>
+    </linguisticProcessors>
+  </nafHeader>
+    <raw><![CDATA[De presidentsverkiezing deed Amsterdam aan.]]></raw>
+    <text>
+         <wf sent="1" id="w1" length="2" offset="0"><![CDATA[De]]></wf>
+         <wf sent="1" id="w2" length="20" offset="3"><![CDATA[presidentsverkiezing]]></wf>
+         <wf sent="1" id="w3" length="4" offset="24"><![CDATA[deed]]></wf>
+         <wf sent="1" id="w4" length="9" offset="29"><![CDATA[Amsterdam]]></wf>
+         <wf sent="1" id="w5" length="3" offset="33"><![CDATA[aan]]></wf>
+    </text>
+    <terms>
+        <term id="t1" lemma="de" pos="DET">
+            <span>
+                <target id="w1"/>
+            </span>
+        </term>
+        <term id="t2" lemma="presidentsverkiezing" pos="PROPN">
+            <span>
+                <target id="w2"/>
+            </span>
+        </term>
+        <term id="t3" lemma="doen" pos="VERB" component_of="mw1">
+	        <span>
+	            <target id="w3"/>
+            </span>
+        </term>
+        <term id="t4" lemma="Amsterdam" pos="PROPN">
+	        <span>
+	            <target id="w4"/>
+            </span>
+        </term>
+        <term id="t5" lemma="aan" pos="ADP" component_of="mw1">
+            <span>
+                <target id="w5"/>
+            </span>
+        </term>
+    </terms>
+    <multiwords>
+        <mw id="mw1" lemma="aandoen" pos="VERB" type="phrasal">
+            <component id="mw1.c1">
+                <span>
+                    <target id="t3"/>
+                </span>
+            </component>
+            <component id="mw1.c2">
+                <span>
+                    <target id="t5"/>
+                </span>
+            </component>
+        </mw>
+    </multiwords>
+</NAF>

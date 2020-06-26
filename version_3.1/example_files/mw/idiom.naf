@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='utf-8'?>
+<NAF xml:lang="en" version="v3.1">
+  <nafHeader>
+    <fileDesc creationtime="2020-06-24T14:23:17UTC"/>
+    <public/>
+    <linguisticProcessors layer="terms">
+      <lp beginTimestamp="2020-06-24T14:23:17UTC" endTimestamp="2020-06-24T14:23:17UTC" name="spaCy-model_en_core_web_sm" version="spaCy_version-2.1.4__model_version-2.1.0"/>
+    </linguisticProcessors>
+    <linguisticProcessors layer="text">
+      <lp beginTimestamp="2020-06-24T14:23:17UTC" endTimestamp="2020-06-24T14:23:17UTC" name="spaCy-model_en_core_web_sm" version="spaCy_version-2.1.4__model_version-2.1.0"/>
+    </linguisticProcessors>
+    <linguisticProcessors layer="raw">
+      <lp beginTimestamp="2020-06-24T14:23:17UTC" endTimestamp="2020-06-24T14:23:17UTC" name="spaCy-model_en_core_web_sm" version="spaCy_version-2.1.4__model_version-2.1.0"/>
+    </linguisticProcessors>
+    <linguisticProcessors layer="multiwords">
+      <lp beginTimestamp="2020-06-18T10:10:00UTC" endTimestamp="2020-06-18T10:10:00UTC" name="spaCy-model_nl_core_news_sm" version="spaCy_version-2.1.4__model_version-2.1.0"/>
+    </linguisticProcessors>
+  </nafHeader>
+  <raw><![CDATA[It was a blessing in disguise.]]></raw>
+  <text>
+    <wf sent="1" id="w1" length="2" offset="0"><![CDATA[It]]></wf>
+    <wf sent="1" id="w2" length="3" offset="3"><![CDATA[was]]></wf>
+    <wf sent="1" id="w3" length="1" offset="7"><![CDATA[a]]></wf>
+    <wf sent="1" id="w4" length="8" offset="9"><![CDATA[blessing]]></wf>
+    <wf sent="1" id="w5" length="2" offset="18"><![CDATA[in]]></wf>
+    <wf sent="1" id="w6" length="8" offset="21"><![CDATA[disguise]]></wf>
+    <wf sent="1" id="w7" length="1" offset="29"><![CDATA[.]]></wf>
+  </text>
+  <terms>
+    <term id="t1" lemma="-PRON-" pos="PRON">
+      <span>
+        <target id="w1"/>
+      </span>
+    </term>
+    <term id="t2" lemma="be" pos="VERB">
+      <span>
+        <target id="w2"/>
+      </span>
+    </term>
+    <term id="t3" lemma="a" pos="DET" component_of="mw1">
+      <span>
+        <target id="w3"/>
+      </span>
+    </term>
+    <term id="t4" lemma="blessing" pos="NOUN" component_of="mw1">
+      <span>
+        <target id="w4"/>
+      </span>
+    </term>
+    <term id="t5" lemma="in" pos="ADP" component_of="mw1">
+      <span>
+        <target id="w5"/>
+      </span>
+    </term>
+    <term id="t6" lemma="disguise" pos="NOUN" component_of="mw1">
+      <span>
+        <target id="w6"/>
+      </span>
+    </term>
+    <term id="t7" lemma="." pos="PUNCT">
+      <span>
+        <target id="w7"/>
+      </span>
+    </term>
+  </terms>
+  <multiwords>
+        <mw id="mw1" lemma="a blessing in disguise" type="idiom">
+            <component id="mw1.c1">
+                <span>
+                    <target id="t3"/>
+                </span>
+            </component>
+            <component id="mw1.c2">
+                <span>
+                    <target id="t4"/>
+                </span>
+            </component>
+            <component id="mw1.c3">
+                <span>
+                    <target id="t5"/>
+                </span>
+            </component>
+            <component id="mw1.c4">
+                <span>
+                    <target id="t6"/>
+                </span>
+            </component>
+        </mw>
+    </multiwords>
+</NAF>
