@@ -21,9 +21,9 @@
     <text>
          <wf sent="1" id="w1" length="2" offset="0"><![CDATA[De]]></wf>
          <wf sent="1" id="w2" length="20" offset="3"><![CDATA[presidentsverkiezing]]>
-            <subtoken id="sub1" length="9" offset="3"><![CDATA[president]]></subtoken>
-            <subtoken id="sub2" length="1" offset="12"><![CDATA[s]]></subtoken>
-            <subtoken id="sub3" length="10" offset="13"><![CDATA[verkiezing]]></subtoken>
+            <subtoken id="w2.sub1" length="9" offset="3"><![CDATA[president]]></subtoken>
+            <subtoken id="w2.sub2" length="1" offset="12"><![CDATA[s]]></subtoken>
+            <subtoken id="w2.sub3" length="10" offset="13"><![CDATA[verkiezing]]></subtoken>
          </wf>
          <wf sent="1" id="w3" length="4" offset="24"><![CDATA[deed]]></wf>
          <wf sent="1" id="w4" length="9" offset="29"><![CDATA[Amsterdam]]></wf>
@@ -41,17 +41,17 @@
             </span>
             <component id="t2.c1" lemma="president" pos="NOUN">
                 <span>
-                    <target id="sub1"/>
+                    <target id="w2.sub1"/>
                 </span>
             </component>
             <component id="t2.c2" lemma="s" pos="X">
                 <span>
-                    <target id="sub2"/>
+                    <target id="w2.sub2"/>
                 </span>
             </component>
             <component id="t2.c3" lemma="verkiezing" pos="NOUN">
                 <span>
-                    <target id="sub3" head="yes"/>
+                    <target id="w2.sub3" head="yes"/>
                 </span>
             </component>
         </term>
