@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE Example SYSTEM "naf_3.2.dtd">
+<naf version="3.2" xml:lang="nl">
+    <nafHeader>
+        <fileDesc filename="tunits.naf"/>
+        <linguisticProcessors layer="raw">
+            <lp name="naf-parser" version="0.1" timestamp="2021-01-19T16:38:31+0100"/>
+        </linguisticProcessors>
+        <linguisticProcessors layer="tunits">
+            <lp name="naf-parser" version="0.1" timestamp="2021-01-19T16:38:31+0100"/>
+        </linguisticProcessors>
+    </nafHeader>
+    <raw><![CDATA[The White Rabbit put on his spectacles. “Where shall I begin, please your Majesty?” he asked.
+“Begin at the beginning,” the King said gravely, “and go on till you come to the end: then stop.”]]></raw>
+    <tunits>
+        <tunit id="tu0" offset="0" length="93"/>
+        <tunit id="tu1" offset="94" length="97"/>
+    </tunits>
+</naf>
